@@ -6,16 +6,16 @@ export const translations = {
       work: 'Work',
       contact: 'Contact'
     },
-    // Home page
+    // Home page  
     home: {
-      greeting: "Hello, I'm",
+      greeting: 'Hello, I\'m',
       name: 'Duncan',
-      subtitle: 'Developer & Designer passionate about innovative solutions',
+      subtitle: '20 years old, studying International Media and Computer Science at University of Applied Sciences in Berlin',
       myWork: 'My Work',
       contact: 'Contact',
       aboutMe: 'About Me',
-      aboutText1: "I'm a passionate developer focused on modern web technologies. My expertise lies in creating user-friendly and efficient applications.",
-      aboutText2: 'I love finding creative solutions to complex problems while always using the latest technologies and best practices.',
+      aboutText1: 'I\'m a passionate developer focused on JavaScript and modern web technologies. Currently studying at HTW Berlin, I have gained extensive experience in software engineering through various projects and my internship.',
+      aboutText2: 'While I work extensively with JavaScript, I\'m also drawn to cybersecurity and have explored this field through my internship projects and personal research. My goal is to combine my development skills with security expertise.',
       technologies: 'Technologies'
     },
     // Work page
@@ -25,27 +25,28 @@ export const translations = {
       projects: 'Projects',
       experience: 'Professional Experience',
       project1: {
-        title: 'Project 1',
-        description: 'A modern web application built with cutting-edge technologies'
+        title: 'GPS Spoofing Tool with LimeSDR',
+        description: 'Developing a scientific JavaFX GUI application simulating GPS spoofing via LimeSDR for research purposes'
       },
       project2: {
-        title: 'Project 2', 
-        description: 'Mobile-first responsive design with advanced functionality'
+        title: 'CoderDojo Webapp',
+        description: 'Educational web application "Der kleine Weg des Programmierens" to teach children JavaScript programming in cooperation with CoderDojo Schöneweide'
+      },
+      project3: {
+        title: 'QR-Code Scanner to Track Working Hours',
+        description: 'Enterprise mobile app for employee time tracking with JWT authentication and device-bound security. Supports 400+ employees with company database integration.'
       },
       work1: {
-        title: 'Work 1',
-        company: 'Tech Solutions Inc.',
-        description: 'Leading frontend development projects using modern frameworks and tools'
-      },
-      work2: {
-        title: 'Work 2',
-        company: 'Digital Innovation Labs', 
-        description: 'Full-stack development and system architecture design'
+        title: 'IT Internship',
+        company: 'Nordic Unique Travels',
+        period: '09/2025 - 01/2026',
+        description: 'Full-stack development and IT infrastructure support during a 22-week internship'
       },
       learnMore: 'Learn more →',
       status: {
         live: 'Live',
-        inDevelopment: 'In Development'
+        inDevelopment: 'In Development',
+        finished: 'Finished'
       }
     },
     // Contact page
@@ -92,12 +93,12 @@ export const translations = {
     home: {
       greeting: 'Hallo, ich bin',
       name: 'Duncan',
-      subtitle: 'Entwickler & Designer mit Leidenschaft für innovative Lösungen',
+      subtitle: '20 Jahre alt, studiere Internationale Medieninformatik an der Hochschule für Technik und Wirtschaft in Berlin',
       myWork: 'Meine Arbeit',
       contact: 'Kontakt',
       aboutMe: 'Über mich',
-      aboutText1: 'Ich bin ein leidenschaftlicher Entwickler mit Fokus auf moderne Webtechnologien. Meine Expertise liegt in der Entwicklung von benutzerfreundlichen und effizienten Anwendungen.',
-      aboutText2: 'Ich liebe es, kreative Lösungen für komplexe Probleme zu finden und dabei immer die neuesten Technologien und Best Practices zu verwenden.',
+      aboutText1: 'Ich bin ein leidenschaftlicher Entwickler mit Fokus auf JavaScript und moderne Webtechnologien. Derzeit studiere ich an der HTW Berlin und habe durch verschiedene Projekte und mein Praktikum umfangreiche Erfahrungen in der Softwareentwicklung gesammelt.',
+      aboutText2: 'Während ich viel mit JavaScript arbeite, zieht es mich auch in Richtung Cybersecurity. Durch meine Praktikumsprojekte und persönliche Forschung bin ich bereits in diesen Bereich eingetaucht. Mein Ziel ist es, meine Entwicklungsfähigkeiten mit Sicherheitsexpertise zu kombinieren.',
       technologies: 'Technologien'
     },
     // Work page
@@ -107,27 +108,28 @@ export const translations = {
       projects: 'Projekte',
       experience: 'Berufserfahrung',
       project1: {
-        title: 'Projekt 1',
-        description: 'Eine moderne Webanwendung mit modernsten Technologien'
+        title: 'GPS Spoofing Tool mit LimeSDR',
+        description: 'Entwicklung einer wissenschaftlichen JavaFX GUI-Anwendung zur Simulation von GPS Spoofing über LimeSDR für Forschungszwecke'
       },
       project2: {
-        title: 'Projekt 2',
-        description: 'Mobile-first responsives Design mit erweiterten Funktionen'
+        title: 'CoderDojo Webapp',
+        description: 'Bildungs-Webanwendung "Der kleine Weg des Programmierens" um Kindern JavaScript-Programmierung beizubringen in Kooperation mit CoderDojo Schöneweide'
+      },
+      project3: {
+        title: 'QR-Code Scanner für Arbeitszeiterfassung',
+        description: 'Enterprise Mobile-App für Mitarbeiter-Zeiterfassung mit JWT-Authentifizierung und gerätegebundener Sicherheit. Unterstützt 400+ Mitarbeiter mit Unternehmens-Datenbankintegration.'
       },
       work1: {
-        title: 'Arbeit 1',
-        company: 'Tech Solutions Inc.',
-        description: 'Leitung von Frontend-Entwicklungsprojekten mit modernen Frameworks'
-      },
-      work2: {
-        title: 'Arbeit 2',
-        company: 'Digital Innovation Labs',
-        description: 'Full-Stack-Entwicklung und Systemarchitektur-Design'
+        title: 'IT-Praktikum',
+        company: 'Nordic Unique Travels',
+        period: '09/2025 - 01/2026',
+        description: 'Full-Stack-Entwicklung und IT-Infrastruktur-Support während eines 22-wöchigen Praktikums'
       },
       learnMore: 'Mehr erfahren →',
       status: {
         live: 'Live',
-        inDevelopment: 'In Entwicklung'
+        inDevelopment: 'In Entwicklung',
+        finished: 'Abgeschlossen'
       }
     },
     // Contact page

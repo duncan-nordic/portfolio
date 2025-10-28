@@ -9,17 +9,24 @@ export default function Work() {
 
   const projects = [
     {
-      id: "project-1",
+      id: "gps-spoofing-tool",
       title: t.work.project1.title,
       description: t.work.project1.description,
-      technologies: ["React", "Node.js", "PostgreSQL", "Docker"],
-      status: "Live"
+      technologies: ["JavaFX", "LimeSDR", "Java"],
+      status: "Finished"
     },
     {
-      id: "project-2", 
+      id: "coderdojo-webapp", 
       title: t.work.project2.title,
       description: t.work.project2.description,
-      technologies: ["Next.js", "TypeScript", "MongoDB", "Tailwind"],
+      technologies: ["SvelteKit", "JavaScript", "Node.js", "AI Integration"],
+      status: "Finished"
+    },
+    {
+      id: "qr-code-scanner",
+      title: t.work.project3.title,
+      description: t.work.project3.description,
+      technologies: ["React Native", "JWT", "Node.js", "MySQL"],
       status: "In Development"
     }
   ]
@@ -28,14 +35,8 @@ export default function Work() {
     {
       title: t.work.work1.title,
       company: t.work.work1.company,
-      period: "2023 - Present",
+      period: t.work.work1.period,
       description: t.work.work1.description
-    },
-    {
-      title: t.work.work2.title, 
-      company: t.work.work2.company,
-      period: "2022 - 2023",
-      description: t.work.work2.description
     }
   ]
 
@@ -81,7 +82,11 @@ export default function Work() {
                       ? 'bg-brown-600 text-white' 
                       : 'bg-brown-800 text-brown-200'
                   }`}>
-                    {project.status === 'Live' ? t.work.status.live : t.work.status.inDevelopment}
+                    {project.status === 'Live' 
+                      ? t.work.status.live 
+                      : project.status === 'Finished'
+                      ? t.work.status.finished
+                      : t.work.status.inDevelopment}
                   </span>
                 </div>
                 <p className="text-gray-200 mb-4">
