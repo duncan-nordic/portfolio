@@ -95,7 +95,7 @@ export default function Home() {
             {t.home.technologies}
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'Git', 'Docker', 'AWS'].map((skill) => (
+            {['JavaScript', 'SvelteKit', 'React Native', 'Node.js', 'PHP', 'SQL', 'Expo', 'AWS'].map((skill) => (
               <div
                 key={skill}
                 className="bg-forest-900 p-4 rounded-lg text-center hover:bg-brown-800 hover:border-brown-600 border border-brown-700 transition-all duration-300"

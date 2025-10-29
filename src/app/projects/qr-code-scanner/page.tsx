@@ -32,8 +32,8 @@ export default function QRCodeScanner() {
             </h2>
             <p className="text-xl text-gray-200 mb-8">
               {language === 'en' 
-                ? 'Enterprise mobile application for tracking employee working hours using JWT authentication, device-bound user IDs, and location-based QR-code scanning. Supports up to 400 employees during peak season with secure integration to company database systems.'
-                : 'Enterprise Mobile-Anwendung zur Erfassung von Arbeitszeiten mittels JWT-Authentifizierung, gerätegebundenen Benutzer-IDs und standortbasiertem QR-Code-Scanning. Unterstützt bis zu 400 Mitarbeiter in der Hochsaison mit sicherer Integration in Unternehmens-Datenbanksysteme.'
+                ? 'Enterprise mobile application for tracking employee working hours using JWT authentication, device-bound user IDs, and location-based QR-code scanning. Runs on AWS server infrastructure with MySQL database. Supports up to 400 employees during peak season with secure integration to company database systems.'
+                : 'Enterprise Mobile-Anwendung zur Erfassung von Arbeitszeiten mittels JWT-Authentifizierung, gerätegebundenen Benutzer-IDs und standortbasiertem QR-Code-Scanning. Läuft auf AWS Server-Infrastruktur mit MySQL-Datenbank. Unterstützt bis zu 400 Mitarbeiter in der Hochsaison mit sicherer Integration in Unternehmens-Datenbanksysteme.'
               }
             </p>
             
@@ -42,7 +42,7 @@ export default function QRCodeScanner() {
               <span className="bg-brown-800 text-brown-200 px-3 py-1 rounded-full text-sm font-medium">
                 {language === 'en' ? 'In Development' : 'In Entwicklung'}
               </span>
-              {["React Native", "JWT", "Node.js", "MySQL"].map((tech) => (
+              {["React Native", "AWS", "Node.js", "MySQL"].map((tech) => (
                 <span
                   key={tech}
                   className="bg-brown-900 text-brown-200 px-3 py-1 rounded-full text-sm border border-brown-600"
@@ -77,8 +77,8 @@ export default function QRCodeScanner() {
               <div className="space-y-4 text-gray-200">
                 <p>
                   {language === 'en' 
-                    ? 'This enterprise mobile application was developed during my internship to solve the challenge of tracking working hours for up to 400 employees during peak season. The system uses advanced security measures including JWT authentication and device-bound user identification.'
-                    : 'Diese Enterprise-Mobile-Anwendung wurde während meines Praktikums entwickelt, um die Herausforderung der Arbeitszeiterfassung für bis zu 400 Mitarbeiter in der Hochsaison zu lösen. Das System verwendet fortschrittliche Sicherheitsmaßnahmen einschließlich JWT-Authentifizierung und gerätegebundener Benutzeridentifikation.'
+                    ? 'This enterprise mobile application was developed during my internship to solve the challenge of tracking working hours for up to 400 employees during peak season. The system runs on AWS server infrastructure and uses advanced security measures including JWT authentication and device-bound user identification.'
+                    : 'Diese Enterprise-Mobile-Anwendung wurde während meines Praktikums entwickelt, um die Herausforderung der Arbeitszeiterfassung für bis zu 400 Mitarbeiter in der Hochsaison zu lösen. Das System läuft auf AWS Server-Infrastruktur und verwendet fortschrittliche Sicherheitsmaßnahmen einschließlich JWT-Authentifizierung und gerätegebundener Benutzeridentifikation.'
                   }
                 </p>
                 <p>
@@ -109,9 +109,15 @@ export default function QRCodeScanner() {
                 </div>
                 <div className="bg-forest-900 p-4 rounded-lg border border-brown-700">
                   <h3 className="text-brown-400 font-semibold mb-2">
-                    {language === 'en' ? 'Backend & Database' : 'Backend & Datenbank'}
+                    {language === 'en' ? 'Cloud Infrastructure' : 'Cloud-Infrastruktur'}
                   </h3>
-                  <p className="text-gray-200 text-sm">Node.js, MySQL, Company System Integration</p>
+                  <p className="text-gray-200 text-sm">AWS Server, MySQL Database, Scalable Architecture</p>
+                </div>
+                <div className="bg-forest-900 p-4 rounded-lg border border-brown-700">
+                  <h3 className="text-brown-400 font-semibold mb-2">
+                    {language === 'en' ? 'Backend & Integration' : 'Backend & Integration'}
+                  </h3>
+                  <p className="text-gray-200 text-sm">Node.js, Company System Integration</p>
                 </div>
                 <div className="bg-forest-900 p-4 rounded-lg border border-brown-700">
                   <h3 className="text-brown-400 font-semibold mb-2">
