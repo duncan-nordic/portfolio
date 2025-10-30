@@ -29,8 +29,8 @@ export default function GPSSpoofingTool() {
             </h1>
             <p className="text-xl text-gray-200 mb-8">
               {language === 'en' 
-                ? 'Scientific JavaFX GUI application for GPS spoofing simulation via LimeSDR for research purposes'
-                : 'Wissenschaftliche JavaFX GUI-Anwendung zur GPS Spoofing Simulation über LimeSDR für Forschungszwecke'
+                ? 'Scientific JavaFX GUI application for GPS spoofing simulation via LimeSDR for research purposes. Built upon collaborative research work, I was responsible for system maintenance and optimization.'
+                : 'Wissenschaftliche JavaFX GUI-Anwendung zur GPS Spoofing Simulation über LimeSDR für Forschungszwecke. Aufbauend auf kollaborativer Forschungsarbeit war ich für System-Wartung und Optimierung zuständig.'
               }
             </p>
             
@@ -74,14 +74,14 @@ export default function GPSSpoofingTool() {
               <div className="space-y-4 text-gray-200">
                 <p>
                   {language === 'en' 
-                    ? 'This project develops a scientific tool for GPS spoofing research using LimeSDR hardware. The JavaFX-based GUI provides an intuitive interface for researchers to simulate GPS signals for academic and security research purposes.'
-                    : 'Dieses Projekt entwickelt ein wissenschaftliches Tool für GPS Spoofing Forschung mit LimeSDR Hardware. Die JavaFX-basierte GUI bietet eine intuitive Oberfläche für Forscher zur Simulation von GPS-Signalen für akademische und Sicherheitsforschung.'
+                    ? 'This scientific tool for GPS spoofing research was developed as part of a collaborative research project using LimeSDR hardware. Building upon the foundational work of multiple team members, I took responsibility for the ongoing maintenance, system optimization, and JavaFX-based GUI improvements.'
+                    : 'Dieses wissenschaftliche Tool für GPS Spoofing Forschung wurde als Teil eines kollaborativen Forschungsprojekts mit LimeSDR Hardware entwickelt. Aufbauend auf der Grundlagenarbeit mehrerer Teammitglieder übernahm ich die Verantwortung für die laufende Wartung, System-Optimierung und JavaFX-basierte GUI-Verbesserungen.'
                   }
                 </p>
                 <p>
                   {language === 'en'
-                    ? 'Key features include signal generation, real-time parameter adjustment, and comprehensive logging for research documentation.'
-                    : 'Hauptmerkmale umfassen Signalerzeugung, Echtzeit-Parameteranpassung und umfassende Protokollierung für Forschungsdokumentation.'
+                    ? 'My role focused on maintaining code quality, implementing performance optimizations, and ensuring the reliability of the signal generation and parameter adjustment systems for academic and security research applications.'
+                    : 'Meine Rolle konzentrierte sich auf die Aufrechterhaltung der Code-Qualität, Implementierung von Performance-Optimierungen und die Gewährleistung der Zuverlässigkeit der Signalerzeugung und Parameteranpassungssysteme für akademische und Sicherheitsforschungsanwendungen.'
                   }
                 </p>
               </div>

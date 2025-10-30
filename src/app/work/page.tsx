@@ -9,13 +9,6 @@ export default function Work() {
 
   const projects = [
     {
-      id: "gps-spoofing-tool",
-      title: t.work.project1.title,
-      description: t.work.project1.description,
-      technologies: ["JavaFX", "LimeSDR", "Java"],
-      status: "Finished"
-    },
-    {
       id: "coderdojo-webapp", 
       title: t.work.project2.title,
       description: t.work.project2.description,
@@ -28,10 +21,31 @@ export default function Work() {
       description: t.work.project3.description,
       technologies: ["React Native", "AWS", "Node.js", "MySQL"],
       status: "In Development"
+    },
+    {
+      id: "gps-spoofing-tool",
+      title: t.work.project1.title,
+      description: t.work.project1.description,
+      technologies: ["JavaFX", "LimeSDR", "Java"],
+      status: "Finished"
+    },
+    {
+      id: "project4",
+      title: t.work.project4.title,
+      description: t.work.project4.description,
+      technologies: ["Tech1", "Tech2", "Tech3"],
+      status: "Finished"
+    },
+    {
+      id: "project5",
+      title: t.work.project5.title,
+      description: t.work.project5.description,
+      technologies: ["Tech1", "Tech2", "Tech3"],
+      status: "In Development"
     }
   ]
 
-  const workExperience = [
+  const experienceAndEducation = [
     {
       title: t.work.work1.title,
       company: t.work.work1.company,
@@ -57,7 +71,7 @@ export default function Work() {
                 {index === 1 ? (
                   <span className="text-brown-400">{word}</span>
                 ) : (
-                  word
+                  <span>{word}</span>
                 )}
                 {index < t.work.title.split(' ').length - 1 && ' '}
               </span>
@@ -73,17 +87,18 @@ export default function Work() {
           <h2 className="text-3xl font-bold text-white mb-12 text-center">
             {t.work.projects}
           </h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="bg-forest-900 rounded-lg p-6 hover:bg-brown-800 transition-colors border border-brown-700"
+                className="bg-forest-900 rounded-lg p-6 hover:bg-brown-800 transition-all duration-300 border border-brown-700 hover:shadow-lg cursor-pointer"
+                onClick={() => window.location.href = `/projects/${project.id}`}
               >
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-xl font-semibold text-white">
                     {project.title}
                   </h3>
-                  <span className={`px-2 py-1 rounded text-xs font-medium ${
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                     project.status === 'Live' 
                       ? 'bg-brown-600 text-white' 
                       : 'bg-brown-800 text-brown-200'
@@ -102,49 +117,51 @@ export default function Work() {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-brown-900 text-brown-200 px-2 py-1 rounded text-sm border border-brown-600"
+                      className="bg-brown-900 text-brown-200 px-3 py-1 rounded-full text-sm border border-brown-600"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                <a
-                  href={`/projects/${project.id}`}
-                  className="text-brown-400 hover:text-brown-300 font-medium"
-                >
-                  {t.work.learnMore}
-                </a>
+                <div className="flex items-center justify-between">
+                  <span className="text-brown-400 hover:text-brown-300 font-medium transition-colors flex items-center">
+                    {t.work.learnMore}
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Experience Section */}
+        {/* Experience & Education Section */}
         <section>
           <h2 className="text-3xl font-bold text-white mb-12 text-center">
             {t.work.experience}
           </h2>
-          <div className="max-w-4xl mx-auto space-y-8">
-            {workExperience.map((job, index) => (
+          <div className="max-w-4xl mx-auto space-y-6">
+            {experienceAndEducation.map((item, index) => (
               <div
                 key={index}
-                className="bg-forest-900 rounded-lg p-6 border-l-4 border-brown-600"
+                className="bg-forest-900 rounded-lg p-6 hover:bg-brown-800 transition-all duration-300 border border-brown-700"
               >
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                   <div>
                     <h3 className="text-xl font-semibold text-white">
-                      {job.title}
+                      {item.title}
                     </h3>
                     <p className="text-brown-400 font-medium">
-                      {job.company}
+                      {item.company}
                     </p>
                   </div>
                   <span className="text-brown-300 mt-2 md:mt-0">
-                    {job.period}
+                    {item.period}
                   </span>
                 </div>
                 <p className="text-gray-200">
-                  {job.description}
+                  {item.description}
                 </p>
               </div>
             ))}
