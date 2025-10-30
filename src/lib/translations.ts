@@ -23,7 +23,7 @@ export const translations = {
       title: 'My Work',
       subtitle: 'A selection of my projects and professional experience',
       projects: 'Projects',
-      experience: 'Experience & Education',
+      experience: 'Education & Experience',
       educationTitle: 'Education',
       project1: {
         title: 'GPS Spoofing Tool with LimeSDR',
@@ -49,7 +49,7 @@ export const translations = {
         title: 'IT Internship',
         company: 'Nordic Unique Travels',
         period: '09/2025 - 01/2026',
-        description: 'Full-stack development and IT infrastructure support during a 22-week internship'
+        description: 'Full-stack development and IT infrastructure support during a 22-week internship abroad in Rovaniemi, Finland'
       },
       education1: {
         title: 'International Media and Computer Science',
@@ -121,7 +121,7 @@ export const translations = {
       title: 'Meine Arbeit',
       subtitle: 'Eine Auswahl meiner Projekte und beruflichen Erfahrungen',
       projects: 'Projekte',
-      experience: 'Erfahrung & Bildung',
+      experience: 'Bildung & Erfahrung',
       educationTitle: 'Bildung',
       project1: {
         title: 'GPS Spoofing Tool mit LimeSDR',
@@ -147,7 +147,7 @@ export const translations = {
         title: 'IT-Internship',
         company: 'Nordic Unique Travels',
         period: '09/2025 - 01/2026',
-        description: 'Full-Stack Development und IT-Infrastructure Support während eines 22-wöchigen Internships'
+        description: 'Full-Stack Development und IT-Infrastructure Support während eines 22-wöchigen Internships im Ausland in Rovaniemi, Finnland'
       },
       education1: {
         title: 'International Media and Computer Science',

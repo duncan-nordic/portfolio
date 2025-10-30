@@ -19,7 +19,7 @@ export default function Work() {
       id: "qr-code-scanner",
       title: t.work.project3.title,
       description: t.work.project3.description,
-      technologies: ["React Native", "AWS", "Node.js", "MySQL"],
+      technologies: ["React Native", "AWS", "Node.js", "SQLite"],
       status: "In Development"
     },
     {
@@ -47,16 +47,16 @@ export default function Work() {
 
   const experienceAndEducation = [
     {
-      title: t.work.work1.title,
-      company: t.work.work1.company,
-      period: t.work.work1.period,
-      description: t.work.work1.description
-    },
-    {
       title: t.work.education1.title,
       company: t.work.education1.company,
       period: t.work.education1.period,
       description: t.work.education1.description
+    },
+    {
+      title: t.work.work1.title,
+      company: t.work.work1.company,
+      period: t.work.work1.period,
+      description: t.work.work1.description
     }
   ]
 

@@ -38,7 +38,9 @@ export default function Navbar() {
             {/* Navigation Links */}
             <div className="flex space-x-6">
               {navigation.map((item) => {
-                const isActive = pathname === item.href || (item.href === '/work' && pathname.startsWith('/work'))
+                const isActive = pathname === item.href || 
+                  (item.href === '/work' && pathname.startsWith('/work')) ||
+                  (item.href === '/contact' && pathname.startsWith('/contact'))
                 return (
                   <Link
                     key={item.name}
@@ -86,7 +88,9 @@ export default function Navbar() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-forest-950 rounded-lg mt-2 border border-brown-800">
               {navigation.map((item) => {
-                const isActive = pathname === item.href || (item.href === '/work' && pathname.startsWith('/work'))
+                const isActive = pathname === item.href || 
+                  (item.href === '/work' && pathname.startsWith('/work')) ||
+                  (item.href === '/contact' && pathname.startsWith('/contact'))
                 return (
                   <Link
                     key={item.name}
