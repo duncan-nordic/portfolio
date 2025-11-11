@@ -90,19 +90,50 @@ export default function Home() {
 
       {/* Skills Preview */}
       <section className="container mx-auto px-6 py-16">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-white">
             {t.home.technologies}
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['JavaScript', 'SvelteKit', 'React Native', 'Node.js', 'PHP', 'SQL', 'Expo', 'AWS'].map((skill) => (
-              <div
-                key={skill}
-                className="bg-forest-900 p-4 rounded-lg text-center hover:bg-brown-800 hover:border-brown-600 border border-brown-700 transition-all duration-300"
-              >
-                <span className="text-brown-300 font-semibold">{skill}</span>
+          
+          {/* Animated Tech Stack Carousel */}
+          <div className="space-y-6 overflow-hidden mask-gradient">
+            {/* First Row - Left to Right */}
+            <div className="flex overflow-hidden">
+              <div className="animate-scroll-left">
+                {Array.from({ length: 6 }, (_, setIndex) => (
+                  <div key={`top-${setIndex}`} className="flex mr-6" style={{ gap: '32px' }}>
+                    {['JavaScript', 'Laravel', 'SvelteKit', 'React Native', 'Node.js', 'PHP', 'SQL', 'Expo', 'AWS'].map((skill, index) => (
+                      <div
+                        key={`${setIndex}-${index}`}
+                        className="tech-badge bg-forest-900 px-8 py-4 rounded-xl text-center border border-brown-700 whitespace-nowrap flex-shrink-0"
+                        style={{ minWidth: 'fit-content' }}
+                      >
+                        <span className="text-brown-300 font-semibold text-lg">{skill}</span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+            
+            {/* Second Row - Right to Left */}
+            <div className="flex overflow-hidden">
+              <div className="animate-scroll-right">
+                {Array.from({ length: 6 }, (_, setIndex) => (
+                  <div key={`bottom-${setIndex}`} className="flex mr-6" style={{ gap: '32px' }}>
+                    {['TypeScript', 'Python', 'Docker', 'Git', 'Linux', 'MySQL', 'MongoDB', 'Redis', 'GraphQL'].map((skill, index) => (
+                      <div
+                        key={`${setIndex}-${index}`}
+                        className="tech-badge bg-forest-900 px-8 py-4 rounded-xl text-center border border-brown-700 whitespace-nowrap flex-shrink-0"
+                        style={{ minWidth: 'fit-content' }}
+                      >
+                        <span className="text-brown-300 font-semibold text-lg">{skill}</span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

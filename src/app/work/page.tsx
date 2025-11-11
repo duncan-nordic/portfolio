@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/components/LanguageToggle'
 import { translations } from '@/lib/translations'
+import Image from 'next/image'
 
 export default function Work() {
   const { language } = useLanguage()
@@ -13,35 +14,45 @@ export default function Work() {
       title: t.work.project2.title,
       description: t.work.project2.description,
       technologies: ["SvelteKit", "JavaScript", "Node.js", "AI Integration"],
-      status: "Finished"
+      status: "Finished",
+      image: "/docs/gps-spoofing-tool/logoDKWDP.png",
+      category: "education"
     },
     {
       id: "qr-code-scanner",
       title: t.work.project3.title,
       description: t.work.project3.description,
       technologies: ["React Native", "AWS", "Node.js", "SQLite"],
-      status: "In Development"
+      status: "In Development",
+      image: "/images/projects/qr-scanner-placeholder.jpg",
+      category: "mobile"
     },
     {
       id: "gps-spoofing-tool",
       title: t.work.project1.title,
       description: t.work.project1.description,
       technologies: ["JavaFX", "LimeSDR", "Java"],
-      status: "Finished"
+      status: "Finished",
+      image: "/images/projects/gps-tool-placeholder.jpg",
+      category: "security"
     },
     {
       id: "project4",
       title: t.work.project4.title,
       description: t.work.project4.description,
       technologies: ["Tech1", "Tech2", "Tech3"],
-      status: "Finished"
+      status: "Finished",
+      image: "/images/projects/placeholder.jpg",
+      category: "web"
     },
     {
       id: "project5",
       title: t.work.project5.title,
       description: t.work.project5.description,
       technologies: ["Tech1", "Tech2", "Tech3"],
-      status: "In Development"
+      status: "In Development",
+      image: "/images/projects/placeholder.jpg",
+      category: "app"
     }
   ]
 
@@ -91,45 +102,65 @@ export default function Work() {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="bg-forest-900 rounded-lg p-6 hover:bg-brown-800 transition-all duration-300 border border-brown-700 hover:shadow-lg cursor-pointer"
+                className="group bg-white dark:bg-forest-900 rounded-xl overflow-hidden hover:bg-gray-50 dark:hover:bg-brown-800 transition-all duration-500 border border-gray-200 dark:border-brown-700 hover:shadow-2xl hover:shadow-gray-300/30 dark:hover:shadow-brown-900/30 cursor-pointer transform hover:-translate-y-2"
                 onClick={() => window.location.href = `/projects/${project.id}`}
               >
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-semibold text-white">
+                {/* Project Image */}
+                <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-800">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  {/* Minimal overlay - only for badge readability */}
+                  <div className="absolute inset-0 bg-black/5 dark:bg-black/20 z-10"></div>
+                  
+                  {/* Status Badge */}
+                  <div className="absolute top-4 right-4 z-20">
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-md shadow-lg ${
+                      project.status === 'Live' 
+                        ? 'bg-green-600 text-white' 
+                        : project.status === 'Finished'
+                        ? 'bg-brown-600 text-white'
+                        : 'bg-orange-600 text-white'
+                    }`}>
+                      {project.status === 'Live' 
+                        ? t.work.status.live 
+                        : project.status === 'Finished'
+                        ? t.work.status.finished
+                        : t.work.status.inDevelopment}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Project Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-gray-700 dark:group-hover:text-brown-200 transition-colors">
                     {project.title}
                   </h3>
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                    project.status === 'Live' 
-                      ? 'bg-brown-600 text-white' 
-                      : 'bg-brown-800 text-brown-200'
-                  }`}>
-                    {project.status === 'Live' 
-                      ? t.work.status.live 
-                      : project.status === 'Finished'
-                      ? t.work.status.finished
-                      : t.work.status.inDevelopment}
-                  </span>
-                </div>
-                <p className="text-gray-200 mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="bg-brown-900 text-brown-200 px-3 py-1 rounded-full text-sm border border-brown-600"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-brown-400 hover:text-brown-300 font-medium transition-colors flex items-center">
-                    {t.work.learnMore}
-                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="bg-brown-100 dark:bg-brown-900/70 text-brown-800 dark:text-brown-200 px-3 py-1 rounded-full text-sm border border-brown-300 dark:border-brown-600 hover:bg-brown-200 dark:hover:bg-brown-800 transition-colors font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex items-center text-gray-500 dark:text-brown-400 group-hover:text-gray-700 dark:group-hover:text-brown-300 transition-colors">
+                    <span className="text-sm font-medium">{t.work.learnMore}</span>
+                    <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                  </span>
+                  </div>
                 </div>
               </div>
             ))}
