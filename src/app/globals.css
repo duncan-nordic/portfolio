@@ -1,0 +1,356 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 11, 27, 11;
+  --background-end-rgb: 5, 14, 5;
+}
+
+.light {
+  --foreground-rgb: 90, 81, 68;
+  --background-start-rgb: 243, 239, 224;
+  --background-end-rgb: 253, 252, 248;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Fade in up animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Fade in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Tech Stack Carousel Animations - Smooth Infinite */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-scroll-left {
+    animation: scroll-left 60s linear infinite;
+    display: flex;
+    width: 600%; /* Six sets for seamless loop */
+  }
+  
+  .animate-scroll-right {
+    animation: scroll-right 70s linear infinite;
+    display: flex;
+    width: 600%; /* Six sets for seamless loop */
+  }
+  
+  /* Gradient mask for fade effect at edges */
+  .mask-gradient {
+    position: relative;
+  }
+  
+  .mask-gradient::before,
+  .mask-gradient::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 10;
+    pointer-events: none;
+  }
+  
+  .mask-gradient::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(139, 94, 60, 0.3), rgba(139, 94, 60, 0.1), transparent);
+  }
+  
+  .mask-gradient::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(139, 94, 60, 0.3), rgba(139, 94, 60, 0.1), transparent);
+  }
+  
+  /* Tech stack hover glow effect */
+  .tech-badge {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin: 0 8px; /* Increased margin to prevent hover overlap */
+    isolation: isolate; /* Create new stacking context */
+  }
+  
+  .tech-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(139, 94, 60, 0.4), transparent);
+    transition: all 0.5s;
+    pointer-events: none; /* Prevent interference with hover detection */
+    will-change: transform; /* Optimize for animations */
+  }
+  
+  .tech-badge:hover::before {
+    left: 100%;
+  }
+  
+  .tech-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 94, 60, 0.4);
+    z-index: 10; /* Higher z-index for hovered element */
+  }
+  
+  /* Subtle elegant design improvements */
+  .elegant-spacing {
+    letter-spacing: 0.025em;
+  }
+  
+  .refined-border {
+    border: 1px solid rgba(139, 94, 60, 0.3);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .refined-border:hover {
+    border-color: rgba(139, 94, 60, 0.5);
+    box-shadow: 0 4px 12px rgba(139, 94, 60, 0.15);
+  }
+  
+  .subtle-accent::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60%;
+    background: linear-gradient(to bottom, transparent, #8B5E3C, transparent);
+    border-radius: 2px;
+  }
+
+  /* Line clamp utility for project descriptions */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Light mode overrides using CSS custom properties */
+.light {
+  /* Background colors */
+  --bg-forest-900: #F3EFE0;     /* Haupthintergrund - beige-weiß */
+  --bg-forest-950: #FDFCF8;     /* Noch heller für Oberseiten */
+  --bg-forest-800: #FDFCF8;     /* Karten/Container */
+  --bg-brown-900: rgba(139, 94, 60, 0.1);  /* Leichte braune Akzente */
+  --bg-brown-800: #F8F6F0;      /* Sanfter Hover-Hintergrund */
+  
+  /* Text colors - sanfter und wärmer */
+  --text-white: #5A5144;        /* Warmer dunkelbrauner Haupttext */
+  --text-gray-200: #8B7966;     /* Heller warmer Graubraun */
+  --text-brown-400: #8B5E3C;    /* Mittleres Braun für Akzente */
+  --text-brown-300: #C6A77B;    /* Helleres Sandbraun */
+  --text-gray-300: #8B7966;     /* Warmer Sekundärtext */
+  
+  /* Border colors */
+  --border-brown-700: #D9D5C6;  /* Subtile Rahmen */
+  --border-brown-800: #D9D5C6;  /* Container-Rahmen */
+  --border-brown-600: #8B5E3C;  /* Akzent-Rahmen */
+  
+  /* Button colors */
+  --bg-brown-600: #8B5E3C;      /* Button-Hintergrund */
+  --bg-brown-700: #6B4830;      /* Button-Hover (dunkler) */
+  
+  /* Hover states - wärmere Töne */
+  --hover-brown-600: #6B4830;   /* Dunkleres Braun für Hover */
+  --hover-bg-light: #F0EBD8;    /* Warmer Hover-Hintergrund */
+  --hover-text-warm: #6B5B3A;   /* Warmer Hover-Text */
+}
+
+/* Apply CSS variables to classes */
+.bg-forest-900 { background-color: var(--bg-forest-900, #0b1b0b); }
+.bg-forest-950 { background-color: var(--bg-forest-950, #050e05); }
+.bg-forest-800 { background-color: var(--bg-forest-800, #102810); }
+.bg-brown-900\/20 { background-color: var(--bg-brown-900, rgba(31, 23, 15, 0.2)); }
+.bg-brown-800 { background-color: var(--bg-brown-800, #3e2e1e); }
+
+.text-white { color: var(--text-white, white); }
+.text-gray-200 { color: var(--text-gray-200, #e5e7eb); }
+.text-brown-400 { color: var(--text-brown-400, #af8f6f); }
+.text-brown-300 { color: var(--text-brown-300, #c3ab93); }
+.text-gray-300 { color: var(--text-gray-300, #d1d5db); }
+
+.border-brown-700 { border-color: var(--border-brown-700, #5d452d); }
+.border-brown-800 { border-color: var(--border-brown-800, #3e2e1e); }
+.border-brown-600 { border-color: var(--border-brown-600, #7c5c3c); }
+
+.bg-brown-600 { background-color: var(--bg-brown-600, #7c5c3c); }
+.hover\:bg-brown-700:hover { background-color: var(--bg-brown-700, #5d452d); }
+.hover\:bg-brown-600:hover { background-color: var(--hover-brown-600, var(--bg-brown-600, #7c5c3c)); }
+
+/* Additional light mode hover states */
+.light .hover\:bg-brown-700:hover { background-color: var(--bg-brown-700, #6B4830); }
+.light .hover\:bg-brown-600:hover { background-color: var(--hover-brown-600, #6B4830); }
+.light .hover\:bg-forest-700:hover { background-color: var(--hover-bg-light, #F0EBD8); }
+.light .hover\:bg-gray-50:hover { background-color: var(--hover-bg-light, #F0EBD8); }
+.light .hover\:text-brown-400:hover { color: var(--text-brown-400, #8B5E3C); }
+.light .hover\:text-white:hover { color: #FDFCF8; }
+
+/* Better hover states for navigation and cards */
+.light .hover\:bg-brown-900\/10:hover { background-color: rgba(139, 94, 60, 0.1); }
+.light .hover\:border-brown-600:hover { border-color: var(--border-brown-600, #8B5E3C); }
+.light .hover\:text-brown-600:hover { color: #8B5E3C; }
+
+/* Warm hover for work page projects */
+.light .hover\:bg-brown-800:hover { background-color: var(--hover-bg-light, #F0EBD8); }
+
+/* Light mode navigation overrides */
+.light nav {
+  background-color: rgba(253, 252, 248, 0.95) !important;
+  border-bottom-color: #D9D5C6 !important;
+}
+
+.light nav .text-brown-400 {
+  color: #8B5E3C !important;
+  font-weight: 700;
+}
+
+.light nav .text-gray-200 {
+  color: #5A5144 !important;
+  font-weight: 500;
+}
+
+.light nav .text-gray-300 {
+  color: #5A5144 !important;
+}
+
+.light nav .hover\:text-brown-400:hover {
+  color: #6B4830 !important;
+}
+
+.light nav .bg-brown-900\/20 {
+  background-color: rgba(139, 94, 60, 0.15) !important;
+}
+
+.light nav .hover\:bg-brown-900\/10:hover {
+  background-color: rgba(139, 94, 60, 0.1) !important;
+}
+
+/* Light mode mobile menu */
+.light nav .bg-forest-950 {
+  background-color: #FDFCF8 !important;
+  border-color: #D9D5C6 !important;
+}
+
+/* Light mode work page fixes */
+.light .bg-brown-600 {
+  background-color: #C6A77B !important; /* Helleres Sandbraun für Live button */
+  color: #5A5144 !important; /* Dunklerer Text für besseren Kontrast */
+}
+
+.light .bg-brown-900 {
+  background-color: #D4C4A8 !important; /* Helles warmes Braun für Tech-Tags */
+  color: #5A5144 !important; /* Dunkler Text für Lesbarkeit */
+  border-color: #C6A77B !important;
+}
+
+.light .bg-brown-800 {
+  background-color: #E6D7C3 !important; /* Noch heller für "In Development" */
+  color: #5A5144 !important;
+}
+
+.light .text-brown-200 {
+  color: #5A5144 !important; /* Dunkler Text in Light Mode */
+}
+
+/* MODE-SPECIFIC HOVER EFFECTS */
+
+/* Dark Mode Hover: Green tones */
+.dark .hover\:bg-forest-800:hover {
+  background-color: #153515 !important; /* Grüner Hover im Dark Mode */
+}
+
+.dark .hover\:bg-brown-800:hover {
+  background-color: #153515 !important; /* Grüner Hover für Projects im Dark Mode */
+}
+
+/* Light Mode Hover: Brown tones */
+.light .hover\:bg-forest-800:hover {
+  background-color: #F0EBD8 !important; /* Brauner Hover im Light Mode */
+}
+
+.light .hover\:bg-brown-800:hover {
+  background-color: #F0EBD8 !important; /* Brauner Hover für Projects im Light Mode */
+}
+
+.light .bg-forest-900 {
+  background-color: #FDFCF8 !important; /* Heller Hintergrund für Karten */
+  border-color: #D9D5C6 !important;
+}
+
+.light .bg-forest-950 {
+  background-color: #F8F6F0 !important;
+}
+
+/* Light mode contact page hover text fix */
+.light .group-hover\:text-white:hover {
+  color: #5A5144 !important; /* Dunkler Text beim Hover im Light Mode */
+}
+
+.light .group:hover .group-hover\:text-white {
+  color: #5A5144 !important; /* Dunkler Text beim Hover im Light Mode */
+}
+
+/* Light mode gradient overrides */
+.light .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #F3EFE0, #FDFCF8);
+}
+
+.light .from-brown-400 {
+  --tw-gradient-from: #8B5E3C;
+}
+
+.light .to-brown-600 {
+  --tw-gradient-to: #6B4830;
+}
