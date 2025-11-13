@@ -40,7 +40,7 @@ export default function Work() {
       id: "project4",
       title: t.work.project4.title,
       description: t.work.project4.description,
-      technologies: ["Tech1", "Tech2", "Tech3"],
+      technologies: ["Tectetsts", "Tech2", "Tech3"],
       status: "Finished",
       image: "/images/projects/placeholder.jpg",
       category: "web"

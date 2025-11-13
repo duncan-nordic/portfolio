@@ -21,7 +21,7 @@ export const translations = {
     // Work page
     work: {
       title: 'My Work',
-      subtitle: 'A selection of my projects and professional experience',
+      subtitle: 'Things I\'ve built',
       projects: 'Projects',
       experience: 'Education & Experience',
       educationTitle: 'Education',
@@ -119,7 +119,7 @@ export const translations = {
     // Work page
     work: {
       title: 'Meine Arbeit',
-      subtitle: 'Eine Auswahl meiner Projekte und beruflichen Erfahrungen',
+      subtitle: 'Dinge die ich gebaut habe',
       projects: 'Projekte',
       experience: 'Bildung & Erfahrung',
       educationTitle: 'Bildung',
