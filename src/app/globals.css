@@ -29,7 +29,6 @@ body {
     text-wrap: balance;
   }
   
-  /* Fade in up animation */
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -41,7 +40,6 @@ body {
     }
   }
   
-  /* Fade in animation */
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -51,7 +49,6 @@ body {
     }
   }
   
-  /* Tech Stack Carousel Animations - Smooth Infinite */
   @keyframes scroll-left {
     0% {
       transform: translateX(0);
@@ -73,16 +70,15 @@ body {
   .animate-scroll-left {
     animation: scroll-left 60s linear infinite;
     display: flex;
-    width: 600%; /* Six sets for seamless loop */
+    width: 300%;
   }
   
   .animate-scroll-right {
     animation: scroll-right 70s linear infinite;
     display: flex;
-    width: 600%; /* Six sets for seamless loop */
+    width: 300%;
   }
   
-  /* Gradient mask for fade effect at edges */
   .mask-gradient {
     position: relative;
   }
@@ -108,13 +104,12 @@ body {
     background: linear-gradient(to left, rgba(139, 94, 60, 0.3), rgba(139, 94, 60, 0.1), transparent);
   }
   
-  /* Tech stack hover glow effect */
   .tech-badge {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    margin: 0 8px; /* Increased margin to prevent hover overlap */
-    isolation: isolate; /* Create new stacking context */
+    margin: 0 8px;
+    isolation: isolate;
   }
   
   .tech-badge::before {
@@ -126,8 +121,8 @@ body {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(139, 94, 60, 0.4), transparent);
     transition: all 0.5s;
-    pointer-events: none; /* Prevent interference with hover detection */
-    will-change: transform; /* Optimize for animations */
+    pointer-events: none;
+    will-change: transform;
   }
   
   .tech-badge:hover::before {
@@ -137,10 +132,9 @@ body {
   .tech-badge:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(139, 94, 60, 0.4);
-    z-index: 10; /* Higher z-index for hovered element */
+    z-index: 10;
   }
   
-  /* Subtle elegant design improvements */
   .elegant-spacing {
     letter-spacing: 0.025em;
   }
@@ -167,7 +161,6 @@ body {
     border-radius: 2px;
   }
 
-  /* Line clamp utility for project descriptions */
   .line-clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;

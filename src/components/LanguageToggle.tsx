@@ -45,9 +45,7 @@ export const useLanguage = (): LanguageContextType => {
     setLanguageState(lang)
     localStorage.setItem('language', lang)
     
-    // Notify all listeners
     languageListeners.forEach(listener => listener(lang))
-    console.log(`Language changed to: ${lang}`)
   }
 
   // Set global setter on first mount

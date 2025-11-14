@@ -13,11 +13,6 @@ export default function Navbar() {
   const { language } = useLanguage()
   const t = translations[language]
 
-  // Debug pathname
-  useEffect(() => {
-    console.log('Current pathname:', pathname)
-  }, [pathname])
-
   const navigation = [
     { name: t.nav.home, href: '/' },
     { name: t.nav.work, href: '/work' },
