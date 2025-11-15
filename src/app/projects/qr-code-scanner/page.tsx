@@ -57,7 +57,7 @@ export default function QRCodeScanner() {
           </div>
 
           <div className="bg-forest-900 rounded-lg overflow-hidden mb-12 border border-brown-700">
-            <div className="relative w-full h-96">
+            <div className="relative w-full h-[28rem]">
               <Image
                 src={projectImage}
                 alt="QR-Code Scanner Station"

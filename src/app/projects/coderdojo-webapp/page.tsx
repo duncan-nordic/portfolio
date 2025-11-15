@@ -10,9 +10,9 @@ export default function CoderDojoWebapp() {
 
   // Image gallery state
   const images = [
-    { src: '/docs/gps-spoofing-tool/logoDKWDP.png', alt: 'DKWDP Logo', title: 'Logo', size: 'w-80 h-80' },
-    { src: '/docs/gps-spoofing-tool/homescreen.png', alt: 'Homepage Screenshot', title: 'Homepage', size: 'w-80 h-60' },
-    { src: '/docs/gps-spoofing-tool/Map.png', alt: 'Level Map Screenshot', title: 'Level Map', size: 'w-80 h-60' }
+    { src: '/docs/gps-spoofing-tool/logoDKWDP.png', alt: 'DKWDP Logo', title: 'Logo' },
+    { src: '/docs/gps-spoofing-tool/homescreen.png', alt: 'Homepage Screenshot', title: 'Homepage' },
+    { src: '/docs/gps-spoofing-tool/Map.png', alt: 'Level Map Screenshot', title: 'Level Map' }
   ]
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -68,9 +68,9 @@ export default function CoderDojoWebapp() {
           </div>
 
           {/* Interactive Image Gallery */}
-          <div className="bg-forest-900 rounded-lg p-6 mb-12 border border-brown-700">
+          <div className="bg-forest-900 rounded-lg p-8 mb-12 border border-brown-700">
             <div className="text-center">
-              <div className="w-96 h-96 mx-auto mb-4 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity">
+              <div className="w-full max-w-3xl h-[36rem] mx-auto mb-6 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity">
                 <div 
                   className={`${images[currentImageIndex].size} flex items-center justify-center`}
                   onClick={nextImage}
