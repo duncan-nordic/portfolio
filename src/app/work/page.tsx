@@ -15,7 +15,7 @@ export default function Work() {
       description: t.work.project2.description,
       technologies: ["SvelteKit", "JavaScript", "Node.js", "AI Integration"],
       status: "Finished",
-      image: "/docs/gps-spoofing-tool/logoDKWDP.png",
+      image: "/images/coderdojo-webapp/logo.png",
       category: "education"
     },
     {
@@ -24,7 +24,7 @@ export default function Work() {
       description: t.work.project3.description,
       technologies: ["React Native", "AWS", "Node.js", "SQLite"],
       status: "In Development",
-      image: "/images/projects/qr-scanner-placeholder.jpg",
+      image: "/images/qr-code-scanner/qr-code-station.png",
       category: "mobile"
     },
     {
@@ -33,7 +33,7 @@ export default function Work() {
       description: t.work.project1.description,
       technologies: ["JavaFX", "LimeSDR", "Java"],
       status: "Finished",
-      image: "/images/projects/gps-tool-placeholder.jpg",
+      image: "",
       category: "security"
     },
     {

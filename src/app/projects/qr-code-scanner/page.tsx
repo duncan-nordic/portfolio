@@ -2,10 +2,13 @@
 
 import { useLanguage } from '@/components/LanguageToggle'
 import { translations } from '@/lib/translations'
+import Image from 'next/image'
 
 export default function QRCodeScanner() {
   const { language } = useLanguage()
   const t = translations[language]
+
+  const projectImage = "/images/qr-code-scanner/qr-code-station.png"
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-forest-800 to-forest-950 py-20">
@@ -53,18 +56,15 @@ export default function QRCodeScanner() {
             </div>
           </div>
 
-          {/* Project Image Placeholder */}
-          <div className="bg-forest-900 rounded-lg p-12 mb-12 border border-brown-700">
-            <div className="text-center">
-              <div className="w-24 h-24 bg-brown-800 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                <span className="text-3xl">📱</span>
-              </div>
-              <p className="text-gray-300">
-                {language === 'en' ? 'Mobile QR-Code Scanner Interface' : 'Mobile QR-Code Scanner Interface'}
-              </p>
-              <p className="text-sm text-gray-400 mt-2">
-                {language === 'en' ? 'Secure employee time tracking system' : 'Sicheres Mitarbeiter-Zeiterfassungssystem'}
-              </p>
+          <div className="bg-forest-900 rounded-lg overflow-hidden mb-12 border border-brown-700">
+            <div className="relative w-full h-96">
+              <Image
+                src={projectImage}
+                alt="QR-Code Scanner Station"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
           </div>
 
