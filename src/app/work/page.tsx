@@ -15,7 +15,7 @@ export default function Work() {
       description: t.work.project2.description,
       technologies: ["SvelteKit", "JavaScript", "Node.js", "AI Integration"],
       status: "Finished",
-      image: "/docs/gps-spoofing-tool/logoDKWDP.png",
+      image: "/images/coderdojo-webapp/logo.png",
       category: "education"
     },
     {
@@ -24,7 +24,7 @@ export default function Work() {
       description: t.work.project3.description,
       technologies: ["React Native", "AWS", "Node.js", "SQLite"],
       status: "In Development",
-      image: "/images/projects/qr-scanner-placeholder.jpg",
+      image: "/images/qr-code-scanner/qr-code-station.png",
       category: "mobile"
     },
     {
@@ -33,14 +33,14 @@ export default function Work() {
       description: t.work.project1.description,
       technologies: ["JavaFX", "LimeSDR", "Java"],
       status: "Finished",
-      image: "/images/projects/gps-tool-placeholder.jpg",
+      image: "",
       category: "security"
     },
     {
       id: "project4",
       title: t.work.project4.title,
       description: t.work.project4.description,
-      technologies: ["Tech1", "Tech2", "Tech3"],
+      technologies: ["Tectetsts", "Tech2", "Tech3"],
       status: "Finished",
       image: "/images/projects/placeholder.jpg",
       category: "web"
@@ -93,7 +93,6 @@ export default function Work() {
           </p>
         </div>
 
-        {/* Projects Section */}
         <section className="mb-20">
           <h2 className="text-3xl font-bold text-white mb-12 text-center">
             {t.work.projects}
@@ -105,18 +104,18 @@ export default function Work() {
                 className="group bg-white dark:bg-forest-900 rounded-xl overflow-hidden hover:bg-gray-50 dark:hover:bg-brown-800 transition-all duration-500 border border-gray-200 dark:border-brown-700 hover:shadow-2xl hover:shadow-gray-300/30 dark:hover:shadow-brown-900/30 cursor-pointer transform hover:-translate-y-2"
                 onClick={() => window.location.href = `/projects/${project.id}`}
               >
-                {/* Project Image */}
-                <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-800">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  {/* Minimal overlay - only for badge readability */}
+                <div className="relative h-64 overflow-hidden bg-gray-100 dark:bg-gray-800">
+                  {project.image && (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-black/5 dark:bg-black/20 z-10"></div>
                   
-                  {/* Status Badge */}
                   <div className="absolute top-4 right-4 z-20">
                     <span className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-md shadow-lg ${
                       project.status === 'Live' 
@@ -134,7 +133,6 @@ export default function Work() {
                   </div>
                 </div>
 
-                {/* Project Content */}
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-gray-700 dark:group-hover:text-brown-200 transition-colors">
                     {project.title}
@@ -167,7 +165,6 @@ export default function Work() {
           </div>
         </section>
 
-        {/* Experience & Education Section */}
         <section>
           <h2 className="text-3xl font-bold text-white mb-12 text-center">
             {t.work.experience}

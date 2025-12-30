@@ -9,12 +9,7 @@ export default function ThemeToggle() {
   useEffect(() => {
     setMounted(true)
     const savedTheme = localStorage.getItem('theme')
-    // Default to dark mode if no saved preference
     const isDarkMode = savedTheme ? savedTheme === 'dark' : true
-    
-    console.log('=== THEME INITIALIZATION ===')
-    console.log('Saved theme:', savedTheme)
-    console.log('Initial isDarkMode:', isDarkMode)
     
     setIsDark(isDarkMode)
     
@@ -22,39 +17,25 @@ export default function ThemeToggle() {
       document.documentElement.classList.remove('light')
       document.documentElement.classList.add('dark')
       if (!savedTheme) localStorage.setItem('theme', 'dark')
-      console.log('Applied DARK mode classes')
     } else {
       document.documentElement.classList.remove('dark')
       document.documentElement.classList.add('light')
-      console.log('Applied LIGHT mode classes')
     }
-    
-    console.log('Current HTML classes:', document.documentElement.className)
-    console.log('=== END THEME INIT ===')
   }, [])
 
   const toggleTheme = () => {
     const newIsDark = !isDark
     setIsDark(newIsDark)
     
-    console.log('=== THEME TOGGLE ===')
-    console.log('Switching from:', isDark ? 'dark' : 'light')
-    console.log('Switching to:', newIsDark ? 'dark' : 'light')
-    
     if (newIsDark) {
       document.documentElement.classList.remove('light')
       document.documentElement.classList.add('dark')
       localStorage.setItem('theme', 'dark')
-      console.log('✅ Switched to Dark Mode')
     } else {
       document.documentElement.classList.remove('dark')
       document.documentElement.classList.add('light')
       localStorage.setItem('theme', 'light')
-      console.log('☀️ Switched to Light Mode')
     }
-    
-    console.log('New HTML classes:', document.documentElement.className)
-    console.log('=== END TOGGLE ===')
   }
 
   if (!mounted) {

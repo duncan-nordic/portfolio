@@ -3,44 +3,14 @@
 import Link from 'next/link'
 import { useLanguage } from '@/components/LanguageToggle'
 import { translations } from '@/lib/translations'
-import { useEffect } from 'react'
 
 export default function Home() {
   const { language } = useLanguage()
   const t = translations[language]
 
-  useEffect(() => {
-    console.log('=== PAGE COMPONENT DEBUG ===')
-    console.log('Current HTML class:', document.documentElement.className)
-    console.log('Current language:', language)
-    
-    // Check if light mode styles are being applied
-    const body = document.body
-    const bodyStyles = window.getComputedStyle(body)
-    const isLightMode = document.documentElement.classList.contains('light')
-    
-    console.log('Is Light Mode:', isLightMode)
-    console.log('Body background:', bodyStyles.backgroundColor)
-    console.log('Body color:', bodyStyles.color)
-    
-    if (isLightMode) {
-      console.log('🌞 LIGHT MODE COLORS:')
-      console.log('- Background should be: #F3EFE0 (beige-white)')
-      console.log('- Text should be: #5A5144 (warm brown, not harsh green)')
-      console.log('- Accent should be: #8B5E3C (medium brown)')
-    } else {
-      console.log('🌙 DARK MODE COLORS:')
-      console.log('- Background should be dark forest green')
-      console.log('- Text should be white')
-    }
-    console.log('=== END PAGE DEBUG ===')
-  }, [language])
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-forest-800 to-forest-950">
-      {/* Hero Section */}
       <section className="container mx-auto px-6 py-20 relative">
-        {/* Subtle elegant side accents */}
         <div className="absolute left-0 top-20 bottom-20 w-px bg-gradient-to-b from-transparent via-brown-600 to-transparent opacity-30"></div>
         <div className="absolute right-0 top-20 bottom-20 w-px bg-gradient-to-b from-transparent via-brown-600 to-transparent opacity-30"></div>
         
@@ -71,7 +41,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
       <section className="container mx-auto px-6 py-16 relative">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white elegant-spacing">
@@ -88,19 +57,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills Preview */}
       <section className="container mx-auto px-6 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-white">
             {t.home.technologies}
           </h2>
           
-          {/* Animated Tech Stack Carousel */}
           <div className="space-y-6 overflow-hidden mask-gradient">
-            {/* First Row - Left to Right */}
             <div className="flex overflow-hidden">
               <div className="animate-scroll-left">
-                {Array.from({ length: 6 }, (_, setIndex) => (
+                {Array.from({ length: 3 }, (_, setIndex) => (
                   <div key={`top-${setIndex}`} className="flex mr-6" style={{ gap: '32px' }}>
                     {['JavaScript', 'Laravel', 'SvelteKit', 'React Native', 'Node.js', 'PHP', 'SQL', 'Expo', 'AWS'].map((skill, index) => (
                       <div
@@ -116,12 +82,11 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Second Row - Right to Left */}
             <div className="flex overflow-hidden">
               <div className="animate-scroll-right">
-                {Array.from({ length: 6 }, (_, setIndex) => (
+                {Array.from({ length: 3 }, (_, setIndex) => (
                   <div key={`bottom-${setIndex}`} className="flex mr-6" style={{ gap: '32px' }}>
-                    {['TypeScript', 'Python', 'Docker', 'Git', 'Linux', 'MySQL', 'MongoDB', 'Redis', 'GraphQL'].map((skill, index) => (
+                    {['TypeScript', 'Python', 'Git', 'Linux', 'MySQL', 'MongoDB'].map((skill, index) => (
                       <div
                         key={`${setIndex}-${index}`}
                         className="tech-badge bg-forest-900 px-8 py-4 rounded-xl text-center border border-brown-700 whitespace-nowrap flex-shrink-0"
