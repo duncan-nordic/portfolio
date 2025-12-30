@@ -1,9 +1,9 @@
 'use client'
 
+import Link from 'next/link'
 import { useLanguage } from '@/components/LanguageToggle'
 import { translations } from '@/lib/translations'
 import { useState } from 'react'
-import Image from 'next/image'
 
 export default function QRCodeScanner() {
   const { language } = useLanguage()
@@ -28,7 +28,7 @@ export default function QRCodeScanner() {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           {/* Back Button */}
-          <a
+          <Link
             href="/work"
             className="inline-flex items-center text-brown-400 hover:text-brown-300 mb-8"
           >
@@ -36,7 +36,7 @@ export default function QRCodeScanner() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             {language === 'en' ? 'Back to Work' : 'Zurück zur Arbeit'}
-          </a>
+          </Link>
 
           {/* Project Header */}
           <div className="mb-12">
@@ -74,14 +74,13 @@ export default function QRCodeScanner() {
             <div className="text-center">
               <div className="w-full max-w-3xl h-[36rem] mx-auto mb-6 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity">
                 <div 
-                  className="w-full h-full flex items-center justify-center relative"
+                  className="w-full h-full flex items-center justify-center"
                   onClick={nextImage}
                 >
-                  <Image 
+                  <img 
                     src={images[currentImageIndex].src}
                     alt={images[currentImageIndex].alt}
-                    fill
-                    className="object-contain rounded-lg"
+                    className="w-full h-full object-contain rounded-lg"
                   />
                 </div>
               </div>
