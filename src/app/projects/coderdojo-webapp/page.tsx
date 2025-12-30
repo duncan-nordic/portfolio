@@ -72,7 +72,7 @@ export default function CoderDojoWebapp() {
             <div className="text-center">
               <div className="w-full max-w-3xl h-[36rem] mx-auto mb-6 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity">
                 <div 
-                  className={`${images[currentImageIndex].size} flex items-center justify-center`}
+                  className="w-full h-full flex items-center justify-center"
                   onClick={nextImage}
                 >
                   <img 

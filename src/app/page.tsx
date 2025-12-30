@@ -86,7 +86,7 @@ export default function Home() {
               <div className="animate-scroll-right">
                 {Array.from({ length: 3 }, (_, setIndex) => (
                   <div key={`bottom-${setIndex}`} className="flex mr-6" style={{ gap: '32px' }}>
-                    {['TypeScript', 'Python', 'Docker', 'Git', 'Linux', 'MySQL', 'MongoDB', 'Redis', 'GraphQL'].map((skill, index) => (
+                    {['TypeScript', 'Python', 'Git', 'Linux', 'MySQL', 'MongoDB'].map((skill, index) => (
                       <div
                         key={`${setIndex}-${index}`}
                         className="tech-badge bg-forest-900 px-8 py-4 rounded-xl text-center border border-brown-700 whitespace-nowrap flex-shrink-0"
