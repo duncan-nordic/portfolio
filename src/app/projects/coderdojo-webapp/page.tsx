@@ -3,6 +3,7 @@
 import { useLanguage } from '@/components/LanguageToggle'
 import { translations } from '@/lib/translations'
 import { useState } from 'react'
+import Image from 'next/image'
 
 export default function CoderDojoWebapp() {
   const { language } = useLanguage()
@@ -42,7 +43,7 @@ export default function CoderDojoWebapp() {
               {language === 'en' ? 'CoderDojo Webapp' : 'CoderDojo Webapp'}
             </h1>
             <h2 className="text-2xl md:text-3xl font-semibold text-brown-400 mb-6">
-              "Der kleine Weg des Programmierens"
+              &quot;Der kleine Weg des Programmierens&quot;
             </h2>
             <p className="text-xl text-gray-200 mb-8">
               {language === 'en' 
@@ -72,13 +73,14 @@ export default function CoderDojoWebapp() {
             <div className="text-center">
               <div className="w-full max-w-3xl h-[36rem] mx-auto mb-6 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity">
                 <div 
-                  className="w-full h-full flex items-center justify-center"
+                  className="w-full h-full flex items-center justify-center relative"
                   onClick={nextImage}
                 >
-                  <img 
+                  <Image 
                     src={images[currentImageIndex].src}
                     alt={images[currentImageIndex].alt}
-                    className="w-full h-full object-contain rounded-lg"
+                    fill
+                    className="object-contain rounded-lg"
                   />
                 </div>
               </div>

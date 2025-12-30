@@ -2,13 +2,26 @@
 
 import { useLanguage } from '@/components/LanguageToggle'
 import { translations } from '@/lib/translations'
+import { useState } from 'react'
 import Image from 'next/image'
 
 export default function QRCodeScanner() {
   const { language } = useLanguage()
   const t = translations[language]
 
-  const projectImage = "/images/qr-code-scanner/qr-code-station.png"
+  // Image gallery state
+  const images = [
+    { src: '/images/qr-code-scanner/qr-code-station.png', alt: 'QR-Code Scanner Station', title: 'Scanner Station' },
+    { src: '/images/qr-code-scanner/app-login.png', alt: 'App Login Screen', title: 'Login Screen' },
+    { src: '/images/qr-code-scanner/app-scan.png', alt: 'QR Scanner Interface', title: 'Scanner Interface' },
+    { src: '/images/qr-code-scanner/admin-dashboard.png', alt: 'Admin Dashboard', title: 'Admin Dashboard' },
+  ]
+  
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length)
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-forest-800 to-forest-950 py-20">
@@ -56,15 +69,46 @@ export default function QRCodeScanner() {
             </div>
           </div>
 
-          <div className="bg-forest-900 rounded-lg overflow-hidden mb-12 border border-brown-700">
-            <div className="relative w-full h-[28rem]">
-              <Image
-                src={projectImage}
-                alt="QR-Code Scanner Station"
-                fill
-                className="object-contain"
-                priority
-              />
+          {/* Interactive Image Gallery */}
+          <div className="bg-forest-900 rounded-lg p-8 mb-12 border border-brown-700">
+            <div className="text-center">
+              <div className="w-full max-w-3xl h-[36rem] mx-auto mb-6 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity">
+                <div 
+                  className="w-full h-full flex items-center justify-center relative"
+                  onClick={nextImage}
+                >
+                  <Image 
+                    src={images[currentImageIndex].src}
+                    alt={images[currentImageIndex].alt}
+                    fill
+                    className="object-contain rounded-lg"
+                  />
+                </div>
+              </div>
+              <p className="text-gray-300 mb-2">
+                {language === 'en' ? 'QR-Code Working Hours System' : 'QR-Code Arbeitszeiterfassung'}
+              </p>
+              <p className="text-sm text-brown-400 mb-2">
+                {images[currentImageIndex].title}
+              </p>
+              <p className="text-xs text-gray-500">
+                {language === 'en' ? 'Click image to view next screenshot' : 'Klicke auf das Bild für den nächsten Screenshot'}
+              </p>
+              
+              {/* Image indicators */}
+              <div className="flex justify-center space-x-2 mt-4">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-colors ${
+                      index === currentImageIndex 
+                        ? 'bg-brown-400' 
+                        : 'bg-brown-700 hover:bg-brown-600'
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
