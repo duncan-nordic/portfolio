@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { useLanguage } from '@/components/LanguageToggle'
 import { translations } from '@/lib/translations'
 import Image from 'next/image'
@@ -7,6 +8,7 @@ import Image from 'next/image'
 export default function Work() {
   const { language } = useLanguage()
   const t = translations[language]
+  const router = useRouter()
 
   const projects = [
     {
@@ -102,7 +104,7 @@ export default function Work() {
               <div
                 key={index}
                 className="group bg-white dark:bg-forest-900 rounded-xl overflow-hidden hover:bg-gray-50 dark:hover:bg-brown-800 transition-all duration-500 border border-gray-200 dark:border-brown-700 hover:shadow-2xl hover:shadow-gray-300/30 dark:hover:shadow-brown-900/30 cursor-pointer transform hover:-translate-y-2"
-                onClick={() => window.location.href = `/projects/${project.id}`}
+                onClick={() => router.push(`/projects/${project.id}`)}
               >
                 <div className="relative h-64 overflow-hidden bg-gray-100 dark:bg-gray-800">
                   {project.image && (

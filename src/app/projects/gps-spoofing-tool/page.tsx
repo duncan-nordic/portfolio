@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useLanguage } from '@/components/LanguageToggle'
 import { translations } from '@/lib/translations'
 
@@ -12,7 +13,7 @@ export default function GPSSpoofingTool() {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           {/* Back Button */}
-          <a
+          <Link
             href="/work"
             className="inline-flex items-center text-brown-400 hover:text-brown-300 mb-8"
           >
@@ -20,7 +21,7 @@ export default function GPSSpoofingTool() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             {language === 'en' ? 'Back to Work' : 'Zurück zur Arbeit'}
-          </a>
+          </Link>
 
           {/* Project Header */}
           <div className="mb-12">
