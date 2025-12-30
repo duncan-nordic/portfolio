@@ -54,13 +54,13 @@ body {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-100%);
+      transform: translateX(-33.333%);
     }
   }
   
   @keyframes scroll-right {
     0% {
-      transform: translateX(-100%);
+      transform: translateX(-33.333%);
     }
     100% {
       transform: translateX(0);
@@ -70,13 +70,11 @@ body {
   .animate-scroll-left {
     animation: scroll-left 60s linear infinite;
     display: flex;
-    width: 300%;
   }
   
   .animate-scroll-right {
     animation: scroll-right 70s linear infinite;
     display: flex;
-    width: 300%;
   }
   
   .mask-gradient {
