@@ -84,7 +84,7 @@ export default function Home() {
             
             <div className="flex overflow-hidden">
               <div className="animate-scroll-right">
-                {Array.from({ length: 3 }, (_, setIndex) => (
+                {Array.from({ length: 5 }, (_, setIndex) => (
                   <div key={`bottom-${setIndex}`} className="flex mr-6" style={{ gap: '32px' }}>
                     {['TypeScript', 'Python', 'Git', 'Linux', 'MySQL', 'MongoDB'].map((skill, index) => (
                       <div
