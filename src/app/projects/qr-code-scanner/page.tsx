@@ -9,12 +9,14 @@ export default function QRCodeScanner() {
   const { language } = useLanguage()
   const t = translations[language]
 
+  const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : ''
+
   // Image gallery state
   const images = [
-    { src: '/images/qr-code-scanner/qr-code-station.png', alt: 'QR-Code Scanner Station', title: 'Scanner Station' },
-    { src: '/images/qr-code-scanner/app-login.png', alt: 'App Login Screen', title: 'Login Screen' },
-    { src: '/images/qr-code-scanner/app-scan.png', alt: 'QR Scanner Interface', title: 'Scanner Interface' },
-    { src: '/images/qr-code-scanner/admin-dashboard.png', alt: 'Admin Dashboard', title: 'Admin Dashboard' },
+    { src: `${basePath}/images/qr-code-scanner/qr-code-station.png`, alt: 'QR-Code Scanner Station', title: 'Scanner Station' },
+    { src: `${basePath}/images/qr-code-scanner/app-login.png`, alt: 'App Login Screen', title: 'Login Screen' },
+    { src: `${basePath}/images/qr-code-scanner/app-scan.png`, alt: 'QR Scanner Interface', title: 'Scanner Interface' },
+    { src: `${basePath}/images/qr-code-scanner/admin-dashboard.png`, alt: 'Admin Dashboard', title: 'Admin Dashboard' },
   ]
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0)

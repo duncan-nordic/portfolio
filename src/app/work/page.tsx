@@ -10,6 +10,8 @@ export default function Work() {
   const t = translations[language]
   const router = useRouter()
 
+  const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : ''
+
   const projects = [
     {
       id: "coderdojo-webapp", 
@@ -17,7 +19,7 @@ export default function Work() {
       description: t.work.project2.description,
       technologies: ["SvelteKit", "JavaScript", "Node.js", "AI Integration"],
       status: "Finished",
-      image: "/images/coderdojo-webapp/logo.png",
+      image: `${basePath}/images/coderdojo-webapp/logo.png`,
       category: "education"
     },
     {
@@ -26,7 +28,7 @@ export default function Work() {
       description: t.work.project3.description,
       technologies: ["React Native", "AWS", "Node.js", "SQLite"],
       status: "In Development",
-      image: "/images/qr-code-scanner/qr-code-station.png",
+      image: `${basePath}/images/qr-code-scanner/qr-code-station.png`,
       category: "mobile"
     },
     {
@@ -44,7 +46,7 @@ export default function Work() {
       description: t.work.project4.description,
       technologies: ["Tectetsts", "Tech2", "Tech3"],
       status: "Finished",
-      image: "/images/projects/placeholder.jpg",
+      image: `${basePath}/images/projects/placeholder.jpg`,
       category: "web"
     },
     {
@@ -53,7 +55,7 @@ export default function Work() {
       description: t.work.project5.description,
       technologies: ["Tech1", "Tech2", "Tech3"],
       status: "In Development",
-      image: "/images/projects/placeholder.jpg",
+      image: `${basePath}/images/projects/placeholder.jpg`,
       category: "app"
     }
   ]

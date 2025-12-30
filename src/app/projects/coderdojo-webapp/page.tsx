@@ -9,11 +9,13 @@ export default function CoderDojoWebapp() {
   const { language } = useLanguage()
   const t = translations[language]
 
+  const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : ''
+
   // Image gallery state
   const images = [
-    { src: '/docs/gps-spoofing-tool/logoDKWDP.png', alt: 'DKWDP Logo', title: 'Logo' },
-    { src: '/docs/gps-spoofing-tool/homescreen.png', alt: 'Homepage Screenshot', title: 'Homepage' },
-    { src: '/docs/gps-spoofing-tool/Map.png', alt: 'Level Map Screenshot', title: 'Level Map' }
+    { src: `${basePath}/docs/gps-spoofing-tool/logoDKWDP.png`, alt: 'DKWDP Logo', title: 'Logo' },
+    { src: `${basePath}/docs/gps-spoofing-tool/homescreen.png`, alt: 'Homepage Screenshot', title: 'Homepage' },
+    { src: `${basePath}/docs/gps-spoofing-tool/Map.png`, alt: 'Level Map Screenshot', title: 'Level Map' }
   ]
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
