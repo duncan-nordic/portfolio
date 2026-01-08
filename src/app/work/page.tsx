@@ -27,7 +27,7 @@ export default function Work() {
       title: t.work.project3.title,
       description: t.work.project3.description,
       technologies: ["React Native", "AWS", "Node.js", "SQLite"],
-      status: "In Development",
+      status: "Finished",
       image: `${basePath}/images/qr-code-scanner/qr-code-station.png`,
       category: "mobile"
     },
@@ -54,7 +54,7 @@ export default function Work() {
       title: t.work.project5.title,
       description: t.work.project5.description,
       technologies: ["Tech1", "Tech2", "Tech3"],
-      status: "In Development",
+      status: "Finished",
       image: `${basePath}/images/projects/placeholder.jpg`,
       category: "app"
     }
