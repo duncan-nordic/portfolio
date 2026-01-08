@@ -73,17 +73,12 @@ export default function CoderDojoWebapp() {
           {/* Interactive Image Gallery */}
           <div className="bg-forest-900 rounded-lg p-8 mb-12 border border-brown-700">
             <div className="text-center">
-              <div className="w-full max-w-3xl h-[36rem] mx-auto mb-6 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity">
-                <div 
-                  className="w-full h-full flex items-center justify-center"
-                  onClick={nextImage}
-                >
-                  <img 
-                    src={images[currentImageIndex].src}
-                    alt={images[currentImageIndex].alt}
-                    className="w-full h-full object-contain rounded-lg"
-                  />
-                </div>
+              <div className="w-full max-w-3xl mx-auto mb-6 cursor-pointer hover:opacity-80 transition-opacity" onClick={nextImage}>
+                <img 
+                  src={images[currentImageIndex].src}
+                  alt={images[currentImageIndex].alt}
+                  className="w-auto max-h-[600px] mx-auto object-contain rounded-lg"
+                />
               </div>
               <p className="text-gray-300 mb-2">
                 Der kleine Weg des Programmierens

@@ -14,9 +14,8 @@ export default function QRCodeScanner() {
   // Image gallery state
   const images = [
     { src: `${basePath}/images/qr-code-scanner/qr-code-station.png`, alt: 'QR-Code Scanner Station', title: 'Scanner Station' },
-    { src: `${basePath}/images/qr-code-scanner/app-login.png`, alt: 'App Login Screen', title: 'Login Screen' },
-    { src: `${basePath}/images/qr-code-scanner/app-scan.png`, alt: 'QR Scanner Interface', title: 'Scanner Interface' },
-    { src: `${basePath}/images/qr-code-scanner/admin-dashboard.png`, alt: 'Admin Dashboard', title: 'Admin Dashboard' },
+    { src: `${basePath}/images/qr-code-scanner/login-screen.png`, alt: 'App Login Screen', title: 'Login Screen' },
+    { src: `${basePath}/images/qr-code-scanner/scanner-interface.png`, alt: 'QR Scanner Interface', title: 'Scanner Interface' },
   ]
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -74,17 +73,12 @@ export default function QRCodeScanner() {
           {/* Interactive Image Gallery */}
           <div className="bg-forest-900 rounded-lg p-8 mb-12 border border-brown-700">
             <div className="text-center">
-              <div className="w-full max-w-3xl h-[36rem] mx-auto mb-6 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity">
-                <div 
-                  className="w-full h-full flex items-center justify-center"
-                  onClick={nextImage}
-                >
-                  <img 
-                    src={images[currentImageIndex].src}
-                    alt={images[currentImageIndex].alt}
-                    className="w-full h-full object-contain rounded-lg"
-                  />
-                </div>
+              <div className="w-full max-w-3xl mx-auto mb-6 cursor-pointer hover:opacity-80 transition-opacity" onClick={nextImage}>
+                <img 
+                  src={images[currentImageIndex].src}
+                  alt={images[currentImageIndex].alt}
+                  className="w-auto max-h-[600px] mx-auto object-contain rounded-lg"
+                />
               </div>
               <p className="text-gray-300 mb-2">
                 {language === 'en' ? 'QR-Code Working Hours System' : 'QR-Code Arbeitszeiterfassung'}
