@@ -78,46 +78,46 @@ export default function Work() {
       detailSections: language === 'en' 
         ? [
             {
-              heading: 'Main Responsibilities',
-              content: 'IT support and user assistance for all departments. Setup, maintenance, and documentation of work devices (laptops, desktops, monitors). Inventory management using an internal hardware management system. Development and deployment of company-wide software solutions.'
+              heading: 'Responsibilities',
+              content: 'Provided IT support and troubleshooting across all company departments. Set up, configured, and maintained work devices including laptops, desktops, and monitors. Managed hardware inventory through internal tracking system. Developed and deployed internal software solutions for various operational needs.'
             },
             {
-              heading: 'Major Project: QR-Code Time Tracking System',
-              content: 'Developed a comprehensive time tracking system for 400+ employees during peak season. Built as Progressive Web App (PWA) with React, TypeScript, and Vite. Backend with Node.js, Express.js, and SQLite. Features include JWT authentication, real-time check-in/check-out via QR scanning, location-based validation, device binding, and 24/7 operation on AWS infrastructure. Successfully deployed in December 2025 during high season.'
+              heading: 'QR-Code Time Tracking System',
+              content: 'Designed and built a full-stack time tracking system handling 400+ employees during peak season. Progressive Web App using React, TypeScript, and Vite for the frontend. Backend built with Node.js, Express.js, and SQLite for data persistence. Implemented JWT authentication, real-time QR code scanning with location-based validation, and device binding for security. Deployed on AWS Lightsail and operational 24/7 since December 2025.'
             },
             {
-              heading: 'Technologies & Tools',
-              content: 'Frontend: React, TypeScript, Vite, Tailwind CSS, PWA | Backend: Node.js, Express.js, PHP, Laravel | Database: SQLite, MySQL | Infrastructure: AWS Lightsail, GitHub, Cloudflare | CMS: WordPress | Authentication: JWT | Additional: Rate limiting, session management, API integration'
+              heading: 'Tech Stack',
+              content: 'React • TypeScript • Vite • Tailwind CSS • Node.js • Express.js • SQLite • PHP • Laravel • AWS Lightsail • GitHub • Cloudflare'
             },
             {
-              heading: 'Additional Projects',
-              content: 'Voting System: Web-based internal voting platform with ranked-choice voting, admin panel, and real-time results. Hardware Management System: Maintenance and development of device tracking system using Laravel/PHP. Apartment Management System: Bug fixes and improvements for employee housing administration.'
+              heading: 'Other Projects',
+              content: 'Voting System: Developed an internal voting platform supporting ranked-choice voting (first, second, third choices) with a dedicated admin panel for managing candidates and viewing real-time results. Built with Node.js and SQLite. Hardware Management System: Maintained and enhanced the device tracking system built with Laravel/PHP, handling inventory for hundreds of devices. Apartment Management System: Took over and debugged an existing employee housing administration system, fixing critical issues after the previous developer left.'
             },
             {
-              heading: 'Skills & Experience Gained',
-              content: 'Full-stack development in production environment. System architecture and database design. Working with 6+ departments (HR, Operations, Sales, Marketing, Booking, Guides). Project management under tight deadlines. User experience design and stakeholder communication. 24/7 system reliability and maintenance. Problem-solving in high-pressure situations with 400+ active users.'
+              heading: 'Key Experience',
+              content: 'Full-stack development in production environment for a company with 400 employees. Designed system architecture and database schemas from scratch. Collaborated with 6+ departments including HR, Operations, Sales, Marketing, Booking, and Guides. Managed projects under tight deadlines with iterative development based on user feedback. Deployed company-wide applications ensuring 24/7 system reliability.'
             }
           ]
         : [
             {
-              heading: 'Hauptaufgaben',
-              content: 'IT-Support und Anwenderbetreuung für alle Abteilungen. Einrichtung, Wartung und Dokumentation von Arbeitsgeräten (Laptops, Desktops, Monitore). Inventarverwaltung über internes Hardware-Verwaltungssystem. Entwicklung und Bereitstellung unternehmensweiter Softwarelösungen.'
+              heading: 'Aufgaben',
+              content: 'IT-Support und Fehlerbehebung für alle Abteilungen des Unternehmens. Einrichtung, Konfiguration und Wartung von Arbeitsgeräten wie Laptops, Desktops und Monitoren. Hardware-Inventarverwaltung über internes Tracking-System. Entwicklung und Bereitstellung interner Softwarelösungen für verschiedene betriebliche Anforderungen.'
             },
             {
-              heading: 'Großprojekt: QR-Code Zeiterfassungssystem',
-              content: 'Entwicklung eines umfassenden Zeiterfassungssystems für 400+ Mitarbeiter während der Hochsaison. Realisiert als Progressive Web App (PWA) mit React, TypeScript und Vite. Backend mit Node.js, Express.js und SQLite. Features: JWT-Authentifizierung, Echtzeit Check-in/Check-out via QR-Scan, standortbasierte Validierung, Gerätebindung und 24/7-Betrieb auf AWS-Infrastruktur. Erfolgreich im Dezember 2025 während der Hochsaison in Betrieb genommen.'
+              heading: 'QR-Code Zeiterfassungssystem',
+              content: 'Full-Stack Zeiterfassungssystem für 400+ Mitarbeiter während der Hochsaison entwickelt. Progressive Web App mit React, TypeScript und Vite im Frontend. Backend mit Node.js, Express.js und SQLite für Datenpersistenz. JWT-Authentifizierung, Echtzeit QR-Code-Scan mit standortbasierter Validierung und Gerätebindung implementiert. Auf AWS Lightsail deployed und seit Dezember 2025 rund um die Uhr im Einsatz.'
             },
             {
-              heading: 'Technologien & Tools',
-              content: 'Frontend: React, TypeScript, Vite, Tailwind CSS, PWA | Backend: Node.js, Express.js, PHP, Laravel | Datenbank: SQLite, MySQL | Infrastruktur: AWS Lightsail, GitHub, Cloudflare | CMS: WordPress | Authentifizierung: JWT | Zusätzlich: Rate Limiting, Session Management, API-Integration'
+              heading: 'Tech Stack',
+              content: 'React • TypeScript • Vite • Tailwind CSS • Node.js • Express.js • SQLite • PHP • Laravel • AWS Lightsail • GitHub • Cloudflare'
             },
             {
               heading: 'Weitere Projekte',
-              content: 'Voting-System: Webbasierte interne Abstimmungsplattform mit Erst-/Zweit-/Drittwahl, Admin-Panel und Echtzeit-Ergebnissen. Hardware-Verwaltungssystem: Wartung und Weiterentwicklung des Geräte-Tracking-Systems mit Laravel/PHP. Apartment-Verwaltungssystem: Fehlerbehebung und Verbesserungen für Mitarbeiter-Wohnungsverwaltung.'
+              content: 'Voting-System: Interne Abstimmungsplattform mit Erst-/Zweit-/Drittwahl-Unterstützung entwickelt, inklusive Admin-Panel zur Verwaltung von Kandidaten und Echtzeit-Ergebnisanzeige. Mit Node.js und SQLite gebaut. Hardware-Verwaltungssystem: Wartung und Erweiterung des Geräte-Tracking-Systems mit Laravel/PHP für hunderte Geräte. Apartment-Verwaltungssystem: Übernahme und Fehlerbehebung eines bestehenden Wohnungsverwaltungssystems für Mitarbeiter nach Ausscheiden des vorherigen Entwicklers.'
             },
             {
-              heading: 'Erworbene Fähigkeiten & Erfahrungen',
-              content: 'Full-Stack-Entwicklung in Produktivumgebung. Systemarchitektur und Datenbank-Design. Zusammenarbeit mit 6+ Departments (HR, Operations, Sales, Marketing, Booking, Guides). Projektmanagement unter engen Deadlines. User Experience Design und Stakeholder-Kommunikation. 24/7-Systemzuverlässigkeit und Wartung. Problemlösung in Hochdrucksituationen mit 400+ aktiven Nutzern.'
+              heading: 'Kernerfahrung',
+              content: 'Full-Stack-Entwicklung in Produktivumgebung für ein Unternehmen mit 400 Mitarbeitern. Systemarchitektur und Datenbank-Schemas von Grund auf konzipiert. Zusammenarbeit mit 6+ Abteilungen: HR, Operations, Sales, Marketing, Booking und Guides. Projektmanagement unter engen Deadlines mit iterativer Entwicklung basierend auf User-Feedback. Firmenweit bereitgestellte Anwendungen mit 24/7-Systemzuverlässigkeit.'
             }
           ]
     }
