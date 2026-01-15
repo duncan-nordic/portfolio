@@ -71,13 +71,13 @@ export default function CoderDojoWebapp() {
           </div>
 
           {/* Interactive Image Gallery */}
-          <div className="bg-forest-900 rounded-lg p-8 mb-12 border border-brown-700">
+          <div className="mb-12">
             <div className="text-center">
-              <div className="w-full max-w-3xl mx-auto mb-6 cursor-pointer hover:opacity-80 transition-opacity" onClick={nextImage}>
+              <div className="max-w-3xl mx-auto mb-4 cursor-pointer hover:opacity-80 transition-opacity" onClick={nextImage}>
                 <img 
                   src={images[currentImageIndex].src}
                   alt={images[currentImageIndex].alt}
-                  className="w-auto max-h-[600px] mx-auto object-contain rounded-lg"
+                  className="w-auto max-h-[600px] mx-auto object-contain rounded-lg border-2 border-brown-500"
                 />
               </div>
               <p className="text-gray-300 mb-2">
@@ -86,17 +86,21 @@ export default function CoderDojoWebapp() {
               <p className="text-sm text-brown-400 mb-2">
                 {images[currentImageIndex].title}
               </p>
-              <p className="text-xs text-gray-500">
+            </div>
+            
+            {/* Image navigation */}
+            <div className="text-center mt-4">
+              <p className="text-xs text-gray-500 mb-3">
                 {language === 'en' ? 'Click image to view next screenshot' : 'Klicke auf das Bild für den nächsten Screenshot'}
               </p>
               
               {/* Image indicators */}
-              <div className="flex justify-center space-x-2 mt-4">
+              <div className="flex justify-center space-x-2">
                 {images.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
+                    className={`w-3 h-3 rounded-full transition-colors ${
                       index === currentImageIndex 
                         ? 'bg-brown-400' 
                         : 'bg-brown-700 hover:bg-brown-600'
@@ -108,12 +112,12 @@ export default function CoderDojoWebapp() {
           </div>
 
           {/* Project Details */}
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-16 max-w-7xl mx-auto">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-6">
+              <h2 className="text-3xl font-bold text-white mb-6">
                 {language === 'en' ? 'Overview' : 'Überblick'}
               </h2>
-              <div className="space-y-4 text-gray-200">
+              <div className="space-y-4 text-gray-200 text-lg">
                 <p>
                   {language === 'en' 
                     ? 'This educational web platform was developed as a team project in cooperation with CoderDojo Schöneweide as part of a Bachelor project at HTW Berlin. I worked on the frontend development together with another team member, while the full team consisted of 7 developers.'
@@ -130,7 +134,7 @@ export default function CoderDojoWebapp() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-white mb-6">
+              <h2 className="text-3xl font-bold text-white mb-6">
                 {language === 'en' ? 'Technical Details' : 'Technische Details'}
               </h2>
               <div className="space-y-4">
