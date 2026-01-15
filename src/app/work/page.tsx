@@ -264,17 +264,17 @@ export default function Work() {
                       expandedItem === index ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
                     }`}
                   >
-                    <div className="pt-6 border-t border-brown-600 mt-4">
-                      <h4 className="text-xl font-bold text-brown-300 mb-6">
+                    <div className="pt-6 border-t border-gray-300 dark:border-brown-600 mt-4">
+                      <h4 className="text-xl font-bold text-brown-600 dark:text-brown-300 mb-6">
                         {language === 'en' ? 'Detailed Information' : 'Detaillierte Informationen'}
                       </h4>
                       <div className="space-y-6">
                         {item.detailSections.map((section, idx) => (
-                          <div key={idx} className="bg-forest-950/50 rounded-lg p-5 border border-brown-700/50">
-                            <h5 className="text-lg font-semibold text-brown-400 mb-3">
+                          <div key={idx} className="bg-gray-100 dark:bg-forest-950/50 rounded-lg p-5 border border-gray-300 dark:border-brown-700/50">
+                            <h5 className="text-lg font-semibold text-brown-600 dark:text-brown-400 mb-3">
                               {section.heading}
                             </h5>
-                            <p className="text-gray-300 leading-relaxed">
+                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                               {section.content}
                             </p>
                           </div>
