@@ -4,11 +4,13 @@ import { useRouter } from 'next/navigation'
 import { useLanguage } from '@/components/LanguageToggle'
 import { translations } from '@/lib/translations'
 import Image from 'next/image'
+import { useState } from 'react'
 
 export default function Work() {
   const { language } = useLanguage()
   const t = translations[language]
   const router = useRouter()
+  const [expandedItem, setExpandedItem] = useState<number | null>(null)
 
   const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : ''
 
@@ -65,13 +67,59 @@ export default function Work() {
       title: t.work.education1.title,
       company: t.work.education1.company,
       period: t.work.education1.period,
-      description: t.work.education1.description
+      description: t.work.education1.description,
+      detailSections: null
     },
     {
       title: t.work.work1.title,
       company: t.work.work1.company,
       period: t.work.work1.period,
-      description: t.work.work1.description
+      description: t.work.work1.description,
+      detailSections: language === 'en' 
+        ? [
+            {
+              heading: 'Main Responsibilities',
+              content: 'IT support and user assistance for all departments. Setup, maintenance, and documentation of work devices (laptops, desktops, monitors). Inventory management using an internal hardware management system. Development and deployment of company-wide software solutions.'
+            },
+            {
+              heading: 'Major Project: QR-Code Time Tracking System',
+              content: 'Developed a comprehensive time tracking system for 400+ employees during peak season. Built as Progressive Web App (PWA) with React, TypeScript, and Vite. Backend with Node.js, Express.js, and SQLite. Features include JWT authentication, real-time check-in/check-out via QR scanning, location-based validation, device binding, and 24/7 operation on AWS infrastructure. Successfully deployed in December 2025 during high season.'
+            },
+            {
+              heading: 'Technologies & Tools',
+              content: 'Frontend: React, TypeScript, Vite, Tailwind CSS, PWA | Backend: Node.js, Express.js, PHP, Laravel | Database: SQLite, MySQL | Infrastructure: AWS Lightsail, GitHub, Cloudflare | CMS: WordPress | Authentication: JWT | Additional: Rate limiting, session management, API integration'
+            },
+            {
+              heading: 'Additional Projects',
+              content: 'Voting System: Web-based internal voting platform with ranked-choice voting, admin panel, and real-time results. Hardware Management System: Maintenance and development of device tracking system using Laravel/PHP. Apartment Management System: Bug fixes and improvements for employee housing administration.'
+            },
+            {
+              heading: 'Skills & Experience Gained',
+              content: 'Full-stack development in production environment. System architecture and database design. Working with 6+ departments (HR, Operations, Sales, Marketing, Booking, Guides). Project management under tight deadlines. User experience design and stakeholder communication. 24/7 system reliability and maintenance. Problem-solving in high-pressure situations with 400+ active users.'
+            }
+          ]
+        : [
+            {
+              heading: 'Hauptaufgaben',
+              content: 'IT-Support und Anwenderbetreuung für alle Abteilungen. Einrichtung, Wartung und Dokumentation von Arbeitsgeräten (Laptops, Desktops, Monitore). Inventarverwaltung über internes Hardware-Verwaltungssystem. Entwicklung und Bereitstellung unternehmensweiter Softwarelösungen.'
+            },
+            {
+              heading: 'Großprojekt: QR-Code Zeiterfassungssystem',
+              content: 'Entwicklung eines umfassenden Zeiterfassungssystems für 400+ Mitarbeiter während der Hochsaison. Realisiert als Progressive Web App (PWA) mit React, TypeScript und Vite. Backend mit Node.js, Express.js und SQLite. Features: JWT-Authentifizierung, Echtzeit Check-in/Check-out via QR-Scan, standortbasierte Validierung, Gerätebindung und 24/7-Betrieb auf AWS-Infrastruktur. Erfolgreich im Dezember 2025 während der Hochsaison in Betrieb genommen.'
+            },
+            {
+              heading: 'Technologien & Tools',
+              content: 'Frontend: React, TypeScript, Vite, Tailwind CSS, PWA | Backend: Node.js, Express.js, PHP, Laravel | Datenbank: SQLite, MySQL | Infrastruktur: AWS Lightsail, GitHub, Cloudflare | CMS: WordPress | Authentifizierung: JWT | Zusätzlich: Rate Limiting, Session Management, API-Integration'
+            },
+            {
+              heading: 'Weitere Projekte',
+              content: 'Voting-System: Webbasierte interne Abstimmungsplattform mit Erst-/Zweit-/Drittwahl, Admin-Panel und Echtzeit-Ergebnissen. Hardware-Verwaltungssystem: Wartung und Weiterentwicklung des Geräte-Tracking-Systems mit Laravel/PHP. Apartment-Verwaltungssystem: Fehlerbehebung und Verbesserungen für Mitarbeiter-Wohnungsverwaltung.'
+            },
+            {
+              heading: 'Erworbene Fähigkeiten & Erfahrungen',
+              content: 'Full-Stack-Entwicklung in Produktivumgebung. Systemarchitektur und Datenbank-Design. Zusammenarbeit mit 6+ Departments (HR, Operations, Sales, Marketing, Booking, Guides). Projektmanagement unter engen Deadlines. User Experience Design und Stakeholder-Kommunikation. 24/7-Systemzuverlässigkeit und Wartung. Problemlösung in Hochdrucksituationen mit 400+ aktiven Nutzern.'
+            }
+          ]
     }
   ]
 
@@ -177,13 +225,26 @@ export default function Work() {
             {experienceAndEducation.map((item, index) => (
               <div
                 key={index}
-                className="bg-forest-900 rounded-lg p-6 hover:bg-brown-800 transition-all duration-300 border border-brown-700"
+                className={`bg-forest-900 rounded-lg p-6 hover:bg-brown-800 transition-all duration-300 border border-brown-700 ${item.detailSections ? 'cursor-pointer' : ''}`}
+                onClick={() => item.detailSections && setExpandedItem(expandedItem === index ? null : index)}
               >
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-white">
-                      {item.title}
-                    </h3>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3">
+                      <h3 className="text-xl font-semibold text-white">
+                        {item.title}
+                      </h3>
+                      {item.detailSections && (
+                        <svg 
+                          className={`w-5 h-5 text-brown-400 transition-transform duration-300 ${expandedItem === index ? 'rotate-180' : ''}`} 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      )}
+                    </div>
                     <p className="text-brown-400 font-medium">
                       {item.company}
                     </p>
@@ -192,9 +253,36 @@ export default function Work() {
                     {item.period}
                   </span>
                 </div>
-                <p className="text-gray-200">
+                <p className="text-gray-200 mb-4">
                   {item.description}
                 </p>
+                
+                {/* Expandable Details */}
+                {item.detailSections && (
+                  <div 
+                    className={`overflow-hidden transition-all duration-500 ${
+                      expandedItem === index ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="pt-6 border-t border-brown-600 mt-4">
+                      <h4 className="text-xl font-bold text-brown-300 mb-6">
+                        {language === 'en' ? 'Detailed Information' : 'Detaillierte Informationen'}
+                      </h4>
+                      <div className="space-y-6">
+                        {item.detailSections.map((section, idx) => (
+                          <div key={idx} className="bg-forest-950/50 rounded-lg p-5 border border-brown-700/50">
+                            <h5 className="text-lg font-semibold text-brown-400 mb-3">
+                              {section.heading}
+                            </h5>
+                            <p className="text-gray-300 leading-relaxed">
+                              {section.content}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
