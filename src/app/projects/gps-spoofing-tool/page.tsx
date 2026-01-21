@@ -37,7 +37,7 @@ export default function GPSSpoofingTool() {
             
             {/* Status and Technologies */}
             <div className="flex flex-wrap gap-4 mb-8">
-              <span className="bg-brown-800 text-brown-200 px-3 py-1 rounded-full text-sm font-medium">
+              <span className="bg-brown-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                 {language === 'en' ? 'Finished' : 'Abgeschlossen'}
               </span>
               {["JavaFX", "LimeSDR", "Java"].map((tech) => (

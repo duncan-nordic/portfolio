@@ -43,12 +43,12 @@ export default function Work() {
       category: "security"
     },
     {
-      id: "project4",
+      id: "voting-system",
       title: t.work.project4.title,
       description: t.work.project4.description,
-      technologies: ["Tectetsts", "Tech2", "Tech3"],
+      technologies: ["Node.js", "SQLite", "JavaScript", "Ranked-Choice Voting"],
       status: "Finished",
-      image: `${basePath}/images/projects/placeholder.jpg`,
+      image: `${basePath}/images/voting-system/Voting1.png`,
       category: "web"
     },
     {

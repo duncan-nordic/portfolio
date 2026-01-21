@@ -56,8 +56,8 @@ export default function QRCodeScanner() {
             
             {/* Status and Technologies */}
             <div className="flex flex-wrap gap-4 mb-8">
-              <span className="bg-brown-800 text-brown-200 px-3 py-1 rounded-full text-sm font-medium">
-                {language === 'en' ? 'In Development' : 'In Entwicklung'}
+              <span className="bg-brown-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                {language === 'en' ? 'Finished' : 'Abgeschlossen'}
               </span>
               {["React Native", "AWS", "Node.js", "SQLite"].map((tech) => (
                 <span

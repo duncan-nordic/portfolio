@@ -38,8 +38,8 @@ export const translations = {
         description: 'Enterprise mobile app for employee time tracking with JWT authentication and device-bound security. Supports 400+ employees with company database integration.'
       },
       project4: {
-        title: 'Project Title 4',
-        description: 'Description for project 4 - this is a placeholder that will be updated later with real project details.'
+        title: 'Internal Voting System',
+        description: 'Internal voting platform with ranked-choice voting (first, second, third choices) and dedicated admin panel for managing candidates and viewing real-time results. Built with Node.js and SQLite.'
       },
       project5: {
         title: 'Project Title 5',
@@ -136,8 +136,8 @@ export const translations = {
         description: 'Enterprise Mobile-App für Employee Time Tracking mit JWT-Authentication und device-bound Security. Unterstützt 400+ Employees mit Company Database Integration.'
       },
       project4: {
-        title: 'Projekt Titel 4',
-        description: 'Beschreibung für Projekt 4 - dies ist ein Platzhalter, der später mit echten Projektdetails aktualisiert wird.'
+        title: 'Internes Voting System',
+        description: 'Interne Voting-Plattform mit Ranked-Choice Voting (erste, zweite, dritte Wahl) und dediziertem Admin-Panel zur Verwaltung von Kandidaten und Anzeige von Echtzeit-Ergebnissen. Entwickelt mit Node.js und SQLite.'
       },
       project5: {
         title: 'Projekt Titel 5',
