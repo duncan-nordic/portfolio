@@ -109,7 +109,7 @@ export default function VotingSystem() {
           </div>
             
             {/* Privacy Notice */}
-            <div className="mt-4 bg-brown-100 dark:bg-brown-900/30 border border-brown-300 dark:border-brown-700/50 rounded-lg p-4">
+            <div className="mb-12 bg-brown-100 dark:bg-brown-900/30 border border-brown-300 dark:border-brown-700/50 rounded-lg p-4">
               <p className="text-sm text-brown-700 dark:text-brown-300 italic">
                 {language === 'en'
                   ? '* User names and dates have been anonymized in the screenshots for security reasons.'
@@ -125,17 +125,17 @@ export default function VotingSystem() {
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
                 {language === 'en' ? 'Overview' : 'Überblick'}
               </h2>
-              <div className="text-lg text-gray-700 dark:text-gray-200 space-y-4 leading-relaxed">
+              <div className="space-y-4 text-gray-700 dark:text-gray-200 text-lg">
                 <p>
                   {language === 'en'
-                    ? 'An internal voting system designed to facilitate democratic decision-making processes within organizations. The platform implements ranked-choice voting, allowing users to express their preferences by ranking candidates as their first, second, and third choices.'
-                    : 'Ein internes Voting-System, das entwickelt wurde, um demokratische Entscheidungsprozesse innerhalb von Organisationen zu erleichtern. Die Plattform implementiert Ranked-Choice Voting und ermöglicht es Benutzern, ihre Präferenzen durch die Bewertung von Kandidaten als erste, zweite und dritte Wahl auszudrücken.'
+                    ? 'During my internship, I developed an internal web-based voting system for employees in coordination with the Operations Department supervisor. The goal was to digitally facilitate simple and transparent voting processes within the company and streamline result evaluation.'
+                    : 'Während des Praktikums entwickelte ich, nach Absprache mit dem Supervisor vom Operations-Department, ein internes webbasiertes Voting-System für Mitarbeitende. Ziel war es, einfache und transparente Abstimmungen innerhalb des Unternehmens digital abzubilden und die Auswertung der Ergebnisse zu erleichtern.'
                   }
                 </p>
                 <p>
                   {language === 'en'
-                    ? 'The system features a comprehensive admin panel that enables administrators to manage candidates, monitor voting progress in real-time, and view detailed results after the voting period concludes.'
-                    : 'Das System verfügt über ein umfassendes Admin-Panel, das es Administratoren ermöglicht, Kandidaten zu verwalten, den Voting-Fortschritt in Echtzeit zu überwachen und detaillierte Ergebnisse nach Abschluss der Wahlperiode anzuzeigen.'
+                    ? 'Employees can authenticate via the login area and participate in active voting rounds. The system supports ranked-choice voting where users can submit their first, second, and third choices. Only one vote per voting round is allowed. Admins have access to a dedicated admin panel for managing candidates and voting rounds, as well as evaluating results.'
+                    : 'Mitarbeiter können sich via Login-Bereich authentifizieren und an aktiven Abstimmungsrunden teilnehmen. Das System unterstützt ein Verfahren, bei dem Nutzer ihre Erst-, Zweit-, und Drittwahl abgeben können. Pro Abstimmungsrunde ist jeweils nur eine Stimmabgabe möglich. Für Admins steht ein gesondertes Admin-Panel bereit, in dem Kandidaten und Abstimmungsrunden verwaltet sowie Ergebnisse ausgewertet werden können.'
                   }
                 </p>
               </div>
@@ -145,42 +145,30 @@ export default function VotingSystem() {
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
                 {language === 'en' ? 'Technical Details' : 'Technische Details'}
               </h2>
-              <div className="space-y-6">
-                <div className="bg-gray-100 dark:bg-forest-900 p-6 rounded-lg border border-gray-300 dark:border-brown-700">
-                  <h3 className="text-xl font-semibold text-brown-600 dark:text-brown-300 mb-3">
-                    {language === 'en' ? 'Core Features' : 'Kernfunktionen'}
+              <div className="space-y-4">
+                <div className="bg-gray-100 dark:bg-forest-900 p-4 rounded-lg border border-gray-300 dark:border-brown-700">
+                  <h3 className="text-brown-600 dark:text-brown-400 font-semibold mb-2">
+                    {language === 'en' ? 'Voting System' : 'Voting-System'}
                   </h3>
-                  <ul className="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-2 text-lg">
-                    <li>{language === 'en' ? 'Ranked-choice voting system (1st, 2nd, 3rd preference)' : 'Ranked-Choice Voting-System (1., 2., 3. Präferenz)'}</li>
-                    <li>{language === 'en' ? 'Real-time vote tracking and result display' : 'Echtzeit Vote-Tracking und Ergebnisanzeige'}</li>
-                    <li>{language === 'en' ? 'Secure admin authentication and authorization' : 'Sichere Admin-Authentifizierung und Autorisierung'}</li>
-                    <li>{language === 'en' ? 'Candidate management interface' : 'Kandidaten-Verwaltungsoberfläche'}</li>
-                    <li>{language === 'en' ? 'Anonymous voting with result transparency' : 'Anonyme Abstimmung mit Ergebnis-Transparenz'}</li>
-                  </ul>
+                  <p className="text-gray-700 dark:text-gray-200 text-sm">Ranked-Choice (1st, 2nd, 3rd preference), Real-time Results</p>
                 </div>
-
-                <div className="bg-gray-100 dark:bg-forest-900 p-6 rounded-lg border border-gray-300 dark:border-brown-700">
-                  <h3 className="text-xl font-semibold text-brown-600 dark:text-brown-300 mb-3">
+                <div className="bg-gray-100 dark:bg-forest-900 p-4 rounded-lg border border-gray-300 dark:border-brown-700">
+                  <h3 className="text-brown-600 dark:text-brown-400 font-semibold mb-2">
+                    {language === 'en' ? 'Admin Panel' : 'Admin-Panel'}
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-200 text-sm">{language === 'en' ? 'Candidate Management, Vote Tracking, Result Dashboard' : 'Kandidaten-Verwaltung, Vote-Tracking, Ergebnis-Dashboard'}</p>
+                </div>
+                <div className="bg-gray-100 dark:bg-forest-900 p-4 rounded-lg border border-gray-300 dark:border-brown-700">
+                  <h3 className="text-brown-600 dark:text-brown-400 font-semibold mb-2">
                     {language === 'en' ? 'Technical Stack' : 'Technischer Stack'}
                   </h3>
-                  <ul className="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-2 text-lg">
-                    <li><strong>Backend:</strong> Node.js {language === 'en' ? 'for server-side logic' : 'für serverseitige Logik'}</li>
-                    <li><strong>Database:</strong> SQLite {language === 'en' ? 'for lightweight data storage' : 'für leichtgewichtige Datenspeicherung'}</li>
-                    <li><strong>Frontend:</strong> JavaScript {language === 'en' ? 'with dynamic UI components' : 'mit dynamischen UI-Komponenten'}</li>
-                    <li><strong>Architecture:</strong> {language === 'en' ? 'Server-side rendering with admin/user separation' : 'Server-Side Rendering mit Admin/User-Trennung'}</li>
-                  </ul>
+                  <p className="text-gray-700 dark:text-gray-200 text-sm">Node.js, Express.js, SQLite</p>
                 </div>
-
-                <div className="bg-gray-100 dark:bg-forest-900 p-6 rounded-lg border border-gray-300 dark:border-brown-700">
-                  <h3 className="text-xl font-semibold text-brown-600 dark:text-brown-300 mb-3">
-                    {language === 'en' ? 'Security & Privacy' : 'Sicherheit & Datenschutz'}
+                <div className="bg-gray-100 dark:bg-forest-900 p-4 rounded-lg border border-gray-300 dark:border-brown-700">
+                  <h3 className="text-brown-600 dark:text-brown-400 font-semibold mb-2">
+                    {language === 'en' ? 'Infrastructure & Security' : 'Infrastruktur & Sicherheit'}
                   </h3>
-                  <ul className="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-2 text-lg">
-                    <li>{language === 'en' ? 'User authentication for vote verification' : 'Benutzer-Authentifizierung zur Vote-Verifizierung'}</li>
-                    <li>{language === 'en' ? 'Anonymous vote submission and storage' : 'Anonyme Vote-Übermittlung und Speicherung'}</li>
-                    <li>{language === 'en' ? 'Admin-only access to management features' : 'Nur-Admin-Zugriff auf Verwaltungsfunktionen'}</li>
-                    <li>{language === 'en' ? 'Data anonymization for public results' : 'Datenanonymisierung für öffentliche Ergebnisse'}</li>
-                  </ul>
+                  <p className="text-gray-700 dark:text-gray-200 text-sm">{language === 'en' ? 'AWS Lightsail, Token-based Authentication' : 'AWS Lightsail, Token-basierte Authentifizierung'}</p>
                 </div>
               </div>
             </div>
