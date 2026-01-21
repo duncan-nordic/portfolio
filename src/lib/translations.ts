@@ -42,8 +42,8 @@ export const translations = {
         description: 'Internal voting platform with ranked-choice voting (first, second, third choices) and dedicated admin panel for managing candidates and viewing real-time results. Built with Node.js and SQLite.'
       },
       project5: {
-        title: 'Project Title 5',
-        description: 'Description for project 5 - this is a placeholder that will be updated later with real project details.'
+        title: 'Bachelor Thesis',
+        description: 'Security research analyzing vulnerabilities of ESP32 devices in WPA enterprise networks. Building a test environment simulating HTW eduroam infrastructure to examine security weaknesses in ESP32 network integration.'
       },
       work1: {
         title: 'IT Internship',
@@ -60,7 +60,7 @@ export const translations = {
       learnMore: 'Learn more →',
       status: {
         live: 'Live',
-        inDevelopment: 'In Development',
+        inProgress: 'In Progress',
         finished: 'Finished'
       }
     },
@@ -140,8 +140,8 @@ export const translations = {
         description: 'Interne Voting-Plattform mit Ranked-Choice Voting (erste, zweite, dritte Wahl) und dediziertem Admin-Panel zur Verwaltung von Kandidaten und Anzeige von Echtzeit-Ergebnissen. Entwickelt mit Node.js und SQLite.'
       },
       project5: {
-        title: 'Projekt Titel 5',
-        description: 'Beschreibung für Projekt 5 - dies ist ein Platzhalter, der später mit echten Projektdetails aktualisiert wird.'
+        title: 'Bachelorarbeit',
+        description: 'Sicherheitsforschung zur Analyse von Schwachstellen von ESP32-Geräten in WPA-Enterprise-Netzwerken. Aufbau einer Testumgebung, die die HTW-eduroam-Infrastruktur nachbildet, um Sicherheitslücken bei der ESP32-Netzwerkintegration zu untersuchen.'
       },
       work1: {
         title: 'IT-Internship',
@@ -158,7 +158,7 @@ export const translations = {
       learnMore: 'Mehr erfahren →',
       status: {
         live: 'Live',
-        inDevelopment: 'In Entwicklung',
+        inProgress: 'In Entwicklung',
         finished: 'Abgeschlossen'
       }
     },

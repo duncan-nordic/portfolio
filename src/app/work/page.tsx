@@ -52,13 +52,13 @@ export default function Work() {
       category: "web"
     },
     {
-      id: "project5",
+      id: "bachelor-thesis",
       title: t.work.project5.title,
       description: t.work.project5.description,
-      technologies: ["Tech1", "Tech2", "Tech3"],
-      status: "Finished",
+      technologies: ["ESP32", "WPA", "Network Security", "eduroam"],
+      status: "In Progress",
       image: `${basePath}/images/projects/placeholder.jpg`,
-      category: "app"
+      category: "security"
     }
   ]
 
@@ -180,7 +180,7 @@ export default function Work() {
                         ? t.work.status.live 
                         : project.status === 'Finished'
                         ? t.work.status.finished
-                        : t.work.status.inDevelopment}
+                        : t.work.status.inProgress}
                     </span>
                   </div>
                 </div>
