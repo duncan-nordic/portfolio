@@ -120,7 +120,7 @@ export default function GPSSpoofingTool() {
           {/* Project Links */}
           <div className="mt-12 flex flex-wrap gap-4">
             <a
-              href="/docs/gps-spoofing-tool/documentation.pdf"
+              href={`${process.env.NODE_ENV === 'production' ? '/portfolio' : ''}/docs/gps-spoofing-tool/documentation.pdf`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-brown-600 hover:bg-brown-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center"
