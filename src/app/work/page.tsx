@@ -39,7 +39,7 @@ export default function Work() {
       description: t.work.project1.description,
       technologies: ["JavaFX", "LimeSDR", "Java"],
       status: "Finished",
-      image: "",
+      image: `${basePath}/images/gps-spoofing-tool/gps-spoof1.png`,
       category: "security"
     },
     {

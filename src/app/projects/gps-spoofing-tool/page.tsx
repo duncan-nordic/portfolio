@@ -8,6 +8,8 @@ export default function GPSSpoofingTool() {
   const { language } = useLanguage()
   const t = translations[language]
 
+  const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : ''
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-forest-800 to-forest-950 py-20">
       <div className="container mx-auto px-6">
@@ -51,18 +53,16 @@ export default function GPSSpoofingTool() {
             </div>
           </div>
 
-          {/* Project Image Placeholder */}
-          <div className="bg-forest-900 rounded-lg p-12 mb-12 border border-brown-700">
+          {/* Project Image */}
+          <div className="mb-12">
             <div className="text-center">
-              <div className="w-24 h-24 bg-brown-800 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                <span className="text-3xl">📡</span>
+              <div className="max-w-3xl mx-auto">
+                <img 
+                  src={`${basePath}/images/gps-spoofing-tool/gps-spoof1.png`}
+                  alt="GPS Spoofing Interface"
+                  className="w-auto max-h-[600px] mx-auto object-contain rounded-lg border-2 border-brown-500"
+                />
               </div>
-              <p className="text-gray-300">
-                {language === 'en' ? 'GPS Spoofing Interface' : 'GPS Spoofing Interface'}
-              </p>
-              <p className="text-sm text-gray-400 mt-2">
-                {language === 'en' ? 'JavaFX GUI for LimeSDR control' : 'JavaFX GUI für LimeSDR Steuerung'}
-              </p>
             </div>
           </div>
 
