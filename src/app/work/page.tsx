@@ -220,16 +220,7 @@ export default function Work() {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            {t.work.title.split(' ').map((word, index) => (
-              <span key={index}>
-                {index === 1 ? (
-                  <span className="text-brown-400">{word}</span>
-                ) : (
-                  <span>{word}</span>
-                )}
-                {index < t.work.title.split(' ').length - 1 && ' '}
-              </span>
-            ))}
+            {t.work.title}
           </h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto">
             {t.work.subtitle}

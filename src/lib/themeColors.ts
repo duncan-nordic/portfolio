@@ -92,17 +92,17 @@ export const createThemePalette = (color: string, mode: ThemeMode) => {
   const accentChroma = Math.min(0.16, Math.max(0.08, parsed.c ?? 0.1))
 
   if (mode === 'dark') {
-    const pageEnd = colorAt(0.1, 0.018, complementaryHue)
-    const surface = colorAt(0.16, 0.025, complementaryHue)
+    const pageEnd = colorAt(0.1, 0.018, accentHue)
+    const surface = colorAt(0.16, 0.025, accentHue)
 
     const accent = colorAt(0.52, accentChroma, accentHue)
 
     return {
-      '--theme-page-start': colorAt(0.22, 0.035, complementaryHue),
+      '--theme-page-start': colorAt(0.22, 0.035, accentHue),
       '--theme-page-end': pageEnd,
       '--theme-surface': surface,
-      '--theme-surface-strong': colorAt(0.12, 0.02, complementaryHue),
-      '--theme-surface-hover': colorAt(0.25, 0.04, complementaryHue),
+      '--theme-surface-strong': colorAt(0.12, 0.02, accentHue),
+      '--theme-surface-hover': colorAt(0.25, 0.04, accentHue),
       '--theme-accent': accent,
       '--theme-accent-hover': colorAt(0.48, accentChroma, accentHue),
       '--theme-accent-soft': colorAt(0.28, accentChroma * 0.55, accentHue),
@@ -119,17 +119,17 @@ export const createThemePalette = (color: string, mode: ThemeMode) => {
     }
   }
 
-  const pageEnd = colorAt(0.99, 0.006, complementaryHue)
-  const surface = colorAt(0.975, 0.008, complementaryHue)
+  const pageEnd = colorAt(0.99, 0.006, accentHue)
+  const surface = colorAt(0.975, 0.008, accentHue)
 
   const accent = colorAt(0.68, accentChroma, accentHue)
 
   return {
-    '--theme-page-start': colorAt(0.94, 0.018, complementaryHue),
+    '--theme-page-start': colorAt(0.94, 0.018, accentHue),
     '--theme-page-end': pageEnd,
     '--theme-surface': surface,
-    '--theme-surface-strong': colorAt(0.955, 0.012, complementaryHue),
-    '--theme-surface-hover': colorAt(0.91, 0.025, complementaryHue),
+    '--theme-surface-strong': colorAt(0.955, 0.012, accentHue),
+    '--theme-surface-hover': colorAt(0.91, 0.025, accentHue),
     '--theme-accent': accent,
     '--theme-accent-hover': colorAt(0.62, accentChroma, accentHue),
     '--theme-accent-soft': colorAt(0.88, accentChroma * 0.42, accentHue),

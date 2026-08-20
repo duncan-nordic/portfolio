@@ -40,16 +40,7 @@ export default function Contact() {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            {t.contact.title.split(' ').map((word, index) => (
-              <span key={index}>
-                {word === 'touch' || word === 'Kontakt' ? (
-                  <span className="text-brown-400">{word}</span>
-                ) : (
-                  word
-                )}
-                {index < t.contact.title.split(' ').length - 1 && ' '}
-              </span>
-            ))}
+            {t.contact.title}
           </h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto">
             {t.contact.subtitle}
