@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useLanguage } from '@/components/LanguageToggle'
 import { translations } from '@/lib/translations'
+import TechStackShowcase from '@/components/TechStackShowcase'
 import { useState } from 'react'
 import { AnimatePresence, LazyMotion, m, useReducedMotion } from 'motion/react'
 
@@ -197,51 +198,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container mx-auto px-6 py-16">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-white">
-            {t.home.technologies}
-          </h2>
-          
-          <div className="space-y-6 overflow-hidden mask-gradient">
-            <div className="flex overflow-hidden">
-              <div className="animate-scroll-left">
-                {Array.from({ length: 3 }, (_, setIndex) => (
-                  <div key={`top-${setIndex}`} className="flex mr-6" style={{ gap: '32px' }}>
-                    {['JavaScript', 'TypeScript', 'React', 'SvelteKit', 'React Native', 'Node.js', 'Laravel', 'PHP', 'Expo'].map((skill, index) => (
-                      <div
-                        key={`${setIndex}-${index}`}
-                        className="tech-badge bg-forest-900 px-8 py-4 rounded-xl text-center border border-brown-700 whitespace-nowrap flex-shrink-0"
-                        style={{ minWidth: 'fit-content' }}
-                      >
-                        <span className="text-brown-300 font-semibold text-lg">{skill}</span>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            <div className="flex overflow-hidden">
-              <div className="animate-scroll-right">
-                {Array.from({ length: 5 }, (_, setIndex) => (
-                  <div key={`bottom-${setIndex}`} className="flex mr-6" style={{ gap: '32px' }}>
-                    {['Python', 'FastAPI', 'SQL', 'PostgreSQL', 'MySQL', 'Git', 'Linux', 'AWS', 'GitHub Actions', 'CI/CD', 'Kubernetes', 'Helm'].map((skill, index) => (
-                      <div
-                        key={`${setIndex}-${index}`}
-                        className="tech-badge bg-forest-900 px-8 py-4 rounded-xl text-center border border-brown-700 whitespace-nowrap flex-shrink-0"
-                        style={{ minWidth: 'fit-content' }}
-                      >
-                        <span className="text-brown-300 font-semibold text-lg">{skill}</span>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <TechStackShowcase />
     </div>
   )
 }
