@@ -359,7 +359,7 @@ export default function Work() {
                         ? 'bg-green-600 text-white' 
                         : project.status === 'Finished'
                         ? 'bg-brown-600 text-white'
-                        : 'bg-orange-600 text-white'
+                        : 'bg-brown-600 text-white'
                     }`}>
                       {project.status === 'Live' 
                         ? t.work.status.live 
