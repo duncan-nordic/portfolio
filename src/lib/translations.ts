@@ -16,6 +16,10 @@ export const translations = {
       aboutMe: 'About Me',
       aboutText1: 'I am a software developer and M.Sc. Computer Science student at Humboldt-Universität zu Berlin. Alongside my studies, I work in project management and internal full-stack development at Mercedes-Benz. My experience ranges from React, Python, FastAPI, CI/CD and Kubernetes to embedded development with MicroPython and ESP32.',
       aboutText2: 'Outside university and work, I enjoy competitive gaming and building PC peripherals. I especially like assembling and tuning custom keyboards and mice, combining my interest in technology with practical experimentation and attention to detail.',
+      customBuilds: 'Custom Builds',
+      keyboardImage: 'Custom keyboard',
+      pcbImage: 'Keyboard PCB',
+      switchesImage: 'Mechanical switches',
       technologies: 'Tech Stack'
     },
     // Work page
@@ -130,6 +134,10 @@ export const translations = {
       aboutMe: 'Über mich',
       aboutText1: 'Ich bin Softwareentwickler und Masterstudent der Informatik an der Humboldt-Universität zu Berlin. Neben meinem Studium arbeite ich bei Mercedes-Benz im Projektmanagement und an interner Full-Stack-Entwicklung. Meine Erfahrungen reichen von React, Python, FastAPI, CI/CD und Kubernetes bis zur Embedded-Entwicklung mit MicroPython und ESP32.',
       aboutText2: 'Außerhalb von Universität und Arbeit spiele ich gerne Videospiele auf kompetitivem Niveau und baue PC-Peripherie. Besonders gerne stelle ich individuelle Tastaturen und Mäuse zusammen und optimiere sie, wobei ich mein technisches Interesse mit praktischem Ausprobieren und Liebe zum Detail verbinde.',
+      customBuilds: 'Custom-Builds',
+      keyboardImage: 'Custom-Keyboard',
+      pcbImage: 'Keyboard-PCB',
+      switchesImage: 'Mechanische Switches',
       technologies: 'Tech Stack'
     },
     // Work page

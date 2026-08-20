@@ -1,25 +1,41 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useLanguage } from '@/components/LanguageToggle'
-import { translations } from '@/lib/translations'
 import { useState } from 'react'
 
 export default function CoderDojoWebapp() {
   const { language } = useLanguage()
-  const t = translations[language]
 
   const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : ''
 
-  // Image gallery state
   const images = [
-    { src: `${basePath}/docs/gps-spoofing-tool/logoDKWDP.png`, alt: 'DKWDP Logo', title: 'Logo' },
-    { src: `${basePath}/docs/gps-spoofing-tool/homescreen.png`, alt: 'Homepage Screenshot', title: 'Homepage' },
-    { src: `${basePath}/docs/gps-spoofing-tool/Map.png`, alt: 'Level Map Screenshot', title: 'Level Map' }
+    {
+      src: `${basePath}/images/coderdojo-webapp/logo.png`,
+      alt: 'Der kleine Weg des Programmierens logo',
+      title: 'Logo',
+      width: 433,
+      height: 424,
+    },
+    {
+      src: `${basePath}/images/coderdojo-webapp/home-screen.png`,
+      alt: language === 'en' ? 'Home screen of the CoderDojo web app' : 'Startansicht der CoderDojo-Webapp',
+      title: language === 'en' ? 'Home Screen' : 'Startansicht',
+      width: 793,
+      height: 427,
+    },
+    {
+      src: `${basePath}/images/coderdojo-webapp/level-map.png`,
+      alt: language === 'en' ? 'Level map of the CoderDojo web app' : 'Levelkarte der CoderDojo-Webapp',
+      title: language === 'en' ? 'Level Map' : 'Levelkarte',
+      width: 783,
+      height: 426,
+    },
   ]
-  
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  
+
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length)
   }
@@ -73,13 +89,21 @@ export default function CoderDojoWebapp() {
           {/* Interactive Image Gallery */}
           <div className="mb-12">
             <div className="text-center">
-              <div className="max-w-3xl mx-auto mb-4 cursor-pointer hover:opacity-80 transition-opacity" onClick={nextImage}>
-                <img 
+              <button
+                type="button"
+                onClick={nextImage}
+                aria-label={language === 'en' ? 'Show next image' : 'Nächstes Bild anzeigen'}
+                className="block w-full max-w-3xl mx-auto mb-4 cursor-pointer hover:opacity-80 transition-opacity"
+              >
+                <Image
                   src={images[currentImageIndex].src}
                   alt={images[currentImageIndex].alt}
-                  className="w-auto max-h-[600px] mx-auto object-contain rounded-lg border-2 border-brown-500"
+                  width={images[currentImageIndex].width}
+                  height={images[currentImageIndex].height}
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="w-auto max-w-full max-h-[600px] mx-auto object-contain rounded-lg border-2 border-brown-500"
                 />
-              </div>
+              </button>
               <p className="text-gray-300 mb-2">
                 Der kleine Weg des Programmierens
               </p>
@@ -93,16 +117,16 @@ export default function CoderDojoWebapp() {
               <p className="text-xs text-gray-500 mb-3">
                 {language === 'en' ? 'Click image to view next screenshot' : 'Klicke auf das Bild für den nächsten Screenshot'}
               </p>
-              
-              {/* Image indicators */}
               <div className="flex justify-center space-x-2">
-                {images.map((_, index) => (
+                {images.map((image, index) => (
                   <button
-                    key={index}
+                    key={image.src}
+                    type="button"
                     onClick={() => setCurrentImageIndex(index)}
+                    aria-label={language === 'en' ? `View image ${index + 1}` : `Bild ${index + 1} anzeigen`}
                     className={`w-3 h-3 rounded-full transition-colors ${
-                      index === currentImageIndex 
-                        ? 'bg-brown-400' 
+                      index === currentImageIndex
+                        ? 'bg-brown-400'
                         : 'bg-brown-700 hover:bg-brown-600'
                     }`}
                   />
