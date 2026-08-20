@@ -45,11 +45,15 @@ export const translations = {
         title: 'Bachelor Thesis',
         description: 'Native MicroPython firmware extension for certificate-based ESP32 connections to eduroam. Integrates ESP-IDF EAP-TLS, easyroam certificates and a Python-facing connection API.'
       },
+      project6: {
+        title: 'Internal Form Platform',
+        description: 'Modernization of internal forms as a full-stack application using React and FastAPI, supported by CI/CD workflows, Kubernetes, Helm and enterprise governance processes.'
+      },
       work2: {
         title: 'Working Student in Project Management',
         company: 'Mercedes-Benz',
         period: '03/2026 - Present',
-        description: 'Working student position in project management at Mercedes-Benz'
+        description: 'Project management and technical leadership for the form layer of an internal full-stack application using React, FastAPI and enterprise delivery processes'
       },
       work1: {
         title: 'IT Internship',
@@ -155,11 +159,15 @@ export const translations = {
         title: 'Bachelorarbeit',
         description: 'Native MicroPython-Firmwareerweiterung für zertifikatsbasierte ESP32-Verbindungen mit eduroam. Integriert ESP-IDF EAP-TLS, easyroam-Zertifikate und eine Python-API für den Verbindungsaufbau.'
       },
+      project6: {
+        title: 'Interne Formularplattform',
+        description: 'Modernisierung interner Formulare als Full-Stack-Anwendung mit React und FastAPI, unterstützt durch CI/CD-Workflows, Kubernetes, Helm und Enterprise-Governance-Prozesse.'
+      },
       work2: {
         title: 'Werkstudent im Projektmanagement',
         company: 'Mercedes-Benz',
         period: '03/2026 - heute',
-        description: 'Werkstudententätigkeit im Projektmanagement bei Mercedes-Benz'
+        description: 'Projektmanagement und technische Leitung der Formularentwicklung für eine interne Full-Stack-Anwendung mit React, FastAPI und Enterprise-Deployment-Prozessen'
       },
       work1: {
         title: 'IT-Internship',

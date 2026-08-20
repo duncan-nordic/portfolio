@@ -25,6 +25,15 @@ export default function Work() {
       category: "education"
     },
     {
+      id: "internal-form-platform",
+      title: t.work.project6.title,
+      description: t.work.project6.description,
+      technologies: ["React", "FastAPI", "Python", "Kubernetes", "Helm"],
+      status: "In Progress",
+      image: `${basePath}/images/mercedes-benz/star.svg`,
+      category: "web"
+    },
+    {
       id: "qr-code-scanner",
       title: t.work.project3.title,
       description: t.work.project3.description,
@@ -68,13 +77,75 @@ export default function Work() {
       company: t.work.work2.company,
       period: t.work.work2.period,
       description: t.work.work2.description,
-      detailSections: null
+      logo: `${basePath}/images/mercedes-benz/star.svg`,
+      detailSections: language === 'en'
+        ? [
+            {
+              heading: 'Role and Scope',
+              content: 'Working in a mixed team of working students and employees, with technical responsibility for the form application development. My focus is the form-related frontend and backend implementation rather than ownership of the underlying platform infrastructure.'
+            },
+            {
+              heading: 'Internal Full-Stack Application',
+              content: 'Modernizing internal forms through an AI-assisted development workflow. The user interfaces are built with React and the backend with Python and FastAPI. PostgreSQL is currently planned for data persistence.'
+            },
+            {
+              heading: 'CI/CD and Deployment',
+              content: 'Contributing to automated delivery through GitHub Actions workflows. The application is prepared for deployment to Kubernetes using Helm, while the broader infrastructure is maintained by the responsible platform team.'
+            },
+            {
+              heading: 'Enterprise Governance',
+              content: 'Gaining practical experience with the requirements for taking internal software toward production in a large organization, including documentation, review and approval processes, security, maintainability, testing and operational readiness.'
+            },
+            {
+              heading: 'Communication and Presentations',
+              content: 'Preparing and delivering presentations on the project status and technical implementation for management representatives, employees and colleagues. This includes translating development topics into clear information for audiences with different technical backgrounds.'
+            },
+            {
+              heading: 'Tech Stack',
+              content: 'React • Python • FastAPI • PostgreSQL (planned) • GitHub Actions • CI/CD • Kubernetes • Helm'
+            },
+            {
+              heading: 'Project Status',
+              content: 'The application is currently under active development. Internal project names, business processes and technical identifiers are intentionally not disclosed.'
+            }
+          ]
+        : [
+            {
+              heading: 'Rolle und Verantwortungsbereich',
+              content: 'Arbeit in einem gemischten Team aus Werkstudierenden und Mitarbeitenden mit technischer Verantwortung für die Formularentwicklung. Mein Schwerpunkt liegt auf der formularbezogenen Frontend- und Backend-Implementierung, nicht auf der Verantwortung für die zugrunde liegende Plattforminfrastruktur.'
+            },
+            {
+              heading: 'Interne Full-Stack-Anwendung',
+              content: 'Modernisierung interner Formulare mit einem KI-gestützten Entwicklungsprozess. Die Benutzeroberflächen werden mit React und das Backend mit Python und FastAPI umgesetzt. PostgreSQL ist derzeit für die Datenpersistenz vorgesehen.'
+            },
+            {
+              heading: 'CI/CD und Deployment',
+              content: 'Mitarbeit an der automatisierten Bereitstellung über GitHub-Actions-Workflows. Die Anwendung wird mit Helm für das Deployment auf Kubernetes vorbereitet, während die übergreifende Infrastruktur vom zuständigen Plattformteam betreut wird.'
+            },
+            {
+              heading: 'Enterprise Governance',
+              content: 'Praktische Erfahrung mit den Anforderungen, die interne Software in einem großen Unternehmen auf dem Weg zur Produktionsreife erfüllen muss. Dazu gehören Dokumentation, Review- und Freigabeprozesse, Sicherheit, Wartbarkeit, Tests und betriebliche Einsatzbereitschaft.'
+            },
+            {
+              heading: 'Kommunikation und Präsentationen',
+              content: 'Vorbereitung und Durchführung von Präsentationen zum Projektstand und zur technischen Umsetzung für Vertreterinnen und Vertreter des Managements, Mitarbeitende sowie Kolleginnen und Kollegen. Dabei werden Entwicklungsthemen für Zielgruppen mit unterschiedlichem technischem Hintergrund verständlich aufbereitet.'
+            },
+            {
+              heading: 'Tech Stack',
+              content: 'React • Python • FastAPI • PostgreSQL (geplant) • GitHub Actions • CI/CD • Kubernetes • Helm'
+            },
+            {
+              heading: 'Projektstatus',
+              content: 'Die Anwendung befindet sich derzeit in aktiver Entwicklung. Interne Projektnamen, Geschäftsprozesse und technische Kennungen werden bewusst nicht veröffentlicht.'
+            }
+          ]
     },
     {
       title: t.work.education2.title,
       company: t.work.education2.company,
       period: t.work.education2.period,
       description: t.work.education2.description,
+      logo: null,
       detailSections: null
     },
     {
@@ -82,6 +153,7 @@ export default function Work() {
       company: t.work.education1.company,
       period: t.work.education1.period,
       description: t.work.education1.description,
+      logo: null,
       detailSections: null
     },
     {
@@ -89,6 +161,7 @@ export default function Work() {
       company: t.work.work1.company,
       period: t.work.work1.period,
       description: t.work.work1.description,
+      logo: null,
       detailSections: language === 'en' 
         ? [
             {
@@ -170,17 +243,21 @@ export default function Work() {
                 className="group bg-white dark:bg-forest-900 rounded-xl overflow-hidden hover:bg-gray-50 dark:hover:bg-brown-800 transition-all duration-500 border border-gray-200 dark:border-brown-700 hover:shadow-2xl hover:shadow-gray-300/30 dark:hover:shadow-brown-900/30 cursor-pointer transform hover:-translate-y-2"
                 onClick={() => router.push(`/projects/${project.id}`)}
               >
-                <div className="relative h-64 overflow-hidden bg-gray-100 dark:bg-gray-800">
+                <div className={`relative h-64 overflow-hidden ${project.id === 'internal-form-platform' ? 'bg-white' : 'bg-gray-100 dark:bg-gray-800'}`}>
                   {project.image && (
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      className={project.id === 'internal-form-platform'
+                        ? 'object-contain p-12 transition-transform duration-500 group-hover:scale-105'
+                        : 'object-cover transition-transform duration-500 group-hover:scale-110'}
                     />
                   )}
-                  <div className="absolute inset-0 bg-black/5 dark:bg-black/20 z-10"></div>
+                  {project.id !== 'internal-form-platform' && (
+                    <div className="absolute inset-0 bg-black/5 dark:bg-black/20 z-10"></div>
+                  )}
                   
                   <div className="absolute top-4 right-4 z-20">
                     <span className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-md shadow-lg ${
@@ -245,6 +322,11 @@ export default function Work() {
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3">
+                      {item.logo && (
+                        <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+                          <Image src={item.logo} alt={`${item.company} logo`} width={34} height={34} className="h-full w-full object-contain" />
+                        </span>
+                      )}
                       <h3 className="text-xl font-semibold text-white">
                         {item.title}
                       </h3>
