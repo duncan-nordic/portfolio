@@ -5,12 +5,16 @@ import { useLanguage } from '@/components/LanguageToggle'
 import { translations } from '@/lib/translations'
 import Image from 'next/image'
 import { useState } from 'react'
+import { AnimatePresence, LazyMotion, m, useReducedMotion } from 'motion/react'
+
+const loadMotionFeatures = () => import('@/lib/motionFeatures').then((module) => module.default)
 
 export default function Work() {
   const { language } = useLanguage()
   const t = translations[language]
   const router = useRouter()
   const [expandedItem, setExpandedItem] = useState<number | null>(null)
+  const shouldReduceMotion = useReducedMotion()
 
   const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : ''
 
@@ -312,12 +316,22 @@ export default function Work() {
           <h2 className="text-3xl font-bold text-white mb-12 text-center">
             {t.work.experience}
           </h2>
-          <div className="max-w-4xl mx-auto space-y-6">
-            {experienceAndEducation.map((item, index) => (
+          <LazyMotion features={loadMotionFeatures} strict>
+            <div className="max-w-4xl mx-auto space-y-6">
+              {experienceAndEducation.map((item, index) => (
               <div
                 key={index}
                 className={`bg-forest-900 rounded-lg p-6 hover:bg-brown-800 transition-all duration-300 border border-brown-700 ${item.detailSections ? 'cursor-pointer' : ''}`}
                 onClick={() => item.detailSections && setExpandedItem(expandedItem === index ? null : index)}
+                onKeyDown={(event) => {
+                  if (item.detailSections && (event.key === 'Enter' || event.key === ' ')) {
+                    event.preventDefault()
+                    setExpandedItem(expandedItem === index ? null : index)
+                  }
+                }}
+                role={item.detailSections ? 'button' : undefined}
+                tabIndex={item.detailSections ? 0 : undefined}
+                aria-expanded={item.detailSections ? expandedItem === index : undefined}
               >
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                   <div className="flex-1">
@@ -331,14 +345,17 @@ export default function Work() {
                         {item.title}
                       </h3>
                       {item.detailSections && (
-                        <svg 
-                          className={`w-5 h-5 text-brown-400 transition-transform duration-300 ${expandedItem === index ? 'rotate-180' : ''}`} 
+                        <m.svg
+                          className="h-5 w-5 text-brown-400"
                           fill="none" 
                           stroke="currentColor" 
                           viewBox="0 0 24 24"
+                          animate={{ rotate: expandedItem === index ? 180 : 0 }}
+                          transition={{ duration: shouldReduceMotion ? 0 : 0.22, ease: 'easeOut' }}
+                          aria-hidden="true"
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
+                        </m.svg>
                       )}
                     </div>
                     <p className="text-brown-400 font-medium">
@@ -353,13 +370,17 @@ export default function Work() {
                   {item.description}
                 </p>
                 
-                {/* Expandable Details */}
-                {item.detailSections && (
-                  <div 
-                    className={`overflow-hidden transition-all duration-500 ${
-                      expandedItem === index ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
-                    }`}
-                  >
+                <AnimatePresence initial={false}>
+                  {item.detailSections && expandedItem === index && (
+                    <m.div
+                      key={`${item.title}-details`}
+                      initial={shouldReduceMotion ? false : { height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={shouldReduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+                      transition={{ duration: shouldReduceMotion ? 0 : 0.28, ease: [0.4, 0, 0.2, 1] }}
+                      className="overflow-hidden"
+                      onClick={(event) => event.stopPropagation()}
+                    >
                     <div className="pt-6 border-t border-gray-300 dark:border-brown-600 mt-4">
                       <h4 className="text-xl font-bold text-brown-600 dark:text-brown-300 mb-6">
                         {language === 'en' ? 'Detailed Information' : 'Detaillierte Informationen'}
@@ -377,11 +398,13 @@ export default function Work() {
                         ))}
                       </div>
                     </div>
-                  </div>
-                )}
+                    </m.div>
+                  )}
+                </AnimatePresence>
               </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </LazyMotion>
         </section>
       </div>
     </div>
