@@ -68,7 +68,7 @@ export default function Home() {
               <div className="animate-scroll-left">
                 {Array.from({ length: 3 }, (_, setIndex) => (
                   <div key={`top-${setIndex}`} className="flex mr-6" style={{ gap: '32px' }}>
-                    {['JavaScript', 'Laravel', 'SvelteKit', 'React Native', 'Node.js', 'PHP', 'SQL', 'Expo', 'AWS'].map((skill, index) => (
+                    {['JavaScript', 'TypeScript', 'React', 'SvelteKit', 'React Native', 'Node.js', 'Laravel', 'PHP', 'Expo'].map((skill, index) => (
                       <div
                         key={`${setIndex}-${index}`}
                         className="tech-badge bg-forest-900 px-8 py-4 rounded-xl text-center border border-brown-700 whitespace-nowrap flex-shrink-0"
@@ -86,7 +86,7 @@ export default function Home() {
               <div className="animate-scroll-right">
                 {Array.from({ length: 5 }, (_, setIndex) => (
                   <div key={`bottom-${setIndex}`} className="flex mr-6" style={{ gap: '32px' }}>
-                    {['TypeScript', 'Python', 'Git', 'Linux', 'MySQL', 'MongoDB'].map((skill, index) => (
+                    {['Python', 'FastAPI', 'SQL', 'PostgreSQL', 'MySQL', 'Git', 'Linux', 'AWS', 'GitHub Actions', 'CI/CD', 'Kubernetes', 'Helm'].map((skill, index) => (
                       <div
                         key={`${setIndex}-${index}`}
                         className="tech-badge bg-forest-900 px-8 py-4 rounded-xl text-center border border-brown-700 whitespace-nowrap flex-shrink-0"

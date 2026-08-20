@@ -10,12 +10,12 @@ export const translations = {
     home: {
       greeting: '',
       name: 'Duncan Wittner',
-      subtitle: '20 years old, studying International Media and Computer Science at University of Applied Sciences in Berlin',
+      subtitle: '21 years old and studying M.Sc. Computer Science at Humboldt-Universität zu Berlin',
       myWork: 'My Work',
       contact: 'Contact',
       aboutMe: 'About Me',
-      aboutText1: 'I\'m a passionate developer focused on JavaScript and modern web technologies. Currently studying at HTW Berlin, I have gained extensive experience in software engineering through various projects and my internship.',
-      aboutText2: 'While I work extensively with JavaScript, I\'m also drawn to cybersecurity and have explored this field through my internship projects and personal research. My goal is to combine my development skills with security expertise.',
+      aboutText1: 'I am a software developer and M.Sc. Computer Science student at Humboldt-Universität zu Berlin. Alongside my studies, I work in project management and internal full-stack development at Mercedes-Benz. My experience ranges from React, Python, FastAPI, CI/CD and Kubernetes to embedded development with MicroPython and ESP32.',
+      aboutText2: 'Outside university and work, I enjoy competitive gaming and building PC peripherals. I especially like assembling and tuning custom keyboards and mice, combining my interest in technology with practical experimentation and attention to detail.',
       technologies: 'Tech Stack'
     },
     // Work page
@@ -124,12 +124,12 @@ export const translations = {
     home: {
       greeting: '',
       name: 'Duncan Wittner',
-      subtitle: '20 Jahre alt, studiere International Media and Computer Science an der HTW Berlin',
+      subtitle: '21 Jahre alt und Masterstudent der Informatik an der Humboldt-Universität zu Berlin',
       myWork: 'Meine Arbeit',
       contact: 'Kontakt',
       aboutMe: 'Über mich',
-      aboutText1: 'Ich bin ein leidenschaftlicher Developer mit Fokus auf JavaScript und moderne Web-Technologien. Derzeit studiere ich an der HTW Berlin und habe durch verschiedene Projekte und mein Internship umfangreiche Erfahrungen in der Software-Entwicklung gesammelt.',
-      aboutText2: 'Während ich viel mit JavaScript arbeite, zieht es mich auch in Richtung Cybersecurity. Durch meine Internship-Projekte und persönliche Research bin ich bereits in diesen Bereich eingetaucht. Mein Ziel ist es, meine Development-Skills mit Security-Expertise zu kombinieren.',
+      aboutText1: 'Ich bin Softwareentwickler und Masterstudent der Informatik an der Humboldt-Universität zu Berlin. Neben meinem Studium arbeite ich bei Mercedes-Benz im Projektmanagement und an interner Full-Stack-Entwicklung. Meine Erfahrungen reichen von React, Python, FastAPI, CI/CD und Kubernetes bis zur Embedded-Entwicklung mit MicroPython und ESP32.',
+      aboutText2: 'Außerhalb von Universität und Arbeit spiele ich gerne Videospiele auf kompetitivem Niveau und baue PC-Peripherie. Besonders gerne stelle ich individuelle Tastaturen und Mäuse zusammen und optimiere sie, wobei ich mein technisches Interesse mit praktischem Ausprobieren und Liebe zum Detail verbinde.',
       technologies: 'Tech Stack'
     },
     // Work page

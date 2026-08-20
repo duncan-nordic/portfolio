@@ -161,7 +161,7 @@ export default function Work() {
       company: t.work.work1.company,
       period: t.work.work1.period,
       description: t.work.work1.description,
-      logo: null,
+      logo: `${basePath}/images/nordic-unique-travels/logo-mark.png`,
       detailSections: language === 'en' 
         ? [
             {
