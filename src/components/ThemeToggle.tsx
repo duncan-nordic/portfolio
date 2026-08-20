@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { applyCustomTheme, getSavedAccentColor } from '@/lib/themeColors'
 
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(true)
@@ -21,6 +22,9 @@ export default function ThemeToggle() {
       document.documentElement.classList.remove('dark')
       document.documentElement.classList.add('light')
     }
+
+    const savedAccentColor = getSavedAccentColor()
+    if (savedAccentColor) applyCustomTheme(savedAccentColor, isDarkMode ? 'dark' : 'light')
   }, [])
 
   const toggleTheme = () => {
@@ -36,6 +40,9 @@ export default function ThemeToggle() {
       document.documentElement.classList.add('light')
       localStorage.setItem('theme', 'light')
     }
+
+    const savedAccentColor = getSavedAccentColor()
+    if (savedAccentColor) applyCustomTheme(savedAccentColor, newIsDark ? 'dark' : 'light')
   }
 
   if (!mounted) {

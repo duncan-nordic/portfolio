@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import ThemeToggle from './ThemeToggle'
+import ColorThemePicker from './ColorThemePicker'
 import LanguageToggle, { useLanguage } from './LanguageToggle'
 import { translations } from '@/lib/translations'
 
@@ -55,6 +56,7 @@ export default function Navbar() {
             {/* Controls */}
             <div className="flex items-center space-x-2">
               <LanguageToggle />
+              <ColorThemePicker />
               <ThemeToggle />
             </div>
           </div>
@@ -62,6 +64,7 @@ export default function Navbar() {
           {/* Mobile menu button and controls */}
           <div className="md:hidden flex items-center space-x-2">
             <LanguageToggle />
+            <ColorThemePicker />
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}

@@ -11,9 +11,9 @@ export default function QRCodeScanner() {
 
   // Image gallery state
   const images = [
+    { src: `${basePath}/images/qr-code-scanner/login-screen.png`, alt: language === 'en' ? 'App login screen' : 'Anmeldeansicht der App', title: language === 'en' ? 'Login Screen' : 'Anmeldeansicht', isMobile: true },
     { src: `${basePath}/images/qr-code-scanner/admin-panel.png`, alt: language === 'en' ? 'Admin overview containing test data' : 'Admin-Übersicht mit Testdaten', title: language === 'en' ? 'Admin Overview (Test Data)' : 'Admin-Übersicht (Testdaten)', isMobile: false },
     { src: `${basePath}/images/qr-code-scanner/qr-code-station.png`, alt: language === 'en' ? 'Station screen with an expired demo QR code' : 'Stationsansicht mit abgelaufenem Demo-QR-Code', title: language === 'en' ? 'Expired Demo QR Code' : 'Abgelaufener Demo-QR-Code', isMobile: true },
-    { src: `${basePath}/images/qr-code-scanner/login-screen.png`, alt: language === 'en' ? 'App login screen' : 'Anmeldeansicht der App', title: language === 'en' ? 'Login Screen' : 'Anmeldeansicht', isMobile: true },
     { src: `${basePath}/images/qr-code-scanner/scanner-interface.png`, alt: language === 'en' ? 'QR scanner interface' : 'Oberfläche des QR-Scanners', title: language === 'en' ? 'Scanner Interface' : 'Scanner-Oberfläche', isMobile: true },
   ]
   

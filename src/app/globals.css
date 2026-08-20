@@ -345,3 +345,145 @@ body {
 .light .to-brown-600 {
   --tw-gradient-to: #6B4830;
 }
+
+.portfolio-color-picker {
+  width: 100% !important;
+  height: 158px !important;
+}
+
+.portfolio-color-picker .react-colorful__saturation {
+  border-radius: 6px 6px 0 0;
+}
+
+.portfolio-color-picker .react-colorful__hue {
+  height: 18px;
+  border-radius: 0 0 6px 6px;
+}
+
+.portfolio-color-picker .react-colorful__pointer {
+  width: 18px;
+  height: 18px;
+}
+
+html[data-custom-palette] body {
+  background: var(--theme-page-end);
+}
+
+html[data-custom-palette] .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, var(--theme-page-start), var(--theme-page-end)) !important;
+}
+
+html[data-custom-palette] nav {
+  background-color: var(--theme-nav) !important;
+  border-color: var(--theme-border) !important;
+}
+
+html[data-custom-palette] .bg-forest-800 {
+  background-color: var(--theme-page-start) !important;
+}
+
+html[data-custom-palette] .bg-forest-900,
+html.dark[data-custom-palette] .dark\:bg-forest-900 {
+  background-color: var(--theme-surface) !important;
+}
+
+html[data-custom-palette] .bg-forest-950,
+html.dark[data-custom-palette] .dark\:bg-forest-950 {
+  background-color: var(--theme-surface-strong) !important;
+}
+
+html[data-custom-palette] .bg-forest-950\/50,
+html.dark[data-custom-palette] .dark\:bg-forest-950\/50 {
+  background-color: color-mix(in srgb, var(--theme-surface-strong) 50%, transparent) !important;
+}
+
+html.light[data-custom-palette] .bg-white,
+html.light[data-custom-palette] .bg-gray-50,
+html.light[data-custom-palette] .bg-gray-100 {
+  background-color: var(--theme-surface) !important;
+}
+
+html[data-custom-palette] .bg-brown-100,
+html[data-custom-palette] .bg-brown-900\/20,
+html[data-custom-palette] .bg-brown-900\/30,
+html[data-custom-palette] .bg-brown-900\/70,
+html.dark[data-custom-palette] .dark\:bg-brown-900\/30,
+html.dark[data-custom-palette] .dark\:bg-brown-900\/70 {
+  background-color: var(--theme-accent-softer) !important;
+}
+
+html[data-custom-palette] .bg-brown-800,
+html.dark[data-custom-palette] .dark\:bg-brown-800 {
+  background-color: var(--theme-accent-soft) !important;
+}
+
+html[data-custom-palette] .bg-brown-600 {
+  background-color: var(--theme-accent) !important;
+  color: var(--theme-on-accent) !important;
+}
+
+html[data-custom-palette] .hover\:bg-brown-600:hover,
+html[data-custom-palette] .hover\:bg-brown-700:hover {
+  background-color: var(--theme-accent-hover) !important;
+  color: var(--theme-on-accent) !important;
+}
+
+html[data-custom-palette] .hover\:bg-brown-800:hover,
+html[data-custom-palette] .hover\:bg-forest-800:hover,
+html[data-custom-palette] .hover\:bg-forest-700:hover {
+  background-color: var(--theme-surface-hover) !important;
+}
+
+html[data-custom-palette] .text-white,
+html.dark[data-custom-palette] .dark\:text-white {
+  color: var(--theme-text) !important;
+}
+
+html[data-custom-palette] .text-gray-200,
+html[data-custom-palette] .text-gray-300,
+html.dark[data-custom-palette] .dark\:text-gray-200,
+html.dark[data-custom-palette] .dark\:text-gray-300,
+html.dark[data-custom-palette] .dark\:text-gray-400 {
+  color: var(--theme-text-muted) !important;
+}
+
+html.light[data-custom-palette] .text-gray-900,
+html.light[data-custom-palette] .text-gray-700,
+html.light[data-custom-palette] .text-gray-600,
+html.light[data-custom-palette] .text-gray-500 {
+  color: var(--theme-text) !important;
+}
+
+html[data-custom-palette] .text-brown-200,
+html[data-custom-palette] .text-brown-300,
+html[data-custom-palette] .text-brown-400,
+html[data-custom-palette] .text-brown-500,
+html[data-custom-palette] .text-brown-600,
+html[data-custom-palette] .text-brown-700,
+html[data-custom-palette] .text-brown-800,
+html.dark[data-custom-palette] .dark\:text-brown-200,
+html.dark[data-custom-palette] .dark\:text-brown-300,
+html.dark[data-custom-palette] .dark\:text-brown-400 {
+  color: var(--theme-accent-text) !important;
+}
+
+html[data-custom-palette] .border-brown-300,
+html[data-custom-palette] .border-brown-400,
+html[data-custom-palette] .border-brown-500,
+html[data-custom-palette] .border-brown-600,
+html[data-custom-palette] .border-brown-700,
+html[data-custom-palette] .border-brown-800,
+html.dark[data-custom-palette] .dark\:border-brown-600,
+html.dark[data-custom-palette] .dark\:border-brown-700,
+html.dark[data-custom-palette] .dark\:border-brown-800 {
+  border-color: var(--theme-border) !important;
+}
+
+html[data-custom-palette] .from-brown-400 {
+  --tw-gradient-from: var(--theme-accent-text) var(--tw-gradient-from-position);
+  --tw-gradient-to: color-mix(in srgb, var(--theme-accent-text) 0%, transparent) var(--tw-gradient-to-position);
+}
+
+html[data-custom-palette] .to-brown-600 {
+  --tw-gradient-to: var(--theme-accent) var(--tw-gradient-to-position);
+}

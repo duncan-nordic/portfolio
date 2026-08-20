@@ -43,7 +43,7 @@ export default function Work() {
       description: t.work.project3.description,
       technologies: ["React Native", "Node.js", "Authentication"],
       status: "Finished",
-      image: `${basePath}/images/qr-code-scanner/admin-panel.png`,
+      image: `${basePath}/images/qr-code-scanner/login-screen.png`,
       category: "mobile"
     },
     {
