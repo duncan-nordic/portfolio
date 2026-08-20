@@ -55,14 +55,28 @@ export default function Work() {
       id: "bachelor-thesis",
       title: t.work.project5.title,
       description: t.work.project5.description,
-      technologies: ["ESP32", "WPA", "Network Security", "eduroam"],
+      technologies: ["MicroPython", "ESP32", "EAP-TLS", "ESP-IDF"],
       status: "In Progress",
-      image: `${basePath}/images/projects/placeholder.jpg`,
+      image: `${basePath}/images/bachelor-thesis/esp32-hardware.jpg`,
       category: "security"
     }
   ]
 
   const experienceAndEducation = [
+    {
+      title: t.work.work2.title,
+      company: t.work.work2.company,
+      period: t.work.work2.period,
+      description: t.work.work2.description,
+      detailSections: null
+    },
+    {
+      title: t.work.education2.title,
+      company: t.work.education2.company,
+      period: t.work.education2.period,
+      description: t.work.education2.description,
+      detailSections: null
+    },
     {
       title: t.work.education1.title,
       company: t.work.education1.company,

@@ -1,171 +1,195 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useLanguage } from '@/components/LanguageToggle'
-import { translations } from '@/lib/translations'
-import { useMemo } from 'react'
 
-const TECH_STACK = ["ESP32", "WPA Enterprise", "Network Security", "eduroam", "Python"] as const
+const TECH_STACK = ['MicroPython', 'ESP32', 'EAP-TLS', 'ESP-IDF 5.4.2', 'easyroam'] as const
 
-const TECHNICAL_DETAILS = [
-  {
-    titleEn: 'Research Focus',
-    titleDe: 'Forschungsschwerpunkt',
-    descriptionEn: 'ESP32 Security Vulnerabilities in WPA Enterprise Networks',
-    descriptionDe: 'ESP32-Sicherheitslücken in WPA-Enterprise-Netzwerken'
+const CONTENT = {
+  en: {
+    back: 'Back to Work',
+    title: 'Bachelor Thesis',
+    subtitle: 'Extending MicroPython firmware to connect ESP32 devices to eduroam using certificate-based EAP-TLS authentication.',
+    status: 'In Progress',
+    overview: 'Overview',
+    overviewText1: 'The project closes a practical gap between an existing MicroPython application and the enterprise Wi-Fi authentication required by eduroam. Instead of moving the complete application to C, the familiar Python environment remains available on the ESP32.',
+    overviewText2: 'I added a native enterprise module to the ESP32 port of MicroPython. It connects Python code to the WPA2-Enterprise and EAP-TLS functions provided by ESP-IDF, loads the required certificates from the device filesystem and reports the connection result back to the application.',
+    details: 'Technical Details',
+    detailItems: [
+      ['Firmware extension', 'Native MicroPython C module with connect, disconnect and connection-status functions.'],
+      ['Authentication', 'WPA2-Enterprise with EAP-TLS and an easyroam client certificate.'],
+      ['Build environment', 'MicroPython for ESP32_GENERIC, compiled against ESP-IDF 5.4.2.'],
+      ['Connection validation', 'Association, DHCP address, DNS resolution and an HTTP 200 response were checked.'],
+    ],
+    workflow: 'Technical Implementation',
+    workflowIntro: 'The implementation is divided into three clearly separated layers:',
+    workflowItems: [
+      ['Certificate preparation', 'The easyroam PKCS#12 profile is converted locally with OpenSSL into a CA certificate, client certificate and private key. Only the required files are transferred to the ESP32.'],
+      ['Firmware layer', 'The native enterprise module reads the certificate files and configures the ESP-IDF EAP client. It starts the station interface and waits for a valid DHCP address.'],
+      ['Application layer', 'MicroPython supplies the SSID, identity and file paths through a small API. The existing Python application does not need to be rewritten as an ESP-IDF application.'],
+    ],
+    api: 'Python API',
+    apiIntro: 'The native implementation is exposed as a compact MicroPython interface:',
+    evaluation: 'Evaluation on Campus',
+    evaluationText1: 'I first verified the certificate and EAP-TLS configuration in a minimal ESP-IDF reference application. The test log documented a successful eduroam association, DHCP configuration and HTTP status 200 at HTW Berlin.',
+    evaluationText2: 'After transferring the working configuration into MicroPython, the complete workflow was tested on the ESP32 with the certificate files and Python script stored directly on the device. The final full test was successfully repeated during the campus tests on 21 July 2026.',
+    outcomes: 'Key Outcomes',
+    outcomeItems: [
+      ['Python retained', 'The existing application remains in MicroPython.'],
+      ['Certificate based', 'Authentication uses EAP-TLS without a Wi-Fi password.'],
+      ['Practically verified', 'The implementation was validated in the real campus network.'],
+    ],
+    progressTitle: 'Current thesis status',
+    progressText: 'The firmware integration and practical campus validation are complete. The written thesis, evaluation and final documentation are currently being completed.',
+    heroAlt: 'ESP32 development board used for the firmware implementation',
   },
-  {
-    titleEn: 'Test Environment',
-    titleDe: 'Testumgebung',
-    descriptionEn: 'Simulated HTW eduroam Infrastructure',
-    descriptionDe: 'Simulierte HTW-eduroam-Infrastruktur'
+  de: {
+    back: 'Zurück zur Arbeit',
+    title: 'Bachelorarbeit',
+    subtitle: 'Erweiterung der MicroPython-Firmware, um ESP32-Geräte per zertifikatsbasierter EAP-TLS-Authentifizierung mit eduroam zu verbinden.',
+    status: 'In Arbeit',
+    overview: 'Überblick',
+    overviewText1: 'Das Projekt schließt eine praktische Lücke zwischen einer bestehenden MicroPython-Anwendung und der für eduroam erforderlichen Enterprise-WLAN-Authentifizierung. Statt die gesamte Anwendung nach C zu portieren, bleibt die vertraute Python-Umgebung auf dem ESP32 erhalten.',
+    overviewText2: 'Dafür habe ich den ESP32-Port von MicroPython um ein natives enterprise-Modul erweitert. Es verbindet Python-Code mit den WPA2-Enterprise- und EAP-TLS-Funktionen des ESP-IDF, liest die benötigten Zertifikate aus dem Dateisystem des Geräts und gibt das Verbindungsergebnis an die Anwendung zurück.',
+    details: 'Technische Details',
+    detailItems: [
+      ['Firmware-Erweiterung', 'Natives MicroPython-C-Modul mit Funktionen für Verbindungsaufbau, Trennung und Statusabfrage.'],
+      ['Authentifizierung', 'WPA2-Enterprise mit EAP-TLS und einem easyroam-Clientzertifikat.'],
+      ['Build-Umgebung', 'MicroPython für ESP32_GENERIC, kompiliert gegen ESP-IDF 5.4.2.'],
+      ['Verbindungsprüfung', 'Assoziierung, DHCP-Adresse, DNS-Auflösung und eine HTTP-200-Antwort wurden geprüft.'],
+    ],
+    workflow: 'Technische Umsetzung',
+    workflowIntro: 'Die Implementierung ist in drei klar getrennte Ebenen gegliedert:',
+    workflowItems: [
+      ['Zertifikatsvorbereitung', 'Das easyroam-PKCS#12-Profil wird lokal mit OpenSSL in CA-Zertifikat, Clientzertifikat und privaten Schlüssel zerlegt. Nur die benötigten Dateien werden auf den ESP32 übertragen.'],
+      ['Firmware-Ebene', 'Das native enterprise-Modul liest die Zertifikatsdateien und konfiguriert den EAP-Client des ESP-IDF. Es startet das Station-Interface und wartet auf eine gültige DHCP-Adresse.'],
+      ['Anwendungsebene', 'MicroPython übergibt SSID, Identität und Dateipfade über eine kleine API. Die bestehende Python-Anwendung muss nicht als ESP-IDF-Anwendung neu geschrieben werden.'],
+    ],
+    api: 'Python-API',
+    apiIntro: 'Die native Implementierung steht in MicroPython über eine kompakte Schnittstelle bereit:',
+    evaluation: 'Evaluation im Campusnetz',
+    evaluationText1: 'Zunächst habe ich Zertifikate und EAP-TLS-Konfiguration in einer minimalen ESP-IDF-Referenzanwendung verifiziert. Das Testprotokoll dokumentiert eine erfolgreiche eduroam-Verbindung, DHCP-Konfiguration und den HTTP-Status 200 an der HTW Berlin.',
+    evaluationText2: 'Danach wurde die funktionierende Konfiguration in MicroPython übertragen und der komplette Ablauf mit Zertifikatsdateien und Python-Skript direkt auf dem ESP32 getestet. Der finale Gesamttest wurde während der Campus-Tests am 21. Juli 2026 erfolgreich wiederholt.',
+    outcomes: 'Zentrale Ergebnisse',
+    outcomeItems: [
+      ['Python bleibt erhalten', 'Die bestehende Anwendung verbleibt in MicroPython.'],
+      ['Zertifikatsbasiert', 'Die Authentifizierung erfolgt per EAP-TLS ohne WLAN-Passwort.'],
+      ['Praktisch verifiziert', 'Die Implementierung wurde im realen Campusnetz validiert.'],
+    ],
+    progressTitle: 'Aktueller Stand der Bachelorarbeit',
+    progressText: 'Firmware-Integration und praktische Campus-Validierung sind abgeschlossen. Die schriftliche Ausarbeitung, Evaluation und finale Dokumentation werden derzeit fertiggestellt.',
+    heroAlt: 'ESP32-Entwicklungsboard für die Firmware-Implementierung',
   },
-  {
-    titleEn: 'Technical Stack',
-    titleDe: 'Technischer Stack',
-    descriptionEn: 'ESP32 Microcontroller, RADIUS Server, Network Analysis Tools',
-    descriptionDe: 'ESP32-Mikrocontroller, RADIUS-Server, Netzwerkanalyse-Tools'
-  },
-  {
-    titleEn: 'Research Methodology',
-    titleDe: 'Forschungsmethodik',
-    descriptionEn: 'Penetration Testing, Vulnerability Assessment, Network Monitoring',
-    descriptionDe: 'Penetration Testing, Schwachstellenanalyse, Netzwerküberwachung'
-  }
-] as const
+} as const
 
 export default function BachelorThesis() {
   const { language } = useLanguage()
-
-  // Memoize all translations
-  const texts = useMemo(() => ({
-    backToWork: language === 'en' ? 'Back to Work' : 'Zurück zur Arbeit',
-    title: language === 'en' ? 'Bachelor Thesis' : 'Bachelorarbeit',
-    subtitle: language === 'en' 
-      ? 'Security analysis of ESP32 devices in WPA enterprise networks'
-      : 'Sicherheitsanalyse von ESP32-Geräten in WPA-Enterprise-Netzwerken',
-    overview: language === 'en' ? 'Overview' : 'Überblick',
-    technicalDetails: language === 'en' ? 'Technical Details' : 'Technische Details',
-    overviewText1: language === 'en'
-      ? 'This bachelor thesis investigates security vulnerabilities of ESP32 microcontrollers when integrated into WPA enterprise networks, specifically focusing on eduroam infrastructure. The research involves building a comprehensive test environment that replicates the HTW Berlin eduroam network architecture.'
-      : 'Diese Bachelorarbeit untersucht Sicherheitslücken von ESP32-Mikrocontrollern bei der Integration in WPA-Enterprise-Netzwerke, mit besonderem Fokus auf die eduroam-Infrastruktur. Die Forschung umfasst den Aufbau einer umfassenden Testumgebung, die die HTW Berlin eduroam-Netzwerkarchitektur nachbildet.',
-    overviewText2: language === 'en'
-      ? 'The study examines authentication mechanisms, encryption protocols, and potential attack vectors that could compromise ESP32 devices in enterprise wireless networks. Through systematic penetration testing and vulnerability assessment, the research aims to identify security weaknesses and propose mitigation strategies.'
-      : 'Die Studie untersucht Authentifizierungsmechanismen, Verschlüsselungsprotokolle und potenzielle Angriffsvektoren, die ESP32-Geräte in Enterprise-WLAN-Netzwerken kompromittieren könnten. Durch systematisches Penetration Testing und Schwachstellenanalyse zielt die Forschung darauf ab, Sicherheitslücken zu identifizieren und Gegenmaßnahmen vorzuschlagen.'
-  }), [language])
+  const text = CONTENT[language]
+  const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : ''
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-forest-800 dark:to-forest-950 py-20">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-20 dark:from-forest-800 dark:to-forest-950">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
-          {/* Back Button */}
-          <Link
-            href="/work"
-            className="inline-flex items-center text-brown-400 hover:text-brown-300 mb-8"
-          >
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <main className="mx-auto max-w-4xl">
+          <Link href="/work" className="mb-8 inline-flex items-center text-brown-600 transition-colors hover:text-brown-500 dark:text-brown-400 dark:hover:text-brown-300">
+            <svg className="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            {texts.backToWork}
+            {text.back}
           </Link>
 
-          {/* Project Header */}
-          <div className="mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              {texts.title}
-            </h1>
-            <p className="text-xl text-gray-700 dark:text-gray-200 mb-8">
-              {texts.subtitle}
-            </p>
-            
-            {/* Status and Technologies */}
-            <div className="flex flex-wrap gap-4 mb-8">
-              <span className="bg-orange-700 text-orange-100 px-3 py-1 rounded-full text-sm font-medium">
-                In Progress
-              </span>
+          <header className="mb-12">
+            <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-6xl dark:text-white">{text.title}</h1>
+            <p className="mb-8 max-w-3xl text-xl leading-relaxed text-gray-700 dark:text-gray-200">{text.subtitle}</p>
+            <div className="flex flex-wrap gap-3">
+              <span className="rounded-full bg-orange-700 px-3 py-1 text-sm font-medium text-orange-100">{text.status}</span>
               {TECH_STACK.map((tech) => (
-                <span
-                  key={tech}
-                  className="bg-brown-900 text-brown-200 px-3 py-1 rounded-full text-sm border border-brown-600"
-                >
-                  {tech}
-                </span>
+                <span key={tech} className="rounded-full border border-brown-400 bg-brown-100 px-3 py-1 text-sm text-brown-800 dark:border-brown-600 dark:bg-brown-900 dark:text-brown-200">{tech}</span>
               ))}
             </div>
-          </div>
+          </header>
 
-          {/* Research Image Placeholder */}
-          <div className="mb-12">
-            <div className="bg-gray-200 dark:bg-forest-900 rounded-lg p-12 border-2 border-gray-300 dark:border-brown-700">
-              <div className="text-center">
-                <div className="w-24 h-24 bg-brown-600 dark:bg-brown-800 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-12 h-12 text-brown-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <p className="text-gray-600 dark:text-gray-300 font-semibold mb-2">
-                  {language === 'en' ? 'Security Research' : 'Sicherheitsforschung'}
-                </p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  {language === 'en' ? 'Research diagrams and results coming soon' : 'Forschungsdiagramme und Ergebnisse folgen'}
-                </p>
+          <figure className="mb-14">
+            <Image src={`${basePath}/images/bachelor-thesis/esp32-hardware.jpg`} alt={text.heroAlt} width={640} height={480} priority className="h-auto w-full rounded-lg border-2 border-brown-500 object-cover" />
+          </figure>
+
+          <section className="grid gap-12 md:grid-cols-2">
+            <div>
+              <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">{text.overview}</h2>
+              <div className="space-y-4 leading-relaxed text-gray-700 dark:text-gray-200">
+                <p>{text.overviewText1}</p>
+                <p>{text.overviewText2}</p>
               </div>
             </div>
-          </div>
-
-          {/* Project Details */}
-          <div className="grid md:grid-cols-2 gap-16 max-w-7xl mx-auto">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                {texts.overview}
-              </h2>
-              <div className="space-y-4 text-gray-700 dark:text-gray-200 text-lg">
-                <p>{texts.overviewText1}</p>
-                <p>{texts.overviewText2}</p>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                {texts.technicalDetails}
-              </h2>
+              <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">{text.details}</h2>
               <div className="space-y-4">
-                {TECHNICAL_DETAILS.map((detail, idx) => (
-                  <div key={idx} className="bg-gray-100 dark:bg-forest-900 p-4 rounded-lg border border-gray-300 dark:border-brown-700">
-                    <h3 className="text-brown-600 dark:text-brown-400 font-semibold mb-2">
-                      {language === 'en' ? detail.titleEn : detail.titleDe}
-                    </h3>
-                    <p className="text-gray-700 dark:text-gray-200 text-sm">
-                      {language === 'en' ? detail.descriptionEn : detail.descriptionDe}
-                    </p>
-                  </div>
+                {text.detailItems.map(([title, description]) => (
+                  <article key={title} className="rounded-lg border border-gray-300 bg-gray-100 p-4 dark:border-brown-700 dark:bg-forest-900">
+                    <h3 className="mb-2 font-semibold text-brown-700 dark:text-brown-400">{title}</h3>
+                    <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-200">{description}</p>
+                  </article>
                 ))}
               </div>
             </div>
-          </div>
+          </section>
 
-          {/* Research Status Note */}
-          <div className="mt-12 max-w-7xl mx-auto">
-            <div className="bg-blue-100 dark:bg-blue-900/20 border border-blue-300 dark:border-blue-700/50 rounded-lg p-6">
-              <div className="flex items-start">
-                <svg className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <div>
-                  <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-200 mb-2">
-                    {language === 'en' ? 'Research in Progress' : 'Forschung läuft'}
-                  </h3>
-                  <p className="text-blue-800 dark:text-blue-300">
-                    {language === 'en'
-                      ? 'This bachelor thesis is currently in the research and development phase. The test environment is being set up to simulate the HTW eduroam network infrastructure. Results and findings will be published upon completion of the research.'
-                      : 'Diese Bachelorarbeit befindet sich derzeit in der Forschungs- und Entwicklungsphase. Die Testumgebung wird aufgebaut, um die HTW-eduroam-Netzwerkinfrastruktur zu simulieren. Ergebnisse und Erkenntnisse werden nach Abschluss der Forschung veröffentlicht.'
-                    }
-                  </p>
+          <section className="mt-16 border-y border-gray-300 py-12 dark:border-brown-800">
+            <h2 className="mb-3 text-2xl font-bold text-gray-900 dark:text-white">{text.workflow}</h2>
+            <p className="mb-8 text-gray-700 dark:text-gray-200">{text.workflowIntro}</p>
+            <dl className="divide-y divide-gray-300 border-y border-gray-300 dark:divide-brown-800 dark:border-brown-800">
+              {text.workflowItems.map(([title, description]) => (
+                <div key={title} className="grid gap-2 py-5 md:grid-cols-[11rem_1fr] md:gap-6">
+                  <dt className="font-semibold text-brown-700 dark:text-brown-400">{title}</dt>
+                  <dd className="leading-relaxed text-gray-700 dark:text-gray-300">{description}</dd>
                 </div>
-              </div>
+              ))}
+            </dl>
+          </section>
+
+          <section className="mt-14">
+            <h2 className="mb-3 text-2xl font-bold text-gray-900 dark:text-white">{text.api}</h2>
+            <p className="mb-5 text-gray-700 dark:text-gray-200">{text.apiIntro}</p>
+            <pre className="overflow-x-auto rounded-lg border border-brown-700 bg-forest-950 p-5 text-sm leading-6 text-gray-100"><code>{`import enterprise
+
+enterprise.connect(
+    ssid="eduroam",
+    identity="<easyroam-identity>",
+    ca="/certs/ca.pem",
+    cert="/certs/client.crt",
+    key="/certs/client.key",
+    timeout_ms=30000,
+)
+
+print(enterprise.isconnected())`}</code></pre>
+          </section>
+
+          <section className="mt-16">
+            <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">{text.evaluation}</h2>
+            <div className="space-y-4 leading-relaxed text-gray-700 dark:text-gray-200">
+              <p>{text.evaluationText1}</p>
+              <p>{text.evaluationText2}</p>
             </div>
-          </div>
-        </div>
+          </section>
+
+          <section className="mt-16">
+            <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">{text.outcomes}</h2>
+            <div className="grid gap-4 md:grid-cols-3">
+              {text.outcomeItems.map(([title, description]) => (
+                <article key={title} className="rounded-lg border border-gray-300 bg-gray-100 p-5 dark:border-brown-700 dark:bg-forest-900">
+                  <h3 className="mb-2 font-semibold text-brown-700 dark:text-brown-400">{title}</h3>
+                  <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-200">{description}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <aside className="mt-12 rounded-lg border border-blue-300 bg-blue-100 p-6 dark:border-blue-700/50 dark:bg-blue-900/20">
+            <h2 className="mb-2 text-lg font-semibold text-blue-900 dark:text-blue-200">{text.progressTitle}</h2>
+            <p className="leading-relaxed text-blue-800 dark:text-blue-300">{text.progressText}</p>
+          </aside>
+        </main>
       </div>
     </div>
   )

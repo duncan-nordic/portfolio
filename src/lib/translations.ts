@@ -43,7 +43,13 @@ export const translations = {
       },
       project5: {
         title: 'Bachelor Thesis',
-        description: 'Security research analyzing vulnerabilities of ESP32 devices in WPA enterprise networks. Building a test environment simulating HTW eduroam infrastructure to examine security weaknesses in ESP32 network integration.'
+        description: 'Native MicroPython firmware extension for certificate-based ESP32 connections to eduroam. Integrates ESP-IDF EAP-TLS, easyroam certificates and a Python-facing connection API.'
+      },
+      work2: {
+        title: 'Working Student in Project Management',
+        company: 'Mercedes-Benz',
+        period: '03/2026 - Present',
+        description: 'Working student position in project management at Mercedes-Benz'
       },
       work1: {
         title: 'IT Internship',
@@ -56,6 +62,12 @@ export const translations = {
         company: 'HTW Berlin',
         period: '10/2023 - 10/2026',
         description: 'Bachelor\'s degree program focusing on media informatics, software engineering, and international digital media technologies'
+      },
+      education2: {
+        title: 'M.Sc. Computer Science',
+        company: 'Humboldt-Universität zu Berlin, Campus Adlershof',
+        period: '10/2026 - Present',
+        description: 'Enrolled in the Computer Science master\'s program, beginning in October 2026'
       },
       learnMore: 'Learn more →',
       status: {
@@ -141,7 +153,13 @@ export const translations = {
       },
       project5: {
         title: 'Bachelorarbeit',
-        description: 'Sicherheitsforschung zur Analyse von Schwachstellen von ESP32-Geräten in WPA-Enterprise-Netzwerken. Aufbau einer Testumgebung, die die HTW-eduroam-Infrastruktur nachbildet, um Sicherheitslücken bei der ESP32-Netzwerkintegration zu untersuchen.'
+        description: 'Native MicroPython-Firmwareerweiterung für zertifikatsbasierte ESP32-Verbindungen mit eduroam. Integriert ESP-IDF EAP-TLS, easyroam-Zertifikate und eine Python-API für den Verbindungsaufbau.'
+      },
+      work2: {
+        title: 'Werkstudent im Projektmanagement',
+        company: 'Mercedes-Benz',
+        period: '03/2026 - heute',
+        description: 'Werkstudententätigkeit im Projektmanagement bei Mercedes-Benz'
       },
       work1: {
         title: 'IT-Internship',
@@ -154,6 +172,12 @@ export const translations = {
         company: 'HTW Berlin',
         period: '10/2023 - 10/2026',
         description: 'Bachelor-Studiengang mit Fokus auf Media Informatics, Software Engineering und internationale Digital Media Technologies'
+      },
+      education2: {
+        title: 'M.Sc. Informatik',
+        company: 'Humboldt-Universität zu Berlin, Campus Adlershof',
+        period: '10/2026 - heute',
+        description: 'Eingeschrieben im Masterstudiengang Informatik mit Studienbeginn im Oktober 2026'
       },
       learnMore: 'Mehr erfahren →',
       status: {
