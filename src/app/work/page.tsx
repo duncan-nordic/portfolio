@@ -41,9 +41,9 @@ export default function Work() {
       id: "qr-code-scanner",
       title: t.work.project3.title,
       description: t.work.project3.description,
-      technologies: ["React Native", "AWS", "Node.js", "SQLite"],
+      technologies: ["React Native", "Node.js", "Authentication"],
       status: "Finished",
-      image: `${basePath}/images/qr-code-scanner/qr-code-station.png`,
+      image: `${basePath}/images/qr-code-scanner/admin-panel.png`,
       category: "mobile"
     },
     {
@@ -247,7 +247,13 @@ export default function Work() {
                 className="group bg-white dark:bg-forest-900 rounded-xl overflow-hidden hover:bg-gray-50 dark:hover:bg-brown-800 transition-all duration-500 border border-gray-200 dark:border-brown-700 hover:shadow-2xl hover:shadow-gray-300/30 dark:hover:shadow-brown-900/30 cursor-pointer transform hover:-translate-y-2"
                 onClick={() => router.push(`/projects/${project.id}`)}
               >
-                <div className={`relative h-64 overflow-hidden ${project.id === 'internal-form-platform' ? 'bg-white' : 'bg-gray-100 dark:bg-gray-800'}`}>
+                <div className={`relative h-64 overflow-hidden ${
+                  project.id === 'internal-form-platform'
+                    ? 'bg-white'
+                    : project.id === 'qr-code-scanner'
+                    ? 'bg-[#0f1833]'
+                    : 'bg-gray-100 dark:bg-gray-800'
+                }`}>
                   {project.image && (
                     <Image
                       src={project.image}
@@ -256,10 +262,12 @@ export default function Work() {
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className={project.id === 'internal-form-platform'
                         ? 'object-contain p-12 transition-transform duration-500 group-hover:scale-105'
+                        : project.id === 'qr-code-scanner'
+                        ? 'object-contain p-3 transition-transform duration-500 group-hover:scale-105'
                         : 'object-cover transition-transform duration-500 group-hover:scale-110'}
                     />
                   )}
-                  {project.id !== 'internal-form-platform' && (
+                  {project.id !== 'internal-form-platform' && project.id !== 'qr-code-scanner' && (
                     <div className="absolute inset-0 bg-black/5 dark:bg-black/20 z-10"></div>
                   )}
                   

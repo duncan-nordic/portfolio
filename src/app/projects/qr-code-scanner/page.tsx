@@ -2,20 +2,19 @@
 
 import Link from 'next/link'
 import { useLanguage } from '@/components/LanguageToggle'
-import { translations } from '@/lib/translations'
 import { useState } from 'react'
 
 export default function QRCodeScanner() {
   const { language } = useLanguage()
-  const t = translations[language]
 
   const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : ''
 
   // Image gallery state
   const images = [
-    { src: `${basePath}/images/qr-code-scanner/qr-code-station.png`, alt: 'QR-Code Scanner Station', title: 'Scanner Station', isMobile: false },
-    { src: `${basePath}/images/qr-code-scanner/login-screen.png`, alt: 'App Login Screen', title: 'Login Screen', isMobile: true },
-    { src: `${basePath}/images/qr-code-scanner/scanner-interface.png`, alt: 'QR Scanner Interface', title: 'Scanner Interface', isMobile: true },
+    { src: `${basePath}/images/qr-code-scanner/admin-panel.png`, alt: language === 'en' ? 'Admin overview containing test data' : 'Admin-Übersicht mit Testdaten', title: language === 'en' ? 'Admin Overview (Test Data)' : 'Admin-Übersicht (Testdaten)', isMobile: false },
+    { src: `${basePath}/images/qr-code-scanner/qr-code-station.png`, alt: language === 'en' ? 'Station screen with an expired demo QR code' : 'Stationsansicht mit abgelaufenem Demo-QR-Code', title: language === 'en' ? 'Expired Demo QR Code' : 'Abgelaufener Demo-QR-Code', isMobile: true },
+    { src: `${basePath}/images/qr-code-scanner/login-screen.png`, alt: language === 'en' ? 'App login screen' : 'Anmeldeansicht der App', title: language === 'en' ? 'Login Screen' : 'Anmeldeansicht', isMobile: true },
+    { src: `${basePath}/images/qr-code-scanner/scanner-interface.png`, alt: language === 'en' ? 'QR scanner interface' : 'Oberfläche des QR-Scanners', title: language === 'en' ? 'Scanner Interface' : 'Scanner-Oberfläche', isMobile: true },
   ]
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -49,8 +48,8 @@ export default function QRCodeScanner() {
             </h2>
             <p className="text-xl text-gray-200 mb-8">
               {language === 'en' 
-                ? 'Enterprise mobile application for tracking employee working hours using JWT authentication, device-bound user IDs, and location-based QR-code scanning. Runs on AWS server infrastructure with SQLite database. Supports up to 400 employees during peak season with secure integration to company database systems.'
-                : 'Enterprise Mobile-Anwendung zur Erfassung von Arbeitszeiten mittels JWT-Authentifizierung, gerätegebundenen Benutzer-IDs und standortbasiertem QR-Code-Scanning. Läuft auf AWS Server-Infrastruktur mit SQLite-Datenbank. Unterstützt bis zu 400 Mitarbeiter in der Hochsaison mit sicherer Integration in Unternehmens-Datenbanksysteme.'
+                ? 'Mobile application for recording working hours through an authenticated QR-code workflow. The public project description focuses on the user experience and technologies without disclosing production credentials, employee records or current endpoints.'
+                : 'Mobile Anwendung zur Erfassung von Arbeitszeiten über einen authentifizierten QR-Code-Ablauf. Die öffentliche Projektbeschreibung konzentriert sich auf Nutzerführung und Technologien, ohne Produktivzugänge, Mitarbeiterdaten oder aktuelle Endpunkte offenzulegen.'
               }
             </p>
             
@@ -59,7 +58,7 @@ export default function QRCodeScanner() {
               <span className="bg-brown-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                 {language === 'en' ? 'Finished' : 'Abgeschlossen'}
               </span>
-              {["React Native", "AWS", "Node.js", "SQLite"].map((tech) => (
+              {["React Native", "Node.js", "Secure Authentication"].map((tech) => (
                 <span
                   key={tech}
                   className="bg-brown-900 text-brown-200 px-3 py-1 rounded-full text-sm border border-brown-600"
@@ -120,14 +119,14 @@ export default function QRCodeScanner() {
               <div className="space-y-4 text-gray-200 text-lg">
                 <p>
                   {language === 'en' 
-                    ? 'This enterprise mobile application was developed during my internship to solve the challenge of tracking working hours for up to 400 employees during peak season. The system runs on AWS server infrastructure and uses advanced security measures including JWT authentication and device-bound user identification.'
-                    : 'Diese Enterprise-Mobile-Anwendung wurde während meines Praktikums entwickelt, um die Herausforderung der Arbeitszeiterfassung für bis zu 400 Mitarbeiter in der Hochsaison zu lösen. Das System läuft auf AWS Server-Infrastruktur und verwendet fortschrittliche Sicherheitsmaßnahmen einschließlich JWT-Authentifizierung und gerätegebundener Benutzeridentifikation.'
+                    ? 'I developed this mobile application during my internship to make employee check-in and check-out straightforward on registered devices. My work covered the mobile interface, camera-based scanning flow and its connection to the backend.'
+                    : 'Ich entwickelte diese mobile Anwendung während meines Praktikums, um das Ein- und Auschecken auf registrierten Geräten einfach umzusetzen. Meine Arbeit umfasste die mobile Oberfläche, den kamerabasierten Scan-Ablauf und dessen Anbindung an das Backend.'
                   }
                 </p>
                 <p>
                   {language === 'en'
-                    ? 'The location-based QR-code scanning ensures that employees can only clock in/out from designated work areas using their registered mobile devices. The system seamlessly integrates with existing company database infrastructure for real-time synchronization.'
-                    : 'Das standortbasierte QR-Code-Scanning stellt sicher, dass Mitarbeiter sich nur von festgelegten Arbeitsbereichen mit ihren registrierten Mobilgeräten ein-/ausloggen können. Das System integriert sich nahtlos in die bestehende Unternehmens-Datenbankinfrastruktur für Echtzeit-Synchronisation.'
+                    ? 'The screenshots contain test data. The displayed QR challenge expired after ten seconds and does not contain current credentials, employee records or active endpoints.'
+                    : 'Die Screenshots enthalten Testdaten. Die dargestellte QR-Challenge lief nach zehn Sekunden ab und enthält keine aktuellen Zugangsdaten, Mitarbeiterdaten oder aktiven Endpunkte.'
                   }
                 </p>
               </div>
@@ -142,32 +141,32 @@ export default function QRCodeScanner() {
                   <h3 className="text-brown-400 font-semibold mb-2">
                     {language === 'en' ? 'Mobile Development' : 'Mobile-Entwicklung'}
                   </h3>
-                  <p className="text-gray-200 text-sm">React Native, Camera Integration, Device ID Binding</p>
+                  <p className="text-gray-200 text-sm">React Native, Camera Integration, Responsive Mobile UI</p>
                 </div>
                 <div className="bg-forest-900 p-4 rounded-lg border border-brown-700">
                   <h3 className="text-brown-400 font-semibold mb-2">
                     {language === 'en' ? 'Security & Authentication' : 'Sicherheit & Authentifizierung'}
                   </h3>
-                  <p className="text-gray-200 text-sm">JWT Authentication, Location-based Validation, Secure QR-Codes</p>
+                  <p className="text-gray-200 text-sm">Authenticated Sessions, Input Validation, Expiring QR Challenges</p>
                 </div>
                 <div className="bg-forest-900 p-4 rounded-lg border border-brown-700">
                   <h3 className="text-brown-400 font-semibold mb-2">
-                    {language === 'en' ? 'Cloud Infrastructure' : 'Cloud-Infrastruktur'}
+                    {language === 'en' ? 'Backend' : 'Backend'}
                   </h3>
-                  <p className="text-gray-200 text-sm">AWS Server, SQLite Database, Scalable Architecture</p>
+                  <p className="text-gray-200 text-sm">Node.js, API Integration, Server-side Validation</p>
                 </div>
                 <div className="bg-forest-900 p-4 rounded-lg border border-brown-700">
                   <h3 className="text-brown-400 font-semibold mb-2">
-                    {language === 'en' ? 'Backend & Integration' : 'Backend & Integration'}
+                    {language === 'en' ? 'Data Handling' : 'Datenverarbeitung'}
                   </h3>
-                  <p className="text-gray-200 text-sm">Node.js, Company System Integration</p>
+                  <p className="text-gray-200 text-sm">Structured Persistence, Access-controlled Workflows</p>
                 </div>
                 <div className="bg-forest-900 p-4 rounded-lg border border-brown-700">
                   <h3 className="text-brown-400 font-semibold mb-2">
-                    {language === 'en' ? 'Scale & Performance' : 'Skalierung & Performance'}
+                    {language === 'en' ? 'Project Boundary' : 'Projektgrenze'}
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    {language === 'en' ? 'Supports 400+ employees, Real-time sync' : 'Unterstützt 400+ Mitarbeiter, Echtzeit-Sync'}
+                    {language === 'en' ? 'No production data or internal endpoints published' : 'Keine Produktivdaten oder internen Endpunkte veröffentlicht'}
                   </p>
                 </div>
               </div>

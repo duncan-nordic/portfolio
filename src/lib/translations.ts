@@ -35,7 +35,7 @@ export const translations = {
       },
       project3: {
         title: 'QR-Code Scanner to Track Working Hours',
-        description: 'Enterprise mobile app for employee time tracking with JWT authentication and device-bound security. Supports 400+ employees with company database integration.'
+        description: 'Mobile working-hours application with an authenticated QR-code workflow, a React Native interface and a Node.js backend.'
       },
       project4: {
         title: 'Internal Voting System',
@@ -149,7 +149,7 @@ export const translations = {
       },
       project3: {
         title: 'QR-Code Scanner für Working Hours Tracking',
-        description: 'Enterprise Mobile-App für Employee Time Tracking mit JWT-Authentication und device-bound Security. Unterstützt 400+ Employees mit Company Database Integration.'
+        description: 'Mobile Anwendung zur Arbeitszeiterfassung mit authentifiziertem QR-Code-Ablauf, React-Native-Oberfläche und Node.js-Backend.'
       },
       project4: {
         title: 'Internes Voting System',

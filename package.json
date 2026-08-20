@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export"
+    "export": "next export",
+    "security:check": "node scripts/security-check.mjs",
+    "security:test": "npm run build && npm run security:check && npm audit --omit=dev --audit-level=critical"
   },
   "dependencies": {
     "motion": "^13.1.1",
