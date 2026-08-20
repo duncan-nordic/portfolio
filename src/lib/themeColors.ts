@@ -78,7 +78,10 @@ export const getComplementaryColor = (color: string) => {
   const parsed = toOklch(color)
   if (!parsed) return '#39748c'
 
-  const hue = parsed.h ?? 45
+  const isNeutral = (parsed.c ?? 0) < 0.015 || parsed.h === undefined
+  if (isNeutral) return (parsed.l ?? 0.5) > 0.55 ? '#525252' : '#b8b8b8'
+
+  const hue = parsed.h ?? 0
   const chroma = Math.min(0.15, Math.max(0.08, parsed.c ?? 0.1))
   return colorAt(0.62, chroma, hue + 180)
 }
@@ -87,24 +90,31 @@ export const createThemePalette = (color: string, mode: ThemeMode) => {
   const parsed = toOklch(color) ?? toOklch(DEFAULT_ACCENT_COLOR)
   if (!parsed) throw new Error('Unable to create color palette')
 
-  const accentHue = parsed.h ?? 45
+  const isNeutral = (parsed.c ?? 0) < 0.015 || parsed.h === undefined
+  const accentHue = isNeutral ? 0 : (parsed.h ?? 0)
   const complementaryHue = accentHue + 180
-  const accentChroma = Math.min(0.16, Math.max(0.08, parsed.c ?? 0.1))
+  const accentChroma = isNeutral ? 0 : Math.min(0.16, Math.max(0.08, parsed.c ?? 0.1))
+  const selectedLightness = parsed.l ?? 0.5
+  const surfaceChroma = isNeutral ? 0 : 1
+  const partnerColor = isNeutral
+    ? colorAt(selectedLightness > 0.55 ? 0.35 : 0.75, 0, 0)
+    : colorAt(0.62, accentChroma, complementaryHue)
 
   if (mode === 'dark') {
-    const pageEnd = colorAt(0.1, 0.018, accentHue)
-    const surface = colorAt(0.16, 0.025, accentHue)
+    const pageEnd = colorAt(0.1, 0.018 * surfaceChroma, accentHue)
+    const surface = colorAt(0.16, 0.025 * surfaceChroma, accentHue)
 
-    const accent = colorAt(0.52, accentChroma, accentHue)
+    const accentLightness = isNeutral ? 0.42 + selectedLightness * 0.34 : 0.52
+    const accent = colorAt(accentLightness, accentChroma, accentHue)
 
     return {
-      '--theme-page-start': colorAt(0.22, 0.035, accentHue),
+      '--theme-page-start': colorAt(0.22, 0.035 * surfaceChroma, accentHue),
       '--theme-page-end': pageEnd,
       '--theme-surface': surface,
-      '--theme-surface-strong': colorAt(0.12, 0.02, accentHue),
-      '--theme-surface-hover': colorAt(0.25, 0.04, accentHue),
+      '--theme-surface-strong': colorAt(0.12, 0.02 * surfaceChroma, accentHue),
+      '--theme-surface-hover': colorAt(0.25, 0.04 * surfaceChroma, accentHue),
       '--theme-accent': accent,
-      '--theme-accent-hover': colorAt(0.48, accentChroma, accentHue),
+      '--theme-accent-hover': colorAt(Math.max(0.36, accentLightness - 0.04), accentChroma, accentHue),
       '--theme-accent-soft': colorAt(0.28, accentChroma * 0.55, accentHue),
       '--theme-accent-softer': colorAt(0.21, accentChroma * 0.35, accentHue),
       '--theme-accent-text': contrastingColor(surface, accentHue, accentChroma * 0.8, 0.72, 1),
@@ -115,23 +125,24 @@ export const createThemePalette = (color: string, mode: ThemeMode) => {
       '--theme-text': '#f4f4f5',
       '--theme-text-muted': '#d4d4d8',
       '--theme-nav': `${surface}f0`,
-      '--theme-complementary': colorAt(0.62, accentChroma, complementaryHue),
+      '--theme-complementary': partnerColor,
     }
   }
 
-  const pageEnd = colorAt(0.99, 0.006, accentHue)
-  const surface = colorAt(0.975, 0.008, accentHue)
+  const pageEnd = colorAt(0.99, 0.006 * surfaceChroma, accentHue)
+  const surface = colorAt(0.975, 0.008 * surfaceChroma, accentHue)
 
-  const accent = colorAt(0.68, accentChroma, accentHue)
+  const accentLightness = isNeutral ? 0.32 + selectedLightness * 0.36 : 0.68
+  const accent = colorAt(accentLightness, accentChroma, accentHue)
 
   return {
-    '--theme-page-start': colorAt(0.94, 0.018, accentHue),
+    '--theme-page-start': colorAt(0.94, 0.018 * surfaceChroma, accentHue),
     '--theme-page-end': pageEnd,
     '--theme-surface': surface,
-    '--theme-surface-strong': colorAt(0.955, 0.012, accentHue),
-    '--theme-surface-hover': colorAt(0.91, 0.025, accentHue),
+    '--theme-surface-strong': colorAt(0.955, 0.012 * surfaceChroma, accentHue),
+    '--theme-surface-hover': colorAt(0.91, 0.025 * surfaceChroma, accentHue),
     '--theme-accent': accent,
-    '--theme-accent-hover': colorAt(0.62, accentChroma, accentHue),
+    '--theme-accent-hover': colorAt(Math.max(0.26, accentLightness - 0.06), accentChroma, accentHue),
     '--theme-accent-soft': colorAt(0.88, accentChroma * 0.42, accentHue),
     '--theme-accent-softer': colorAt(0.94, accentChroma * 0.24, accentHue),
     '--theme-accent-text': contrastingColor(surface, accentHue, accentChroma * 0.85, 0.45, -1),
@@ -142,7 +153,7 @@ export const createThemePalette = (color: string, mode: ThemeMode) => {
     '--theme-text': '#3f3f46',
     '--theme-text-muted': '#65656d',
     '--theme-nav': `${surface}f2`,
-    '--theme-complementary': colorAt(0.58, accentChroma, complementaryHue),
+    '--theme-complementary': partnerColor,
   }
 }
 

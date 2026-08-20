@@ -50,22 +50,27 @@ export default function ColorThemePicker() {
     }
   }, [isOpen])
 
+  const resetColor = () => {
+    localStorage.removeItem(ACCENT_COLOR_STORAGE_KEY)
+    setColor(DEFAULT_ACCENT_COLOR)
+    setIsCustom(false)
+    clearCustomTheme()
+  }
+
   const applyColor = (nextColor: string) => {
     const normalized = normalizeHexColor(nextColor)
     if (!normalized) return
+
+    if (normalized === DEFAULT_ACCENT_COLOR) {
+      resetColor()
+      return
+    }
 
     setColor(normalized)
     setIsCustom(true)
     localStorage.setItem(ACCENT_COLOR_STORAGE_KEY, normalized)
     const mode: ThemeMode = document.documentElement.classList.contains('light') ? 'light' : 'dark'
     applyCustomTheme(normalized, mode)
-  }
-
-  const resetColor = () => {
-    localStorage.removeItem(ACCENT_COLOR_STORAGE_KEY)
-    setColor(DEFAULT_ACCENT_COLOR)
-    setIsCustom(false)
-    clearCustomTheme()
   }
 
   return (

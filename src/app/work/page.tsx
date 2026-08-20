@@ -4,15 +4,17 @@ import { useRouter } from 'next/navigation'
 import { useLanguage } from '@/components/LanguageToggle'
 import { translations } from '@/lib/translations'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState, type KeyboardEvent } from 'react'
 import { AnimatePresence, LazyMotion, m, useReducedMotion } from 'motion/react'
 
 const loadMotionFeatures = () => import('@/lib/motionFeatures').then((module) => module.default)
+type WorkView = 'projects' | 'experience'
 
 export default function Work() {
   const { language } = useLanguage()
   const t = translations[language]
   const router = useRouter()
+  const [activeView, setActiveView] = useState<WorkView>('projects')
   const [expandedItem, setExpandedItem] = useState<number | null>(null)
   const shouldReduceMotion = useReducedMotion()
 
@@ -69,7 +71,7 @@ export default function Work() {
       title: t.work.project5.title,
       description: t.work.project5.description,
       technologies: ["MicroPython", "ESP32", "EAP-TLS", "ESP-IDF"],
-      status: "In Progress",
+      status: "Finished",
       image: `${basePath}/images/bachelor-thesis/esp32-hardware.jpg`,
       category: "security"
     }
@@ -214,11 +216,45 @@ export default function Work() {
     }
   ]
 
+  useEffect(() => {
+    const syncViewWithUrl = () => {
+      setActiveView(window.location.hash === '#experience' ? 'experience' : 'projects')
+    }
+
+    syncViewWithUrl()
+    window.addEventListener('hashchange', syncViewWithUrl)
+    window.addEventListener('popstate', syncViewWithUrl)
+    return () => {
+      window.removeEventListener('hashchange', syncViewWithUrl)
+      window.removeEventListener('popstate', syncViewWithUrl)
+    }
+  }, [])
+
+  const selectView = (view: WorkView) => {
+    if (view === activeView) return
+    setActiveView(view)
+    setExpandedItem(null)
+    window.history.pushState(null, '', `${window.location.pathname}${window.location.search}#${view}`)
+  }
+
+  const handleTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, view: WorkView) => {
+    const nextView = event.key === 'ArrowLeft' || event.key === 'Home'
+      ? 'projects'
+      : event.key === 'ArrowRight' || event.key === 'End'
+      ? 'experience'
+      : null
+
+    if (!nextView || nextView === view) return
+    event.preventDefault()
+    selectView(nextView)
+    requestAnimationFrame(() => document.getElementById(`work-tab-${nextView}`)?.focus())
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-forest-800 to-forest-950 py-20">
       <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             {t.work.title}
           </h1>
@@ -227,8 +263,63 @@ export default function Work() {
           </p>
         </div>
 
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold text-white mb-12 text-center">
+        <div
+          className="mx-auto mb-12 grid w-full max-w-lg grid-cols-2 rounded-lg border border-brown-700 bg-forest-900 p-1"
+          role="tablist"
+          aria-label={language === 'en' ? 'Work sections' : 'Bereiche meiner Arbeit'}
+        >
+          <button
+            id="work-tab-projects"
+            type="button"
+            role="tab"
+            aria-selected={activeView === 'projects'}
+            aria-controls="work-panel-projects"
+            tabIndex={activeView === 'projects' ? 0 : -1}
+            onClick={() => selectView('projects')}
+            onKeyDown={(event) => handleTabKeyDown(event, 'projects')}
+            className={`flex min-h-11 items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+              activeView === 'projects'
+                ? 'bg-brown-600 text-white'
+                : 'text-gray-300 hover:bg-forest-800 hover:text-white'
+            }`}
+          >
+            <span>{t.work.projects}</span>
+            <span className="text-xs opacity-70">{projects.length}</span>
+          </button>
+          <button
+            id="work-tab-experience"
+            type="button"
+            role="tab"
+            aria-selected={activeView === 'experience'}
+            aria-controls="work-panel-experience"
+            tabIndex={activeView === 'experience' ? 0 : -1}
+            onClick={() => selectView('experience')}
+            onKeyDown={(event) => handleTabKeyDown(event, 'experience')}
+            className={`flex min-h-11 items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+              activeView === 'experience'
+                ? 'bg-brown-600 text-white'
+                : 'text-gray-300 hover:bg-forest-800 hover:text-white'
+            }`}
+          >
+            <span className="leading-tight">{t.work.experience}</span>
+            <span className="text-xs opacity-70">{experienceAndEducation.length}</span>
+          </button>
+        </div>
+
+        <LazyMotion features={loadMotionFeatures} strict>
+          <AnimatePresence initial={false} mode="wait">
+            {activeView === 'projects' ? (
+        <m.section
+          key="projects"
+          id="work-panel-projects"
+          role="tabpanel"
+          aria-labelledby="work-tab-projects"
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.22, ease: 'easeOut' }}
+        >
+          <h2 className="sr-only">
             {t.work.projects}
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -309,13 +400,22 @@ export default function Work() {
               </div>
             ))}
           </div>
-        </section>
+        </m.section>
+            ) : (
 
-        <section>
-          <h2 className="text-3xl font-bold text-white mb-12 text-center">
+        <m.section
+          key="experience"
+          id="work-panel-experience"
+          role="tabpanel"
+          aria-labelledby="work-tab-experience"
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.22, ease: 'easeOut' }}
+        >
+          <h2 className="sr-only">
             {t.work.experience}
           </h2>
-          <LazyMotion features={loadMotionFeatures} strict>
             <div className="max-w-4xl mx-auto space-y-6">
               {experienceAndEducation.map((item, index) => (
               <div
@@ -403,8 +503,10 @@ export default function Work() {
               </div>
               ))}
             </div>
-          </LazyMotion>
-        </section>
+        </m.section>
+            )}
+          </AnimatePresence>
+        </LazyMotion>
       </div>
     </div>
   )

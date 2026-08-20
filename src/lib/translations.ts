@@ -25,9 +25,9 @@ export const translations = {
     // Work page
     work: {
       title: 'My Work',
-      subtitle: 'Things I\'ve built',
+      subtitle: 'Projects, professional experience and education',
       projects: 'Projects',
-      experience: 'Education & Experience',
+      experience: 'Experience & Education',
       educationTitle: 'Education',
       project1: {
         title: 'GPS Spoofing Tool with LimeSDR',
@@ -143,9 +143,9 @@ export const translations = {
     // Work page
     work: {
       title: 'Meine Arbeit',
-      subtitle: 'Dinge die ich gebaut habe',
+      subtitle: 'Projekte, Berufserfahrung und Ausbildung',
       projects: 'Projekte',
-      experience: 'Bildung & Erfahrung',
+      experience: 'Erfahrung & Ausbildung',
       educationTitle: 'Bildung',
       project1: {
         title: 'GPS Spoofing Tool mit LimeSDR',
