@@ -14,7 +14,7 @@ export const translations = {
       myWork: 'My Work',
       contact: 'Contact',
       aboutMe: 'About Me',
-      aboutText1: 'I am a software developer and M.Sc. Computer Science student at Humboldt-Universität zu Berlin. Alongside my studies, I work in project management and internal full-stack development at Mercedes-Benz. My experience ranges from React, Python, FastAPI, CI/CD and Kubernetes to embedded development with MicroPython and ESP32.',
+      aboutText1: 'I am a software developer and M.Sc. Computer Science student at Humboldt-Universität zu Berlin. Alongside my studies, I work in project management and internal full-stack development at Mercedes-Benz. My experience ranges from React, Python, FastAPI and Spring Boot to machine learning, CI/CD, Kubernetes and embedded development with MicroPython and ESP32.',
       aboutText2: 'Outside university and work, I enjoy competitive gaming and building PC peripherals. I especially like assembling and tuning custom keyboards and mice, combining my interest in technology with practical experimentation and attention to detail.',
       customBuilds: 'Custom Builds',
       keyboardImage: 'Custom keyboard',
@@ -53,6 +53,10 @@ export const translations = {
         title: 'Internal Form Platform',
         description: 'Modernization of internal forms as a full-stack application using React and FastAPI, supported by CI/CD workflows, Kubernetes, Helm and enterprise governance processes.'
       },
+      project7: {
+        title: 'FoodNutri Microservices',
+        description: 'Distributed food-tracking platform built with Spring Boot, Spring Cloud and Docker. Includes secured profiles, food logging, nutrition lookup and personal challenges.'
+      },
       work2: {
         title: 'Working Student in Project Management',
         company: 'Mercedes-Benz',
@@ -69,7 +73,7 @@ export const translations = {
         title: 'International Media and Computer Science',
         company: 'HTW Berlin',
         period: '10/2023 - 10/2026',
-        description: 'Bachelor\'s degree program focusing on media informatics, software engineering, and international digital media technologies'
+        description: 'Bachelor\'s degree program focusing on media informatics, software engineering and international digital media technologies, including machine learning coursework'
       },
       education2: {
         title: 'M.Sc. Computer Science',
@@ -132,7 +136,7 @@ export const translations = {
       myWork: 'Meine Arbeit',
       contact: 'Kontakt',
       aboutMe: 'Über mich',
-      aboutText1: 'Ich bin Softwareentwickler und Masterstudent der Informatik an der Humboldt-Universität zu Berlin. Neben meinem Studium arbeite ich bei Mercedes-Benz im Projektmanagement und an interner Full-Stack-Entwicklung. Meine Erfahrungen reichen von React, Python, FastAPI, CI/CD und Kubernetes bis zur Embedded-Entwicklung mit MicroPython und ESP32.',
+      aboutText1: 'Ich bin Softwareentwickler und Masterstudent der Informatik an der Humboldt-Universität zu Berlin. Neben meinem Studium arbeite ich bei Mercedes-Benz im Projektmanagement und an interner Full-Stack-Entwicklung. Meine Erfahrungen reichen von React, Python, FastAPI und Spring Boot bis zu Machine Learning, CI/CD, Kubernetes und Embedded-Entwicklung mit MicroPython und ESP32.',
       aboutText2: 'Außerhalb von Universität und Arbeit spiele ich gerne Videospiele auf kompetitivem Niveau und baue PC-Peripherie. Besonders gerne stelle ich individuelle Tastaturen und Mäuse zusammen und optimiere sie, wobei ich mein technisches Interesse mit praktischem Ausprobieren und Liebe zum Detail verbinde.',
       customBuilds: 'Custom-Builds',
       keyboardImage: 'Custom-Keyboard',
@@ -171,6 +175,10 @@ export const translations = {
         title: 'Interne Formularplattform',
         description: 'Modernisierung interner Formulare als Full-Stack-Anwendung mit React und FastAPI, unterstützt durch CI/CD-Workflows, Kubernetes, Helm und Enterprise-Governance-Prozesse.'
       },
+      project7: {
+        title: 'FoodNutri Microservices',
+        description: 'Verteilte Food-Tracking-Plattform mit Spring Boot, Spring Cloud und Docker. Umfasst geschützte Profile, Ernährungsprotokolle, Nährwertsuche und persönliche Challenges.'
+      },
       work2: {
         title: 'Werkstudent im Projektmanagement',
         company: 'Mercedes-Benz',
@@ -187,7 +195,7 @@ export const translations = {
         title: 'International Media and Computer Science',
         company: 'HTW Berlin',
         period: '10/2023 - 10/2026',
-        description: 'Bachelor-Studiengang mit Fokus auf Media Informatics, Software Engineering und internationale Digital Media Technologies'
+        description: 'Bachelor-Studiengang mit Fokus auf Media Informatics, Software Engineering und internationale Digital Media Technologies, einschließlich eines Machine-Learning-Kurses'
       },
       education2: {
         title: 'M.Sc. Informatik',

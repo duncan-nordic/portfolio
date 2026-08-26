@@ -17,6 +17,7 @@ const getCategoryLabels = (language: 'en' | 'de') => ({
   all: language === 'en' ? 'All' : 'Alle',
   frontend: 'Frontend',
   backend: language === 'en' ? 'Backend & Data' : 'Backend & Daten',
+  'machine-learning': 'Machine Learning',
   delivery: language === 'en' ? 'Cloud & Delivery' : 'Cloud & Bereitstellung',
   embedded: language === 'en' ? 'Embedded & Systems' : 'Embedded & Systeme',
 })

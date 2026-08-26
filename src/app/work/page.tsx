@@ -22,6 +22,15 @@ export default function Work() {
 
   const projects = [
     {
+      id: "qr-code-scanner",
+      title: t.work.project3.title,
+      description: t.work.project3.description,
+      technologies: ["React Native", "Node.js", "Authentication"],
+      status: "Finished",
+      image: `${basePath}/images/qr-code-scanner/login-screen.png`,
+      category: "mobile"
+    },
+    {
       id: "coderdojo-webapp", 
       title: t.work.project2.title,
       description: t.work.project2.description,
@@ -40,15 +49,6 @@ export default function Work() {
       category: "web"
     },
     {
-      id: "qr-code-scanner",
-      title: t.work.project3.title,
-      description: t.work.project3.description,
-      technologies: ["React Native", "Node.js", "Authentication"],
-      status: "Finished",
-      image: `${basePath}/images/qr-code-scanner/login-screen.png`,
-      category: "mobile"
-    },
-    {
       id: "gps-spoofing-tool",
       title: t.work.project1.title,
       description: t.work.project1.description,
@@ -64,6 +64,15 @@ export default function Work() {
       technologies: ["Node.js", "SQLite", "JavaScript", "Ranked-Choice Voting"],
       status: "Finished",
       image: `${basePath}/images/voting-system/Voting1.png`,
+      category: "web"
+    },
+    {
+      id: "foodnutri-microservices",
+      title: t.work.project7.title,
+      description: t.work.project7.description,
+      technologies: ["Spring Boot", "Spring Cloud", "Docker", "Keycloak"],
+      status: "Finished",
+      image: `${basePath}/images/foodnutri/food-log-dashboard.png`,
       category: "web"
     },
     {
@@ -330,7 +339,9 @@ export default function Work() {
                 onClick={() => router.push(`/projects/${project.id}`)}
               >
                 <div className={`relative h-64 overflow-hidden ${
-                  project.id === 'internal-form-platform'
+                  project.id === 'foodnutri-microservices'
+                    ? 'bg-[#0d172b]'
+                    : project.id === 'internal-form-platform'
                     ? 'bg-white'
                     : project.id === 'qr-code-scanner'
                     ? 'bg-[#0f1833]'
@@ -342,14 +353,16 @@ export default function Work() {
                       alt={project.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className={project.id === 'internal-form-platform'
+                      className={project.id === 'foodnutri-microservices'
+                        ? 'object-contain p-3 transition-transform duration-500 group-hover:scale-105'
+                        : project.id === 'internal-form-platform'
                         ? 'object-contain p-12 transition-transform duration-500 group-hover:scale-105'
                         : project.id === 'qr-code-scanner'
                         ? 'object-contain p-3 transition-transform duration-500 group-hover:scale-105'
                         : 'object-cover transition-transform duration-500 group-hover:scale-110'}
                     />
                   )}
-                  {project.id !== 'internal-form-platform' && project.id !== 'qr-code-scanner' && (
+                  {project.id !== 'foodnutri-microservices' && project.id !== 'internal-form-platform' && project.id !== 'qr-code-scanner' && (
                     <div className="absolute inset-0 bg-black/5 dark:bg-black/20 z-10"></div>
                   )}
                   
